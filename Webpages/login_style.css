@@ -1,0 +1,12 @@
+form {
+    background-color: #94b9a8;
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.container {
+    align-content: center;
+}
