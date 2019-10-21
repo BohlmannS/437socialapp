@@ -18,3 +18,7 @@ you should only have to do npm install once, but doing it multiple times probabl
 To get the api working I opened it to all webtraffic and just connected to the public dns instead of localhost.
 If you want to make changes to the api on your computer and get data from that without pushing to the instance,
 change line 12 in client/src/App.js and switch the url from whats there to http://localhost:9000/testAPI
+
+
+to get data from front end to backend: form with post that targets invisible iframe on the bottom of the page.
+example in client/app.js. example of recieving in api/testAPI.js. probably copy paste that syntx. data will be given as an object with the field you want being the name of the data on the form. req.body.[fieldname] will give all data,and from there it can be used however we need.
