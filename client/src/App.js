@@ -29,8 +29,8 @@ class App extends Component {
           Edit <code>src/App.js</code> and save to reload.
         </p>
 	<p className="API-test">API test response: {this.state.apiResponse1}</p>
-        <form action="http://ec2-3-17-134-90.us-east-2.compute.amazonaws.com:9000/testAPI" method="POST" target="hidden">
-           <input type="text" name="username" placeholder="data goes here" />
+        <form action="http://ec2-3-17-134-90.us-east-2.compute.amazonaws.com:9000/schedule" method="POST" target="hidden">
+           <input type="text" name="schedule" placeholder="data goes here" />
            <input type="submit" value="Submit" />
 	</form> 
       </header>
