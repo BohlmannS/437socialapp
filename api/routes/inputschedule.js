@@ -9,7 +9,6 @@ var connection = mysql.createConnection({
   password : 'bohlmannsbohlmanns',
   database : 'main_site'
 });
-var r = 0;
 
 connection.connect(function(err) {
   if(err){
@@ -20,19 +19,18 @@ connection.connect(function(err) {
   }
 });
 
-//$query = `SELECT * FROM users`;
+router.post('/', function(req, res){
+	const x = writeSchedule(req.body.schedule);
+	console.log(x);
+	console.log('done');
+})
 
-//connection.query($query, function(err, rows, fields){
-  //if(err){console.log("Error occured in query"); return;}
-  //r = rows;
-//});
-
-connection.end(function(){});
-
-console.log(r);
-
-router.get('/', function(req, res, next) {
-    //res.send(r);
-});
+function writeSchedule(data){
+var myRe = /Enrolled\t([A-Z]\d+)\s(\w+.*[A-Z]*)\s([\d\w]*)\t([\w-:& ]+)\t\d+.\d\t\w*\t[TBA]*([\w-]+)\s(\d{1,2}:\d{1,2}[ap]-\d{1,2}:\d{1,2}[ap])*/g
+var matchedArray = myRe.exec(data);
+console.log('matched line');
+console.log(matchedArray);
+return (matchedArray);
+}
 
 module.exports = router;

@@ -22,22 +22,23 @@ connection.connect(function(err) {
 
 
 router.post('/', function(req, res) {
-    let sql = 'Select uid from users where username=\'' + req.body.username + '\' and password=\'' +req.body.password+'\'';
+    let sql = 'insert into users (username, password, verified) values (\'' + req.body.username + '\',\'' + req.body.password + '\',1)';
     console.log(sql);
     connection.query(sql, function(err, rows, fields){
-    	if(err){
-		console.log("Error occured in query");
-		//res.end(JSON.stringify('could not login')); 
-		return;
-	}
+        if(err){
+                console.log("Error occured in query");
+		res.setHeader('Content-Type', 'application/json');
+		res.end(JSON.stringify('That user already exists')); return;
+        }
+	else{
     console.log("Query success");
     console.log('This is rows: ', rows);
-    //res.setHeader('Location', '/home_index');
-    //res.end();
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(rows));
-    }) 
-    
+    res.end(JSON.stringify('Account Created! Click login to continue!'));
+	}
+    })
+
 });
 
 module.exports = router;
+

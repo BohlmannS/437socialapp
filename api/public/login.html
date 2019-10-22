@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Login Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="login_style.css">
+    <script src="https://kit.fontawesome.com/9ba4d950d1.js" crossorigin="anonymous"></script>
+
+    <title>BearConnect</title>
+
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script type='text/javascript' src="/js/login.js"></script>
   </head>
   <body>
-    <h1>Login</h1>
+    <h1>BearConnect</h1>
+		<div id="main">
                 <div class="container">
+		<div id="logged-in"> </div>
                   <label for="uname"><b>Username: </b></label>
                   <input type="text" placeholder="Enter Username" name="uname" id="username" required>
                <br>
@@ -16,10 +29,19 @@
               <br>
                   <button type="submit" id="login-button">Login</button>
                   <br>
+		<br>
+		   <button type="register" id="register-button">Register</button>
+		<br>
+		<div id="register-info">
+		
+		</div>
+		<br>
                   <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                   </label>
-		<iframe name="hidden" width="0" height="0" border="0" />
-                </div>
+		</div>
+		
+		<p><a href="">Forgot password?</a></p>
+		</div>
   </body>
 </html>
