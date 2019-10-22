@@ -81,10 +81,12 @@ ul ul a {
 .input_schedule {
     width: 30%;
     margin: auto;
+    padding-top: 30px;
 }
 
 input{ 
     width: 500px;
+    height: 500px;
 }
 
 form {
@@ -93,4 +95,8 @@ form {
 
 button {
     margin-top: 10px;
+}
+
+textarea {
+    display: block;
 }

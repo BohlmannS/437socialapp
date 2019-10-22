@@ -80,11 +80,12 @@ ul ul a {
 }
 
 .user_classes {
-    width: 30%;
+    width: 50%;
     margin: auto;
+    margin-top: 50px;
 }
 
 .mutual_classes {
-    width: 30%;
+    width: 50%;
     margin: auto;
 }
