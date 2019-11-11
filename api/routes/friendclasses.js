@@ -69,8 +69,8 @@ router.post('/', function(req, res){
 		for(var i = 0; i < numClasses; i++){
 			
 		}
-		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify(rows));
+		//res.setHeader('Content-Type', 'application/json');
+		//res.end(JSON.stringify(rows));
 		return;
 		})
 });

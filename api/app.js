@@ -6,6 +6,9 @@ var register = require("./routes/registerrequest");
 var myclasses = require("./routes/myclasses");
 var friendclasses = require("./routes/friendclasses");
 var inputschedule = require("./routes/inputschedule");
+var friendrequest = require("./routes/friendrequest");
+var frienddata = require("./routes/frienddata");
+
 
 //app.use(express.urlencoded());
 app.use(express.json());
@@ -41,5 +44,7 @@ app.use('/registerrequest', register);
 app.use('/myclasses', myclasses);
 app.use('/friendclasses', friendclasses);
 app.use('/inputschedule', inputschedule);
+app.use('/friendrequest', friendrequest);
+app.use('/frienddata', frienddata);
 
 http.listen(3000, function(){  console.log('listening on *:3000');});
