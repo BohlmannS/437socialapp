@@ -9,47 +9,30 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="home_style.css">
+    <link rel="stylesheet" href="login_style.css">
     <script src="https://kit.fontawesome.com/9ba4d950d1.js" crossorigin="anonymous"></script>
 
     <title>BearConnect</title>
 </head>
 
 <body>
-    <div class="wrapper">
+    <h1>BearConnect</h1>
+    <form action="" method="post">
+        <p>Create new account here:</p>
+        <div class="container">
+            <label for="email"><b>Email: </b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <br>
+            <label for="uname"><b>Username: </b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="psw"><b>Password: </b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <br>
+            <button type="submit">Create Account</button>
+        </div>
 
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>BearConnect</h3>
-            </div>
-
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="home_index.html">Profile</a>
-                </li>
-                <li>
-                    <a href="schedule_index.html">Input Schedule</a>
-                </li>
-                <li>
-                    <a href="friends_index.html">Friends</a>
-
-                </li>
-                <li>
-                    <a href="">Help</a>
-                </li>
-            </ul>
-
-        </nav>
-    
-    </div>
-
-    <div class="user_classes">
-        <p>My Classes</p>
-    </div>
-
-    <div class="mutual_classes">
-        <p>Classes with Friends</p>
-    </div>
+    </form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

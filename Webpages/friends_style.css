@@ -19,6 +19,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
@@ -61,7 +62,7 @@ ul ul a {
 
 .wrapper {
     display: flex;
-    width: 50%;
+    width: 100%;
 }
 
 #sidebar {
@@ -78,25 +79,24 @@ ul ul a {
     padding-top: 20px;
 }
 
-.input_schedule {
-    width: 30%;
+.add_friend {
+    width: 50%;
     margin: auto;
-    padding-top: 30px;
+    margin-top: 600px;
+    margin-bottom: 15px;
 }
 
-input{ 
-    width: 500px;
-    height: 500px;
+.invite_friends {
+    width: 50%;
+    margin: auto;
 }
 
-form {
-    text-align: center;
+.add_friend a {
+    background-color: #0e9aa7;
+    padding: 10px;
 }
 
-button {
-    margin-top: 10px;
-}
-
-textarea {
-    display: block;
+.invite_friends a {
+    background-color: #fe8a71;
+    padding: 10px;
 }
