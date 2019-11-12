@@ -2,35 +2,6 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var util = require('util');
-/*class Database {
-    constructor() {
-        this.connection = mysql.createConnection({
-  host : 'database-1.csbhhsidcs3g.us-east-2.rds.amazonaws.com',
-  port : 3306,
-  user : 'admin',
-  password : 'bohlmannsbohlmanns',
-  database : 'main_site'
-});
-    }
-    query( sql, args ) {
-        return new Promise( ( resolve, reject ) => {
-            this.connection.query( sql, args, ( err, rows ) => {
-                if ( err )
-                    return reject( err );
-                resolve( rows );
-            } );
-        } );
-    }
-    close() {
-        return new Promise( ( resolve, reject ) => {
-            this.connection.end( err => {
-                if ( err )
-                    return reject( err );
-                resolve();
-            } );
-        } );
-    }
-} */
 
 var connection = mysql.createConnection({
   host : 'database-1.csbhhsidcs3g.us-east-2.rds.amazonaws.com',
@@ -53,7 +24,7 @@ connection.connect(function(err) {
 
 router.post('/', function(req, res){
 	let sql = 'select class1,class2,class3,class4,class5,class6,class7,class8,class9,class10 from schedules where uid=' + req.body.uid;
-	console.log(sql);
+	//console.log(sql);
 	let dataPacketSchedule = {};
 	let myClasses = [];
 	let response = [];
@@ -68,12 +39,13 @@ router.post('/', function(req, res){
 			res.end(JSON.stringify(rows));
 			return;
 		}
+                response.push(rows);
 		var c = 0;
 		for (var prop1 in dataPacketSchedule){
 			//count how many props there are, then do a while loop and get the class data from the database and append it to the html. While loop will be used to trap code there until it has found all the info it needs.
 		 if(dataPacketSchedule[prop1] !== null) {c++};   		
 		}
-		console.log(c);
+		//console.log(c);
 		var flag = true;
 		for(var i = 1; i <= c; i++){
 			connection.query(('select * from classes where class_id=' + dataPacketSchedule['class'+i]), function(err2, rows2, fields2){
@@ -82,12 +54,14 @@ router.post('/', function(req, res){
 				myClasses.push(rows2[0]['title']);
 				//console.log(myClasses);
 				if(myClasses.length === c){
-					console.log('got all my classes');
+					//console.log('got all my classes');
 					let obj1 = {};
 					for(var j = 0; j < c; j++){
 						obj1['class' + (j+1)] = myClasses[j];
 					}
 					response.push(obj1);
+					//console.log(response);
+					//console.log(JSON.stringify(response));
 					res.setHeader('Content-Type', 'application/json');
 					res.end(JSON.stringify(response));	
 				}
@@ -95,7 +69,6 @@ router.post('/', function(req, res){
 		}
 		
 	})
-	console.log('end');
 	//console.log('This is rows: ', rows);
 	//res.setHeader('Content-Type', 'application/json');
         //res.end(JSON.stringify(rows));	

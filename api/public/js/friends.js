@@ -23,16 +23,34 @@ $(document).ready(function(){
 			const d = fetchCallFriend({uid: localStorage.getItem('uid'), friendName: friend})
 			d.then(function(data){
 //				console.log(data.response);
-				var updateFriend = 'Unrecognized error. Something went really wrong.';
+				var updateFriend = 'Unrecognized error from server. Something went really wrong.';
 				if(data.response === 0){updateFriend = 'Friend added'}
 				if(data.response === 1){updateFriend = 'That user is already your friend'}
 				if(data.response === 2){updateFriend = 'User with that name not found'}
 				if(data.response === 3){updateFriend = 'That guy does NOT want to be your friend'}
 				$('#friend-response').html(updateFriend);
+				updateFriends();
 			})
 		}
 	})
 })
+
+function updateFriends(){
+        var friendList = {};
+        const fList = fetchFriendList({uid: localStorage.getItem('uid')});
+        fList.then(function(data){
+                var updateList = '';
+                if(data.length === 0){
+                        updateList = '<p>You have no friends :( </p>';
+                }
+                else{
+                        data.forEach(function(element){
+                                updateList += '<p>'+element.username+'</p><br>';
+                        })
+                }
+                $('#friend-data').html(updateList);
+        })
+}
 
 async function fetchCallFriend(data){
   const response = await fetch('/friendrequest',{
