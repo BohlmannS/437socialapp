@@ -1,14 +1,23 @@
 $(document).ready(function(){
+    $('#delete-message').hide();
     $(document).delegate('#schedule-button', 'click', function(e){
        var schedule = $('#user-text').val()
-	console.log('clicked');
-	 $('#sent-data').html('<p>Schedule Sent!</p>');
-       const d = fetchScheduleData({schedule: schedule});
+	 $('#sent-data').html('');
+       const d = fetchScheduleData({schedule: schedule, uid: localStorage.getItem('uid')});
        d.then(function(data){
-        //console.log(data)
-	$('#sent-data').html('<p>Schedule Sent!</p>');
+        $('#sent-data').append('<br>' + data);
     })
 })
+	$(document).delegate('#delete-button', 'click', function(e){
+		$('#delete-message').show();
+	})
+	$(document).delegate('#confirm-button', 'click', function(e){
+		const d = fetchScheduleDelete({uid: localStorage.getItem('uid')});
+		d.then(function(data){
+			$('#sent-data').html(data);
+			$('#delete-message').hide();
+		})
+	})
 })
 
 async function fetchScheduleData(data){
@@ -18,4 +27,13 @@ async function fetchScheduleData(data){
 	body: JSON.stringify(data)
 	})
 	return await response.json();
+}
+
+async function fetchScheduleDelete(data){
+	const response = await fetch('/deleteschedule',{
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+        })
+        return await response.json();
 }

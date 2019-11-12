@@ -70,7 +70,7 @@ router.post('/', function(req, res){
 				}
 				res.setHeader('Content-Type', 'application/json');
 				res.end(JSON.stringify(rows2));
-				//console.log(JSON.stringify(rows2));
+//				console.log(JSON.stringify(rows2));
 			})
 		})
 		//res.setHeader('Content-Type', 'application/json');
