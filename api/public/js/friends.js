@@ -1,5 +1,14 @@
 $(document).ready(function(){
+	if(localStorage.getItem('uid') === '0'){
+                        $(location).attr('href', 'login');
+        }
+        $(document).delegate('#logout', 'click', function(e){
+                        $(location).attr('href', '/login');
+                })
+		
+
     $("#friend-info").hide();
+    $('#friend-delete-info').hide();
 	var friendList = {};
 	const fList = fetchFriendList({uid: localStorage.getItem('uid')});
 	fList.then(function(data){
@@ -9,7 +18,7 @@ $(document).ready(function(){
 		}
 		else{
 			data.forEach(function(element){
-				updateList += '<p>'+element.username+'</p><br>';	
+				updateList += '<p style="color:black">'+element.username+'</p><br>';	
 			})
 		}
 		$('#friend-data').html(updateList);
@@ -30,8 +39,26 @@ $(document).ready(function(){
 				if(data.response === 3){updateFriend = 'That guy does NOT want to be your friend'}
 				$('#friend-response').html(updateFriend);
 				updateFriends();
+				//$('#friend-info').hide();
 			})
 		}
+	})
+	$(document).delegate('#delete-button', 'click', function(e){
+		$('#friend-delete-info').show();
+	})
+	$(document).delegate('#delete-submit-button', 'click', function(e){
+		var friend = $('#delete-name').val()
+		if(friend !== ''){
+			const d = fetchCallDelete({uid: localStorage.getItem('uid'), friendName: friend})
+			d.then(function(data){
+				var updateDelete = 'Unrecognized error from server.';
+				if(data.response === 0){updateDelete = 'Friend deleted'}
+				if(data.response === 1){updateDelete = 'User is not your friend'}
+				$('#delete-response').html(updateDelete);
+				updateFriends();
+				//$('#friend-delete-info').hide();
+			})
+		}	
 	})
 })
 
@@ -45,11 +72,22 @@ function updateFriends(){
                 }
                 else{
                         data.forEach(function(element){
-                                updateList += '<p>'+element.username+'</p><br>';
+                                updateList += '<p style="color:black">'+element.username+'</p><br>';
                         })
                 }
                 $('#friend-data').html(updateList);
         })
+}
+
+async function fetchCallDelete(data){
+   const response = await fetch('/frienddelete',{
+   method: 'POST',
+   headers: {
+   'Content-Type': 'application/json'
+    },
+   body: JSON.stringify(data)
+   })
+  return await response.json();
 }
 
 async function fetchCallFriend(data){

@@ -22,30 +22,30 @@
 
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>BearConnect</h3>
+                <h3><a href="home_index.html">BearConnect</a></h3>
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="home_index.html">Profile</a>
                 </li>
                 <li>
                     <a href="schedule_index.html">Input Schedule</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="friends_index.html">Friends</a>
 
                 </li>
                 <li>
-                    <a href="#">Help</a>
+                    <a href="help_index.html">Help</a>
                 </li>
             </ul>
-
+	<p id="logout">Logout</p>
         </nav>
     
     </div>
     <div class="add_friend">
-        <a href="#" id="add-button">Add Friend</a>
+        <a href="#" id="add-button">Add a Friend</a><br><br>
 	<div id="friend-info">
 	<label for="fname">Friend's Name:</label>
 	<input type="text" placeholder="Enter Friend's Username" name="fname" id="friend-name">
@@ -55,13 +55,27 @@
 	</div>
 	</div>
     </div>
-    <div class="invite_friends">
-        <a href="#">Invite friends to BearConnect</a>
-	<br>
-	<h1>Your Friends:</h1>
-	<div id="friend-data"></div>
+	<div class="add_friend">
+        <a href="#" id="delete-button">Remove a Friend</a><br><br>
+        <div id="friend-delete-info">
+        <label for="delname">Friend's Name:</label>
+        <input type="text" placeholder="Enter Friend's Username" name="delname" id="delete-name">
+        <button type="button" id="delete-submit-button">Submit</button>
+        <br>
+        <div id="delete-response">
+        </div>
+        </div>
     </div>
 
+	<br>
+	<div id="friends_list">
+	<h1>Your Friends:</h1>
+	<div id="friend-data"></div>
+	</div>
+	<div class="invite_friends">
+	<a href="#">Invite friends to BearConnect</a>
+	<br>
+	</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -9,6 +9,7 @@ var inputschedule = require("./routes/inputschedule");
 var friendrequest = require("./routes/friendrequest");
 var frienddata = require("./routes/frienddata");
 var deleteschedule = require("./routes/deleteschedule");
+var frienddelete = require("./routes/frienddelete");
 
 //app.use(express.urlencoded());
 app.use(express.json());
@@ -47,5 +48,6 @@ app.use('/inputschedule', inputschedule);
 app.use('/friendrequest', friendrequest);
 app.use('/frienddata', frienddata);
 app.use('/deleteschedule', deleteschedule);
+app.use('/frienddelete', frienddelete);
 
 http.listen(3000, function(){  console.log('listening on *:3000');});

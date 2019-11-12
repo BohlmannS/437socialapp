@@ -6,7 +6,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: rgb(201, 201, 201);
+    /* color: #999; */
 }
 
 a, a:hover, a:focus {
@@ -83,54 +83,18 @@ ul ul a {
     color: #F76C6C;
 }
 
-.user_classes {
-    width: 50%;
+#instructions {
+    width: 30%;
     margin: auto;
     margin-top: 50px;
+    color: #374785;
+    padding: 20px;
 }
 
-.user_classes h2 {
-    color: #24305E;
-}
-
-
-.mutual_classes {
-    width: 50%;
-    margin: auto;
-}
-
-.class_box {
-    display: inline-block;
-    /* position: relative; */
-    background-color: #24305E;
-    width: 40%;
-    height: 100px;
-    margin: 25px;
-    padding: 10px;
-}
-
-.class_name {
-    color: #F76C6C;
-}
-
-.friend_amount {
-    text-align: right;
-}
-
-.friend_amount:hover {
-    color: white;
-}
-
-.friend_box {
-    display: inline-block;
-    background-color: #374785;
+#contact {
     width: 30%;
-    margin: 25px;
-    padding: 10px;
-    vertical-align: bottom;
-}
-
-.friend_box p {
-    margin: 0;
-    line-height: 1.25;
+    margin: auto;
+    margin-top: 50px;
+    color: #374785;
+    padding: 20px;
 } 

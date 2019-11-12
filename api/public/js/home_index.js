@@ -1,4 +1,10 @@
 $(document).ready(function(){
+	if(localStorage.getItem('uid') === '0'){
+                        $(location).attr('href', 'login');
+	}
+	$(document).delegate('#logout', 'click', function(e){
+                        $(location).attr('href', '/login');
+                })
 	const myclasses = fetchClassData({uid: localStorage.getItem('uid')});
 	var classList = {};
 	var classArray = [];
@@ -12,12 +18,12 @@ $(document).ready(function(){
 		//console.log(classList);
 		var updateClasses = '';
 		if (data.length === 0){
-			updateClasses = '<p>You have no classes :( Please input a schedule.</p>';
+			updateClasses = '<p style="color:black">You have no classes :( Please input a schedule.</p>';
 		}
 		else{
 			var i = 1;
 			for (var prop1 in data[1]){
-				updateClasses+='<p>'+data[1][prop1]+'</p><br>';
+				updateClasses+='<p style="color:black">'+data[1][prop1]+'</p><br>';
 				classArray.push({[classList['class'+i]] : data[1][prop1]});
 				i++;
 			}
@@ -39,13 +45,13 @@ $(document).ready(function(){
 			//console.log(classList);
 			//console.log(classArray);
 			if (data.length === 0){
-				updateSchedule = '<p>you have no friends, or no friends in any classes</p>';
+				updateSchedule = '<p style="color:black">you have no friends, or no friends in any classes</p>';
 			}
 			else{
-				updateSchedule = '<p>';
+				updateSchedule = '<p style="color:black">';
 				//console.log(classList);
 				//console.log(classArray);
-				//console.log(data);
+				console.log(data);
 				var j = -1;
 				for (var prop3 in classList){
 					j++;
@@ -76,7 +82,7 @@ $(document).ready(function(){
 			$('#mutual-data').html(updateSchedule);
 		})
 		}else{
-			$('#mutual-data').html('<p>you have no friends, or no friends in any classes</p>');
+			$('#mutual-data').html('<p style="color:black">you have no friends, or no friends in any classes</p>');
 		}
 	})
 })

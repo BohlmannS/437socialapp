@@ -42,7 +42,7 @@ router.post('/', function(req, res){
 		}
 		let fString = '';
 		let sql2 = 'select username, class1, class2, class3, class4, class5, class6, class7, class8, class9, class10 ';
-		sql2+='from users inner join schedules on users.uid=schedules.uid where ';
+		sql2+='from users inner join schedules on users.uid=schedules.uid where (';
 		let classIds = ' in (';
 		for(var prop1 in req.body.classList){
 			classIds+=req.body.classList[prop1];
@@ -56,8 +56,17 @@ router.post('/', function(req, res){
 		}
 		sql2 = sql2.slice(0, -4);
 		//console.log(sql2);
+		sql2 += ') and (users.uid in (';
+		for(var m = 0; m < rows.length; m++){
+			sql2+=rows[m].greater + ',';
+		}
+		sql2 = sql2.slice(0, -1);
+		sql2 += '))';	
 		connection.query(sql2, function(err, rows2, fields){
-			if(err){return}
+			if(err){
+				res.setHeader('Content-Type', 'application/json');
+				res.end(JSON.stringify([]));
+				return}
 			let myName = 'select username from users where uid=';
 			myName+=req.body.uid;
 			connection.query(myName, function(err, rows3, fields){

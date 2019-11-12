@@ -23,14 +23,14 @@
 
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>BearConnect</h3>
+                <h3><a href="home_index.html">BearConnect</a></h3>
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="home_index.html">Profile</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="schedule_index.html">Input Schedule</a>
                 </li>
                 <li>
@@ -38,20 +38,29 @@
 
                 </li>
                 <li>
-                    <a href="#">Help</a>
+                    <a href="help_index.html">Help</a>
                 </li>
             </ul>
-
+	<p id="logout">Logout</p>
         </nav>
     </div>
 
 
     <div class="input_schedule">
-            <label for="uname"><b>Your Schedule: </b></label>
+            <label for="uname"><b>Input your schedule here: </b></label>
             <textarea name="Text1" cols="50" rows="10" id="user-text"></textarea>
             <button id="schedule-button">Submit</button>
+		<div id="instructions">
+        <h4>Instructions:</h4>
+        <ol>
+            <li>Login to your account on <a href="https://acadinfo.wustl.edu/apps/ClassSchedule/">Webstac</a> and access your schedule</li>
+            <li>Make sure schedule is in LIST VIEW.</li>
+            <li>Select All or CTRL+A on Windows or CMD+A on Mac, then copy.</li>
+            <li>Paste into the input box above.</li>
+        </ol>
+    </div>
 		<div id="sent-data"> </div>
-		<br><br><br><br>
+		<br><br>
         <a href="#" class="stevesButton" id="delete-button">DELETE SCHEDULE</a>
 	<div id="delete-message">
 		<div class="warning-msg" id="warning">

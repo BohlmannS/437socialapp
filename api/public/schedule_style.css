@@ -1,7 +1,5 @@
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-
 body {
-    background: #fafafa;
+    background: #A8D0E6;
 }
 
 p {
@@ -25,12 +23,12 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #F76C6C;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px solid #F76C6C;
 }
 
 #sidebar ul p {
@@ -44,13 +42,13 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #374785;
     background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: rgb(94, 94, 94);
+    background: #A8D0E6;
 }
 ul ul a {
     font-size: 0.9em !important;
@@ -60,7 +58,7 @@ ul ul a {
 
 .wrapper {
     display: flex;
-    width: 50%;
+    width: 100%;
 }
 
 #sidebar {
@@ -70,17 +68,26 @@ ul ul a {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
+    background: #374785;
     color: #fff;
     transition: all 0.3s;
     padding-left: 20px;
     padding-top: 20px;
 }
 
+#logout {
+    color: white;
+}
+
+#logout:hover {
+    color: #F76C6C;
+}
+
 .input_schedule {
     width: 30%;
     margin: auto;
     padding-top: 30px;
+    color: #374785;
 }
 
 input{ 
@@ -98,6 +105,15 @@ button {
 
 textarea {
     display: block;
+}
+
+#instructions {
+    width: 110%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #A8D0E6;
+    color: #374785;
+    padding: 20px;
 }
 
 .warning-msg {
