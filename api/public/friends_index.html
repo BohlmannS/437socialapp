@@ -22,44 +22,47 @@
 
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>BearConnect</h3>
+                <h3><a href="home_index.html">BearConnect</a></h3>
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="home_index.html">Profile</a>
                 </li>
                 <li>
                     <a href="schedule_index.html">Input Schedule</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="friends_index.html">Friends</a>
 
                 </li>
                 <li>
-                    <a href="#">Help</a>
+                    <a href="help_index.html">Help</a>
                 </li>
             </ul>
-
+            <p id="logout">Logout</p>
         </nav>
-    
+
+    </div>
+    <div id="friends_list">
+        <h1>Your Friends:</h1>
+        <div id="friend-data"></div>
     </div>
     <div class="add_friend">
         <a href="#" id="add-button">Add Friend</a>
-	<div id="friend-info">
-	<label for="fname">Friend's Name:</label>
-	<input type="text" placeholder="Enter Friend's Username" name="fname" id="friend-name">
-	<button type="button" id="friend-button">Submit</button>
-	<br>
-	<div id="friend-response">
-	</div>
-	</div>
+        <div id="friend-info">
+            <br>
+            <label for="fname">Friend's Name:</label>
+            <input type="text" placeholder="Enter Friend's Username" name="fname" id="friend-name">
+            <button type="button" id="friend-button">Submit</button>
+            <br>
+            <div id="friend-response">
+            </div>
+        </div>
     </div>
     <div class="invite_friends">
         <a href="#">Invite friends to BearConnect</a>
-	<br>
-	<h1>Your Friends:</h1>
-	<div id="friend-data"></div>
+        <br>
     </div>
 
     <!-- Optional JavaScript -->

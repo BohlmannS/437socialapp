@@ -1,5 +1,5 @@
 body {
-    background: #fafafa;
+    background: #A8D0E6;
 }
 
 p {
@@ -16,7 +16,6 @@ a, a:hover, a:focus {
 }
 
 #sidebar {
-    /* don't forget to add all the previously mentioned styles here too */
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
@@ -24,12 +23,12 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #F76C6C;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px solid #F76C6C;
 }
 
 #sidebar ul p {
@@ -43,13 +42,13 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #374785;
     background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: rgb(94, 94, 94);
+    background: #A8D0E6;
 }
 ul ul a {
     font-size: 0.9em !important;
@@ -69,11 +68,27 @@ ul ul a {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
+    background: #374785;
     color: #fff;
     transition: all 0.3s;
     padding-left: 20px;
     padding-top: 20px;
+}
+
+#logout {
+    color: white;
+}
+
+#logout:hover {
+    color: #F76C6C;
+}
+
+#friends_list {
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    color: rgb(58, 58, 58);
 }
 
 .add_friend {
@@ -89,11 +104,11 @@ ul ul a {
 }
 
 .add_friend a {
-    background-color: #0e9aa7;
+    background-color: #F8E9A1;
     padding: 10px;
 }
 
 .invite_friends a {
-    background-color: #fe8a71;
+    background-color: #F76C6C;
     padding: 10px;
 }

@@ -1,12 +1,12 @@
 body {
-    background: #fafafa;
+    background: #A8D0E6;
 }
 
 p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: rgb(201, 201, 201);
 }
 
 a, a:hover, a:focus {
@@ -16,7 +16,6 @@ a, a:hover, a:focus {
 }
 
 #sidebar {
-    /* don't forget to add all the previously mentioned styles here too */
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
@@ -24,12 +23,12 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #F76C6C;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px solid #F76C6C;
 }
 
 #sidebar ul p {
@@ -43,13 +42,13 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #374785;
     background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: rgb(94, 94, 94);
+    background: #A8D0E6;
 }
 ul ul a {
     font-size: 0.9em !important;
@@ -69,11 +68,19 @@ ul ul a {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
+    background: #374785;
     color: #fff;
     transition: all 0.3s;
     padding-left: 20px;
     padding-top: 20px;
+}
+
+#logout {
+    color: white;
+}
+
+#logout:hover {
+    color: #F76C6C;
 }
 
 .user_classes {
@@ -82,7 +89,47 @@ ul ul a {
     margin-top: 50px;
 }
 
+.user_classes h2 {
+    color: #24305E;
+}
+
 .mutual_classes {
     width: 50%;
     margin: auto;
+}
+
+.class_box {
+    display: inline-block;
+    /* position: relative; */
+    background-color: #24305E;
+    width: 40%;
+    height: 100px;
+    margin: 25px;
+    padding: 10px;
+}
+
+.class_name {
+    color: #F76C6C;
+}
+
+.friend_amount {
+    text-align: right;
+}
+
+.friend_amount:hover {
+    color: white;
+}
+
+.friend_box {
+    display: inline-block;
+    background-color: #374785;
+    width: 30%;
+    margin: 25px;
+    padding: 10px;
+    vertical-align: bottom;
+}
+
+.friend_box p {
+    margin: 0;
+    line-height: 1.25;
 }
