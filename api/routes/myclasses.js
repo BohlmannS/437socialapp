@@ -20,8 +20,6 @@ connection.connect(function(err) {
   }
 });
 
-//connection.query = util.promisify(connection.query);
-
 router.post('/', function(req, res){
 	let sql = 'select class1,class2,class3,class4,class5,class6,class7,class8,class9,class10 from schedules where uid=' + req.body.uid;
 	//console.log(sql);

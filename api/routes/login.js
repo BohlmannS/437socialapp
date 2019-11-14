@@ -11,15 +11,13 @@ var connection = mysql.createConnection({
 });
 
 connection.connect(function(err) {
-  if(err){
-    console.log(err.code);
-    console.log(err.fatal);
-    console.log('error: ' + err.message);
-    return;
-  }
+      if(err){
+      console.log(err.code);
+      console.log(err.fatal);
+      console.log('error connection to db: ' + err.message);
+      return;
+      }
 });
-
-
 
 router.post('/', function(req, res) {
     let sql = 'Select uid from users where username=\'' + req.body.username + '\' and password=\'' +req.body.password+'\'';

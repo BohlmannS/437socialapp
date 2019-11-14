@@ -50,8 +50,8 @@ router.post('/', function(req, res){
 		}
 		classIds = classIds.slice(0, -1);
 		classIds+=') or ';
-		for(var prop1 in req.body.classList){
-			sql2+=prop1;
+		for(var i = 1; i < 11; i++){
+			sql2+='class'+i;
 			sql2+=classIds;
 		}
 		sql2 = sql2.slice(0, -4);
@@ -61,7 +61,8 @@ router.post('/', function(req, res){
 			sql2+=rows[m].greater + ',';
 		}
 		sql2 = sql2.slice(0, -1);
-		sql2 += '))';	
+		sql2 += '))';
+		//console.log(sql2)	
 		connection.query(sql2, function(err, rows2, fields){
 			if(err){
 				res.setHeader('Content-Type', 'application/json');

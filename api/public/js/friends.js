@@ -14,7 +14,7 @@ $(document).ready(function(){
 	fList.then(function(data){
 		var updateList = '';
 		if(data.length === 0){
-			updateList = '<p>You have no friends :( </p>';
+			updateList = '<p style="color:black">You have no friends :( </p>';
 		}
 		else{
 			data.forEach(function(element){
