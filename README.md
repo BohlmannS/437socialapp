@@ -1,6 +1,6 @@
 # 437socialapp
 
-##General Info
+## General Info
 repo for the 437 project fall 2019
 api folder holds the node server
 this server serves up webpages using express.
@@ -24,7 +24,7 @@ npm start
 The public folder is accessible over the internet. It holds the html and css for the webpages as well as the javascript on those pages.
 The routes folder holds the routes. Ex: app-public-dns:3000/login. Anyone can request data from these routes, but the actual code inside them is not visible at all to the internet.
 
-##Making Your Own Route
+## Making Your Own Route
 
 If you want to make your own route, look at how the others have been created and copy that, but as a summary:
 
@@ -35,7 +35,7 @@ If you want to make your own route, look at how the others have been created and
 
 This will make a new route that iOS or Desktop can use by post requesting to app-public-dns:3000/myroute
 
-##Connecting to the Database
+## Connecting to the Database
 If you need to connect to the database inside a route, copy how it has been done before. As a summary:
 1. Create a connection variable with mysql.createConnection. This takes an object with various keys corresponding to info that node needs to connect, like the database host, port, username, password, etc.
 2. Connection.connect to establish a connection
