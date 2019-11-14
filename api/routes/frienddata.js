@@ -41,8 +41,11 @@ router.post('/', function(req, res){
 		fString = fString.slice(0, -3);
 		let sql2 = 'select username from users where (' + fString + ')';
 		connection.query(sql2, function(err2, rows2, fields2){
-			if(err2){console.log('query error');}
-			
+			if(err2){
+			res.setHeader('Content-Type', 'application/json');
+			res.end(JSON.stringify([]));
+			return;
+			}		
 			res.setHeader('Content-Type', 'application/json');
 			res.end(JSON.stringify(rows2));
 			})
