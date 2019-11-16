@@ -17,9 +17,9 @@ A POST request will take data and deliver data back. This is an api.
 On the instance, pm2 is used to automatically run and restart the node server if it goes down, and a git hook is used to update the master branch whenever it is updated.
 On your local machine, you will have to go into the api folder and start the app yourself using npm. From the 437socialapp base directory, this is:
 
-cd api
-npm install
-npm start 
+- cd api
+- npm install
+- npm start 
 
 The public folder is accessible over the internet. It holds the html and css for the webpages as well as the javascript on those pages.
 The routes folder holds the routes. Ex: app-public-dns:3000/login. Anyone can request data from these routes, but the actual code inside them is not visible at all to the internet.
