@@ -1,14 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
+var config = require('./config.js');
 
-var connection = mysql.createConnection({
-  host : 'database-1.csbhhsidcs3g.us-east-2.rds.amazonaws.com',
-  port : 3306,
-  user : 'admin',
-  password : 'bohlmannsbohlmanns',
-  database : 'main_site'
-});
+var connection = mysql.createConnection(config);
 
 connection.connect(function(err) {
   if(err){
