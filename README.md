@@ -36,10 +36,10 @@ The routes folder holds the routes. Ex: app-public-dns:3000/login. Anyone can re
 
 Below I will put all the commands you need so you can just copy paste into the terminal
 
-SSH into instance from same directory as key pair: `ssh -i 437instance.pem ec2-user@3.17.134.90`
+- SSH into instance from same directory as key pair: `ssh -i 437instance.pem ec2-user@3.17.134.90`
+- Type gitdeploy
 
-All other commands (just copy paste this in right when you get to instance):
-`cd /home/ec2-user/437socialapp/api/ && git pull && echo 'pulled from git' && pm2 delete app && echo 'stopped app' && npm install && pm2 start npm --name 'app' -- start && echo 'restarted project'`
+You will see lots of stuff happening. Make sure you see the 'done'. This means the server successfully pulled the repo and restarted the app.
 
 ## Making Your Own Route
 
@@ -59,8 +59,7 @@ If you need to connect to the database inside a route, copy how it has been done
 3. Connection.query(sql, func) will query the database with the query string stored in the sql variable and will execute func once the query has returned. **THIS QUERY IS AN ASYNCHRONOUS FUNCTION, CODE THAT DEPENDS ON IT SHOULD GO INSIDE THE FUNCTION THAT EXECUTES ON RETURN**
 
 If you need to connect to the database in the command line to actually see the data or edit the database directly in mysql, do the following:
-1. ssh into the instance
-2. On the home directory, that you will land in, there is a text file called db_connect. Open that file with vim/text editor
-3. Copy paste the command in there into the command line
-4. Put in the database password
-5. You are now in the mysql server. To use the database for our site type `use main_site;`
+1. ssh into the instance: `ssh -i 437instance.pem ec2-user@3.17.134.90`
+2. On the home directory, that you will land in, type dbconnect
+3. Put in the database password
+4. You are now in the mysql server. To use the database for our site type `use main_site;`
