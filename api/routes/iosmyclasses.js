@@ -30,10 +30,12 @@ router.post('/', function(req, res){
 		dataPacketSchedule = rows[0];
 		if (rows.length==0){
 			res.setHeader('Content-Type', 'application/json');
-			res.end(JSON.stringify(rows));
+      let thing = {};
+      thing['classes'] = rows;
+			res.end(JSON.stringify(thing));
 			return;
 		}
-                response.push(rows);
+                response.push(thing);
 		var c = 0;
 		for (var prop1 in dataPacketSchedule){
 			//count how many props there are, then do a while loop and get the class data from the database and append it to the html. While loop will be used to trap code there until it has found all the info it needs.
@@ -53,9 +55,9 @@ router.post('/', function(req, res){
 					for(var j = 0; j < c; j++){
 						obj1['class' + (j+1)] = myClasses[j];
 					}
-          let obj2 = {};
-          obj2['classes'] = obj1;
-					response.push(obj2);
+          //let obj2 = {};
+          //obj2['classes'] = obj1;
+					response.push(obj1);
 					//console.log(response);
 					//console.log(JSON.stringify(response));
 					res.setHeader('Content-Type', 'application/json');
