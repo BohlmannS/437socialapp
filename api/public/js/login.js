@@ -19,13 +19,14 @@ $(document).ready(function(){
         
     })
 	$(document).delegate('#register-button', 'click', function(e){
-		$('#register-info').text('');
+		/*$('#register-info').text('');
 		var username = $('#username').val()
 		var password = $('#password').val()
 		const d = fetchCallRegister({username: username, password: password});
 		d.then(function(data){
 			$('#register-info').text(data);
-		});
+		});*/
+		$(location).attr('href', '/register');
 	})
 })
 

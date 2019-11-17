@@ -38,7 +38,9 @@ app.get('/friends_index', function(req, res){
         res.sendFile(__dirname + '/public/friends_index.html');
 });
 
-
+app.get('/register', function(req, res){
+	res.sendFile(__dirname + '/public/register.html');
+});
 
 app.use('/loginrequest', login);
 app.use('/registerrequest', register);
@@ -50,4 +52,4 @@ app.use('/frienddata', frienddata);
 app.use('/deleteschedule', deleteschedule);
 app.use('/frienddelete', frienddelete);
 
-http.listen(3000, function(){  console.log('listening on *:3000');});
+http.listen(9000, function(){  console.log('listening on *:9000');});
