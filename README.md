@@ -39,7 +39,7 @@ Below I will put all the commands you need so you can just copy paste into the t
 SSH into instance from same directory as key pair: `ssh -i 437instance.pem ec2-user@3.17.134.90`
 
 All other commands (just copy paste this in right when you get to instance):
-`cd 437socialapp/api/ && git pull && echo 'pulled from git' && pm2 delete app && echo 'stopped app' && npm install && pm2 start npm --name 'app' -- start && echo 'restarted project'`
+`cd /home/ec2-user/437socialapp/api/ && git pull && echo 'pulled from git' && pm2 delete app && echo 'stopped app' && npm install && pm2 start npm --name 'app' -- start && echo 'restarted project'`
 
 ## Making Your Own Route
 
