@@ -20,7 +20,7 @@ connection.connect(function(err) {
 var transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: 'stephenbohlmann999@gmail.com',
+		user: 'bearconnect123@gmail.com',
 		pass: process.env.GMAILPASS
 		}
 });
@@ -51,7 +51,7 @@ router.post('/', function(req, res) {
 	//console.log(sql2);
 	connection.query(sql2, function(err2, rows2, fields2){
 		if(err2){console.log(err2)}
-		let sql3 = 'create event delete' + username + ' on schedule at current_timestamp + interval 1 hour do delete from verification where username=' + username;
+		let sql3 = 'create event delete' + username + ' on schedule at current_timestamp + interval 1 hour do delete from verification where username=\'' + username + '\'';
 		//console.log(sql3);
 		connection.query(sql3, function(err3, rows3, fields3){
 			if(err3){console.log(err3)}

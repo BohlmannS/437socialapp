@@ -10,6 +10,8 @@ var friendrequest = require("./routes/friendrequest");
 var frienddata = require("./routes/frienddata");
 var deleteschedule = require("./routes/deleteschedule");
 var frienddelete = require("./routes/frienddelete");
+var verify = require("./routes/verify");
+var reverify = require("./routes/reverify");
 
 //app.use(express.urlencoded());
 app.use(express.json());
@@ -42,6 +44,7 @@ app.get('/register', function(req, res){
 	res.sendFile(__dirname + '/public/register.html');
 });
 
+app.use('/reverify', reverify);
 app.use('/loginrequest', login);
 app.use('/registerrequest', register);
 app.use('/myclasses', myclasses);
@@ -51,5 +54,6 @@ app.use('/friendrequest', friendrequest);
 app.use('/frienddata', frienddata);
 app.use('/deleteschedule', deleteschedule);
 app.use('/frienddelete', frienddelete);
+app.use('/verify', verify);
 
 http.listen(9000, function(){  console.log('listening on *:9000');});
