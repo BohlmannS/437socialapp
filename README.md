@@ -3,7 +3,7 @@
 ## General Info
 repo for the 437 project fall 2019
 api folder holds the node server
-this server serves up webpages using express.
+This server serves up webpages using express.
 
 Webpages holds html for webpages that we haven't transferred into the actual server yet
 
@@ -22,6 +22,7 @@ On your local machine, you will have to go into the api folder and start the app
 - npm start 
 
 The public folder is accessible over the internet. It holds the html and css for the webpages as well as the javascript on those pages.
+Anthing inside of here the users have access to. They can see the actual code if they want.
 The routes folder holds the routes. Ex: app-public-dns:3000/login. Anyone can request data from these routes, but the actual code inside them is not visible at all to the internet.
 
 ## Making changes in live
