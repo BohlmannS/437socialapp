@@ -60,7 +60,7 @@ router.post('/', function(req, res) {
 		connection.query(sql4, function(err4, rows4, fields4){
 			if(err4){console.log(err4)}
 			var mailOptions = {
-        			from: 'stephenbohlmann999@gmail.com',
+        			from: 'bearconnect123@gmail.com',
         			to: email,
         			subject: 'Verification for BearConnect',
         			text: 'Please Click the link below to verify your account. Link will expire in one hour. \n' + 'http://ec2-3-17-134-90.us-east-2.compute.amazonaws.com:3000/verify?token='+token
@@ -73,7 +73,7 @@ router.post('/', function(req, res) {
 					return;
 				}
 				res.setHeader('Content-Type', 'application/json');
-				res.end(JSON.stringify('Verification email sent to ' + email + '. Please check your email to verify your account and get access to the site.'));
+				res.end(JSON.stringify('Verification email sent to ' + email + '. Please check your email to verify your account and get access to the site. If you do not see an email, check your spam inbox.'));
 				return;
 			})
 		})

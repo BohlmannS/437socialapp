@@ -4,14 +4,14 @@ $(document).ready(function(){
                 if(email === ''){
                         return;
                 }
-                const d = fetchCallRegister({email: email});
+                const d = fetchCallReverify({email: email});
                 d.then(function(data){
                         $('#submit-info').text(data);
                 });
         })
 })
 
-async function fetchCallVerify(data){
+async function fetchCallReverify(data){
         const response = await fetch('/reverify',{
                 method: 'POST',
                 headers: {
