@@ -5,10 +5,13 @@ $(document).ready(function(){
        var password = $('#password').val()
        const d = fetchCallLogin({username: username, password: password});
        d.then(function(data){
-	//console.log(data)
+	console.log(data)
 	if(data.length == 0){
 		localStorage.setItem('uid', 0);
 		$('#logged-in').text('Incorrect Username/Password');	
+	}
+	else if(data[0].verified === 0){
+		$('#logged-in').html('<p>You have not verified your wustl email. Please check your email and click the link to verify your account. <a href="verify">Click here to request another email</a></p>');
 	}
 	else{
 		document.myuid = data[0].uid;
@@ -19,13 +22,7 @@ $(document).ready(function(){
         
     })
 	$(document).delegate('#register-button', 'click', function(e){
-		$('#register-info').text('');
-		var username = $('#username').val()
-		var password = $('#password').val()
-		const d = fetchCallRegister({username: username, password: password});
-		d.then(function(data){
-			$('#register-info').text(data);
-		});
+		$(location).attr('href', '/register');
 	})
 })
 

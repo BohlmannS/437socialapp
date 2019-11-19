@@ -11,6 +11,8 @@ var frienddata = require("./routes/frienddata");
 var deleteschedule = require("./routes/deleteschedule");
 var frienddelete = require("./routes/frienddelete");
 var iosmyclasses = require("./routes/iosmyclasses");
+var verify = require("./routes/verify");
+var reverify = require("./routes/reverify");
 
 //app.use(express.urlencoded());
 app.use(express.json());
@@ -39,8 +41,11 @@ app.get('/friends_index', function(req, res){
         res.sendFile(__dirname + '/public/friends_index.html');
 });
 
+app.get('/register', function(req, res){
+	res.sendFile(__dirname + '/public/register.html');
+});
 
-
+app.use('/reverify', reverify);
 app.use('/loginrequest', login);
 app.use('/registerrequest', register);
 app.use('/myclasses', myclasses);
@@ -51,5 +56,6 @@ app.use('/frienddata', frienddata);
 app.use('/deleteschedule', deleteschedule);
 app.use('/frienddelete', frienddelete);
 app.use('/iosmyclasses', iosmyclasses);
+app.use('/verify', verify);
 
 http.listen(3000, function(){  console.log('listening on *:3000');});
