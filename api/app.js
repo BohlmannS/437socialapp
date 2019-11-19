@@ -25,6 +25,10 @@ app.get('/login', function(req, res){
   res.sendFile(__dirname + '/public/login.html');
 });
 
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/public/login.html');
+});
+
 //app.get('/login_style', function(req, res){
 //	res.sendFile(__dirname + '/public/login_style.css');
 //});
