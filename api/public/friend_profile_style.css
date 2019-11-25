@@ -1,0 +1,48 @@
+body {
+    background-color: #fafafa;
+}
+
+.navbar-custom {
+    background-color: #66768b;
+}
+
+#profile-container {
+    background-color: #E2DFA2;
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 50px;
+    padding: 20px;
+}
+
+#profile-pic {
+    width: 100%;
+    margin: auto;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.user_classes {
+    background-color: #92AAC7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.user_classes h4 {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid grey;
+}
+
+.mutual_classes {
+    background-color: #A1BE95;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.mutual_classes h4 {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid grey;
+}
