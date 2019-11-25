@@ -1,22 +1,107 @@
 body {
-    background: #A8D0E6;
-}  
+    font-family: 'Oswald', sans-serif;
+}
+  
+body::after {
+    content: "";
+    background-image: url(images/washu.jpg);
+    background-size: cover;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
 
-h1 {
-    margin-top: 100px;
-    text-align: center;
-    color: #5f5f5f;
+  #bear{
+      color: #505f4a;
+  }
+
+  #connect {
+      color: #a53c39;
+  }
+
+
+/* body {
+    background-image: url("washu.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #2C3574;
+} */
+
+#welcome {
+    color: white;
+    width: 100%;
+    margin: auto;
+    padding: 50px;
+    font-size: 9vw;
+}
+
+#login {
+    margin: auto;
+    margin-top: 85px;
+    height: 350px;
+    width: 300px;
+}
+
+#login h3 {
+    color: white;
 }
 
 #main {
-    background-color: #F76C6C;
-    width: 400px;
-    height: 330px;
     margin: auto;
-    padding-top: 60px;
-    text-align: center;
+    background-color: #fafafa;
+    height: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.container {
-    align-content: center;
+input {
+    width: 90%;
+    margin-top: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid lightgrey;
+}
+
+button {
+    width: 100%;
+    margin-top: 60px;
+    background-color: #ED5752;
+    color: #fafafa;
+    border: none;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: grey;
+    /* color: #ED5752; */
+}
+
+@media (max-width: 1050px) {
+    #login {
+        margin: auto;
+        margin-top: 0px;
+        height: 325px;
+        width: 300px;
+    }
+
+    #main {
+        margin: auto;
+        height: 325px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    button {
+        margin-top:30px;
+        padding: 10px;
+    }
+
+    #welcome {
+        text-align: center;
+        padding-bottom: 20px;
+        font-size: 12vw;
+        /* border-bottom: 1px dotted white; */
+    }
 }
