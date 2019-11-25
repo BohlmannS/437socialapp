@@ -22,7 +22,7 @@ body {
 }
 
 .user_classes {
-    background-color: #fafafa;
+    background-color: #92AAC7;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 50px;
     padding: 20px;
@@ -35,7 +35,7 @@ body {
 }
 
 .mutual_classes {
-    background-color: #fafafa;
+    background-color: #A1BE95;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 50px;
     padding: 20px;
