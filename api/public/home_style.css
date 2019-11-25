@@ -7,8 +7,8 @@ body {
 }
 
 #profile-container {
-    background-color: #B53F56;
-    color: #fafafa;
+    background-color: #E2DFA2;
+    color: black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 50px;
     padding: 20px;
@@ -29,6 +29,19 @@ body {
 }
 
 .user_classes h4 {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid grey;
+}
+
+.mutual_classes {
+    background-color: #fafafa;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.mutual_classes h4 {
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: 2px solid grey;
