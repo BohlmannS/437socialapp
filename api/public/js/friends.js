@@ -32,6 +32,7 @@ $(document).ready(function () {
 		}
 		else {
 			$('#friend-info').hide();
+			add_hidden = true;
 		}
 	})
 	$(document).delegate('#friend-button', 'click', function (e) {
@@ -58,6 +59,7 @@ $(document).ready(function () {
 		}
 		else {
 			$('#friend-delete-info').hide();
+			delete_hidden = true;
 		}
 	})
 	$(document).delegate('#delete-submit-button', 'click', function (e) {
