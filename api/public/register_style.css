@@ -35,19 +35,18 @@ body::after {
     color: white;
     width: 100%;
     margin: auto;
-    margin-top: 125px;
     padding: 50px;
     font-size: 9vw;
 }
 
-#login {
+#register {
     margin: auto;
     margin-top: 85px;
     height: 350px;
     width: 300px;
 }
 
-#login h3 {
+#register h3 {
     color: white;
 }
 
@@ -66,38 +65,22 @@ input {
     border-bottom: 1.5px solid lightgrey;
 }
 
-#forgot_pass {
-    margin-top: 15px;
-}
-
-#login-button {
+button {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 60px;
     background-color: #ED5752;
     color: #fafafa;
     border: none;
     padding: 10px;
 }
 
-#login-button:hover {
+button:hover {
     background-color: grey;
     /* color: #ED5752; */
 }
 
-#register-button {
-    display: block;
-    margin: auto;
-    background: none;
-    color: #ED5752;
-    border: none;
-}
-
-#register-button:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 900px) {
-    #login {
+@media (max-width: 975px) {
+    #register {
         margin: auto;
         margin-top: 0px;
         height: 325px;
@@ -110,8 +93,7 @@ input {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-   
-    #login-button  {
+    button {
         margin-top:30px;
         padding: 10px;
     }
@@ -120,7 +102,6 @@ input {
         text-align: center;
         padding-bottom: 20px;
         font-size: 12vw;
-        margin-top: 20px;
         /* border-bottom: 1px dotted white; */
     }
 }

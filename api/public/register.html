@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="login_style.css">
-    <script src="https://kit.fontawesome.com/9ba4d950d1.js" crossorigin="anonymous"></script>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>BearConnect</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="register_style.css">
+  <link href="https://fonts.googleapis.com/css?family=Anton|Oswald&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9ba4d950d1.js" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script type='text/javascript' src="/js/register.js"></script>
-  </head>
-  <body>
-    <h1>Register Here</h1>
-                <div id="main">
-                <div class="container">
-                <div id="logged-in"> </div>
-                  <label for="email"><b>Email: </b></label>
-                  <input type="text" placeholder="Enter Email" name="email" id="email" required>
-               <br>
-                  <label for="psw"><b>Password: </b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" id="password" required>
-              <br>
-		  <label for="fname"><b>First Name: </b></label>
-                  <input type="text" placeholder="Enter First Name" name="fname" id="first-name" required>
-               <br>
-		  <label for="lname"><b>Last Name: </b></label>
-                  <input type="text" placeholder="Enter Last Name" name="lname" id="last-name" required>
-               <br>
-                   <button type="register" id="register-button">Register</button>
-                <div id="register-info">
+  <title>BearConnect</title>
 
-                </div>
-                </div>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script type='text/javascript' src="/js/register.js"></script>
+</head>
 
-                </div>
-  </body>
+<body>
+  <div class="row">
+    <div class="col">
+      <h1 id="welcome">Welcome to <span id="bear">Bear</span><span id="connect">Connect</span></h1>
+    </div>
+    <div class="col">
+      <div id="register">
+        <h3>Register Here:</h3>
+        <div id="main">
+          <div class="container">
+            <div id="logged-in"> </div>
+            <label for="email"></label>
+            <input type="text" placeholder="EMAIL" name="email" id="email" required>
+            <br>
+            <label for="fname"></label>
+            <input type="text" placeholder="FIRST NAME" name="fname" id="first-name" required>
+            <br>
+            <label for="lname"></label>
+            <input type="text" placeholder="LAST NAME" name="lname" id="last-name" required>
+            <br>
+            <label for="psw"></label>
+            <input type="password" placeholder="PASSWORD" name="psw" id="password" required>
+            <br>
+            <button type="register" id="register-button">Register</button>
+            <div id="register-info">
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- <h3>Register Here:</h3> -->
+    </div>
+  </div>
+</body>
+
 </html>
-
