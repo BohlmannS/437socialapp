@@ -18,37 +18,38 @@
 </head>
 
 <body>
-    <div class="wrapper">
-
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3><a href="home_index.html">BearConnect</a></h3>
-            </div>
-
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="home_index.html">Profile</a>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <a class="navbar-brand" href="#"><i class="fa fa-home"></i> BearConnect</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home_index.html">Profile<span class="sr-only">(current)</span></a>
                 </li>
-                <li>
-                    <a href="schedule_index.html">Input Schedule</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="schedule_index.html">Input Schedule</a>
                 </li>
-                <li>
-                    <a href="friends_index.html">Friends</a>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="friends_index.html">Friends</a>
                 </li>
-                <li class="active">
-                    <a href="help_index.html">Help</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="help_index.html">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout">Logout</a>
                 </li>
             </ul>
-            <p id="logout">Logout</p>
-
-        </nav>
-    </div>
+        </div>
+    </nav>
 
     <div id="instructions">
         <h4>Inputting Schedule Instructions:</h4>
         <ol>
-            <li>Login to your account on <a href="https://acadinfo.wustl.edu/apps/ClassSchedule/">Webstac</a> and access your schedule</li>
+            <li>Login to your account on <a href="https://acadinfo.wustl.edu/apps/ClassSchedule/">Webstac</a> and
+                access your schedule</li>
             <li>Make sure schedule is in LIST VIEW.</li>
             <li>Select All or CTRL+A on Windows or CMD+A on Mac, then copy.</li>
             <li>Paste into the input box.</li>
@@ -56,8 +57,10 @@
     </div>
 
     <div id="contact">
-            <h4>Contact us:</h4>
-            <p>If you have any questions or comments, please email <a href="mailto:bohlmanns@wustl.edu">Steve Bohlmann</a>, <a href="mailto: k.joseph@wustl.edu">Kyle Joseph</a>, <a href="mailto:sandra.xu@wustl.edu">Sandra Xu</a>, or <a href="mailto:lijulia@wustl.edu">Julia Li</a>.</p>
+        <h4>Contact us:</h4>
+        <p>If you have any questions or comments, please email <a href="mailto:bohlmanns@wustl.edu">Steve Bohlmann</a>,
+            <a href="mailto: k.joseph@wustl.edu">Kyle Joseph</a>, <a href="mailto:sandra.xu@wustl.edu">Sandra Xu</a>,
+            or <a href="mailto:lijulia@wustl.edu">Julia Li</a>.</p>
 </body>
 
-</html> 
+</html>
