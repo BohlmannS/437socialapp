@@ -70,9 +70,14 @@ input {
     margin-top: 15px;
 }
 
+#logged-in {
+    color: #b20000;
+    margin-top: 50px;
+}
+
 #login-button {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 0px;
     background-color: #ED5752;
     color: #fafafa;
     border: none;
