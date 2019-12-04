@@ -66,7 +66,8 @@ textarea {
 #instructions {
     width: 100%;
     margin: auto;
-    margin-top: 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
     background-color: #92AAC7;
     color: black;
 	padding: 20px;
