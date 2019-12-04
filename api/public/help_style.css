@@ -6,12 +6,12 @@ body {
     background-color: #66768b;
 }
 
-#logout {
+/* #logout {
     color: white;
-}
+} */
 
 #logout:hover {
-    color: #F76C6C;
+    color: darkred;
 }
 
 #instructions {

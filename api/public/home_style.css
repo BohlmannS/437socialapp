@@ -6,6 +6,10 @@ body {
     background-color: #66768b;
 }
 
+#logout:hover {
+    color: darkred;
+}
+
 #profile-container {
     background-color: #E2DFA2;
     color: black;

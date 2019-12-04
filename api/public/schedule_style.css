@@ -6,16 +6,12 @@ body {
     background-color: #66768b;
 }
 
-#logout {
-    color: white;
-}
-
 #logout:hover {
-    color: #F76C6C;
+    color: darkred;
 }
 
 .input_schedule {
-    width: 30%;
+    width: 50%;
     margin: auto;
     padding-top: 30px;
     color: #374785;
@@ -34,17 +30,55 @@ button {
     margin-top: 10px;
 }
 
+label {
+	display: block;
+    text-align: center;
+	width: 100%;
+	font-size: 30px;
+	padding-bottom: 15px;
+	margin-bottom: 30px;
+	border-bottom: 2px solid grey;
+}
+
 textarea {
-    display: block;
+	display: block;
+	background-color: #eeeeee;
+	border-radius: 10px;
+	border-width: 5px;
+	color: #92AAC7;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#schedule-button {
+    width: 100%;
+    margin-top: 30px;
+    background-color: #ED5752;
+    color: #fafafa;
+    border: none;
+    padding: 10px;
+}
+
+#schedule-button:hover {
+    background-color: grey;
+    /* color: #ED5752; */
 }
 
 #instructions {
-    width: 110%;
+    width: 100%;
     margin: auto;
     margin-top: 50px;
-    background-color: #A8D0E6;
-    color: #374785;
-    padding: 20px;
+    background-color: #92AAC7;
+    color: black;
+	padding: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#instructions_header {
+	width: 100%;
+	text-align: center;
+	border-bottom: 2px solid grey;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .warning-msg {
@@ -59,12 +93,11 @@ textarea {
 }
 
 .stevesButton {
-	box-shadow: 3px 4px 0px 0px #8a2a21;
+	/* box-shadow: 3px 4px 0px 0px #8a2a21; */
 	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
 	background-color:#c62d1f;
-	border-radius:18px;
 	border:1px solid #d02718;
-	display:inline-block;
+	display:block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
@@ -72,10 +105,16 @@ textarea {
 	padding:7px 25px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #810e05;
+	width: 50%;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 20px;
 }
 .stevesButton:hover {
 	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
 	background-color:#f24437;
+	text-decoration:none;
+	color: white;
 }
 .stevesButton:active {
 	position:relative;
@@ -88,7 +127,7 @@ textarea {
 	background-color:#d0451b;
 	border-radius:3px;
 	border:1px solid #942911;
-	display:inline-block;
+	display:block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
@@ -96,7 +135,11 @@ textarea {
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #854629;
+	width: 50%;
+	text-align: center;
+	margin: auto;
 }
+
 .stevesButton2:hover {
 	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
 	background-color:#bc3315;

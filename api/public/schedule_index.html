@@ -13,61 +13,63 @@
     <script src="https://kit.fontawesome.com/9ba4d950d1.js" crossorigin="anonymous"></script>
 
     <title>BearConnect</title>
-	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script type='text/javascript' src="/js/schedule.js"></script>
 
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-                <a class="navbar-brand" href="#"><i class="fa fa-home"></i> BearConnect</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="home_index.html">Profile<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="schedule_index.html">Input Schedule</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="friends_index.html">Friends</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="help_index.html">Help</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="logout">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <a class="navbar-brand" href="#"><i class="fa fa-home"></i> BearConnect</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home_index.html">Profile<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="schedule_index.html">Input Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="friends_index.html">Friends</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="help_index.html">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 
     <div class="input_schedule">
-            <label for="uname"><b>Input your schedule here: </b></label>
-            <textarea name="Text1" cols="50" rows="10" id="user-text"></textarea>
-            <button id="schedule-button">Submit</button>
-		<div id="sent-data"> </div><br>
-		<div id="instructions">
-        <h4>Instructions:</h4>
-        <ol>
-            <li>Login to your account on <a href="https://acadinfo.wustl.edu/apps/ClassSchedule/">Webstac</a> and access your schedule</li>
-            <li>Make sure schedule is in LIST VIEW.</li>
-            <li>Select All or CTRL+A on Windows or CMD+A on Mac, then copy.</li>
-            <li>Paste into the input box above.</li>
-        </ol>
-    </div>
+        <label for="uname"><b>Input Schedule</b></label>
+        <textarea name="Text1" cols="87" rows="10" id="user-text"></textarea>
+        <button id="schedule-button">Submit</button>
+        <div id="sent-data"> </div><br>
         <a href="#" class="stevesButton" id="delete-button">DELETE SCHEDULE</a>
-	<div id="delete-message">
-		<div class="warning-msg" id="warning">
-	  <i class="fa fa-warning"></i>
-  		This will permanently delete your schedule. You will have to input a new one. Confirm delete: <a href="#" class="stevesButton2" id="confirm-button">I want to delete my schedule</a>
-		</div>
-	</div>
+        <div id="delete-message">
+            <div class="warning-msg" id="warning">
+                <i class="fa fa-warning"></i>
+                This will permanently delete your schedule. You will have to input a new one. Confirm delete: <a href="#"
+                    class="stevesButton2" id="confirm-button">I want to delete my schedule</a>
+            </div>
+        </div>
+        <div id="instructions">
+            <h4 id="instructions_header">Instructions:</h4>
+            <ol>
+                <li>Login to your account on <a href="https://acadinfo.wustl.edu/apps/ClassSchedule/">Webstac</a> and
+                    access your schedule</li>
+                <li>Make sure schedule is in LIST VIEW.</li>
+                <li>Select All or CTRL+A on Windows or CMD+A on Mac, then copy.</li>
+                <li>Paste into the input box above.</li>
+            </ol>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
