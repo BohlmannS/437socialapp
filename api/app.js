@@ -66,4 +66,4 @@ app.use('/verify', verify);
 app.use('/friendsearch', friendsearch);
 app.use('/gridview', gridview);
 
-http.listen(9000, function(){  console.log('listening on *:9000');});
+http.listen(3000, function(){  console.log('listening on *:3000');});
