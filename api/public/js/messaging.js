@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     if (localStorage.getItem('uid') === '0') {
         $(location).attr('href', 'login');
-        console.log(localStorage.getItem('uid'));
     }
     $(document).delegate('#logout', 'click', function (e) {
         $(location).attr('href', '/login');
@@ -38,6 +37,9 @@ $(document).ready(function () {
         //     sender_id: "test",
         //     text: "test"
         // });
+
+        var username = $('#username').val()
+        console.log($('#username').val());
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats');
