@@ -33,7 +33,10 @@ router.post('/', function(req, res) {
 	sql2 = sql2.slice(0, -1);
 	sql2+=')';
 	connection.query(sql2, function(err2, rows2, fields2){
-		if(err2){return}
+		if(err2){
+		res.setHeader('Content-Type', 'application/json');
+		res.end(JSON.stringify([{class_id:-1,title:'none',days:'0000000',time:'4:00p-5:20p',course_num:'CSE None',section:1}]));
+		return}
 		let finished = rows2;
 		finished.forEach(function(element){
 			element.days = dec2bin(element.days.readInt8());
