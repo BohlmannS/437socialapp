@@ -20,7 +20,7 @@ $(document).ready(function () {
         // var msgText = textInput.value;
         // myFirebase.set(msgText);
         // textInput.value = "";
-
+        console.log("helloooo");
         var testUser = "test";
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
