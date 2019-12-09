@@ -155,7 +155,7 @@ img{ max-width:100%;}
   width: 33px;
 }
 .messaging { padding: 0 0 50px 0;}
-.msg_history {
+#msg_history {
   height: 516px;
   overflow-y: auto;
 }
