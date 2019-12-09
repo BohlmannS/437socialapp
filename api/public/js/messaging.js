@@ -38,8 +38,8 @@ $(document).ready(function () {
         //     text: "test"
         // });
 
-        var username = $('#username').val()
-        console.log($('#username').val());
+        var username = $('#username').val();
+        console.log(username);
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats');
