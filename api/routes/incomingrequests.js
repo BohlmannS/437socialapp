@@ -18,8 +18,7 @@ connection.connect(function(err) {
 router.post('/', function(req, res) {
     let sql = 'Select req_from from requests where status=0 and req_to=\'' + req.body.uid + '\'';
     connection.query(sql, function(err, rows, fields){
-        if(err){
-                //console.log("Error occured in query");
+        if(err || rows.length===0){
                 res.setHeader('Content-Type', 'application/json');
                 res.end(JSON.stringify([{username:'',first_name:'',last_name:''}]));
                 return;
