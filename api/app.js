@@ -15,6 +15,7 @@ var verify = require("./routes/verify");
 var reverify = require("./routes/reverify");
 var friendsearch = require("./routes/friendsearch");
 var classdata = require("./routes/classdata");
+var gridview = require("./routes/gridview");
 
 //app.use(express.urlencoded());
 app.use(express.json());
@@ -65,5 +66,6 @@ app.use('/iosmyclasses', iosmyclasses);
 app.use('/verify', verify);
 app.use('/friendsearch', friendsearch);
 app.use('/classdata', classdata);
+app.use('/gridview', gridview);
 
 http.listen(3000, function(){  console.log('listening on *:3000');});

@@ -1,17 +1,31 @@
 $(document).ready(function(){
+	var currentView = 0;
+	var listView = '';
+	var gridView = '<a id="switch-view" style="color:#CC1219; cursor:pointer;">Switch to List View</a><p>Grid View</p>';
 	if(localStorage.getItem('uid') === '0'){
                         $(location).attr('href', 'login');
 	}
 	$(document).delegate('#logout', 'click', function(e){
                         $(location).attr('href', '/login');
                 })
+	$(document).delegate('#switch-view', 'click', function(e){
+		if(currentView === 0){
+			currentView = 1;
+			$('#class-data').html(gridView);
+		}
+		else{
+			currentView = 0;
+			$('#class-data').html(listView);
+		}
+	})
+	const gridData = fetchGridData({uid: localStorage.getItem('uid')});
+	gridData.then(function(data){
+		gridView += data;
+	})
 	const myclasses = fetchClassData({uid: localStorage.getItem('uid')});
 	var classList = {};
 	var classArray = [];
 	myclasses.then(function(data){
-		//console.log("got data back: ");
-		//console.log(data);
-		//console.log(data[1]);
 		if(data.length !== 0){
 			classList = data[0][0];
 		}
@@ -28,6 +42,10 @@ $(document).ready(function(){
 				i++;
 			}
 		}
+		if(updateClasses !== '<p style="color:black">You have no classes :( Please input a schedule.</p>'){
+			updateClasses = '<a id="switch-view" style="color:#CC1219;cursor:pointer;">Switch To Grid View</a></p>' + updateClasses;
+		}
+		listView = updateClasses;
 		$('#class-data').html(updateClasses);
 	}).then(function(data){
 		if(classList.class1 !== null){
@@ -39,19 +57,11 @@ $(document).ready(function(){
 		const friendSchedule = fetchFriendData({uid: localStorage.getItem('uid'), classList: classList});
 		var updateSchedule = '';
 		friendSchedule.then(function(data){
-			//console.log('got data back 2: ');
-			//console.log(data);
-			//console.log(data[0]);
-			//console.log(classList);
-			//console.log(classArray);
 			if (data.length === 0){
 				updateSchedule = '<p style="color:black">you have no friends, or no friends in any classes</p>';
 			}
 			else{
 				updateSchedule = '<p style="color:black">';
-				//console.log(classList);
-				//console.log(classArray);
-				console.log(data);
 				var j = -1;
 				for (var prop3 in classList){
 					j++;
@@ -106,4 +116,14 @@ async function fetchFriendData(data){
 		body: JSON.stringify(data)
 		})
 		return await response.json();
+	}
+async function fetchGridData(data){
+	const response = await fetch('/gridview',{
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json'
+	},
+	body: JSON.stringify(data)
+	})
+	return await response.json();
 	}
