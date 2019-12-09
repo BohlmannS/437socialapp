@@ -38,7 +38,7 @@ $(document).ready(function () {
         //     text: "test"
         // });
 
-        console.log(localStorage.getItem('uid').value);
+        console.log(data[0].uid);
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats');
