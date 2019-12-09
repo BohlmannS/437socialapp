@@ -24,14 +24,18 @@ $(document).ready(function () {
         // myFirebase.set(msgText);
         // textInput.value = "";
 
-        var newPostRef = postListRef.push();
-        newPostRef.set({
-            name: "test",
-            sender_id: "test",
-            text: "test"
-        });
+        // var newPostRef = postListRef.push();
+        // newPostRef.set({
+        //     name: "test",
+        //     sender_id: "test",
+        //     text: "test"
+        // });
+
+        const preObject = document.getElementById('object');
+        const dbRefObject = firebase.database().ref.child('object');
+        dbRefObject.on('value', snap => console.log(snap.val()));
         console.log("send button clicked");
-        var testUser = "test";
+        // var testUser = "test";
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
     });
