@@ -16,6 +16,7 @@ var reverify = require("./routes/reverify");
 var friendsearch = require("./routes/friendsearch");
 var classdata = require("./routes/classdata");
 var gridview = require("./routes/gridview");
+var frienddataios = require("./routes/frienddataios");
 
 //app.use(express.urlencoded());
 app.use(express.json());
@@ -52,6 +53,7 @@ app.get('/register', function(req, res){
 	res.sendFile(__dirname + '/public/register.html');
 });
 
+app.use('/frienddataios', frienddataios);
 app.use('/reverify', reverify);
 app.use('/loginrequest', login);
 app.use('/registerrequest', register);

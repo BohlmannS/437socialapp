@@ -44,7 +44,6 @@ router.post('/', function(req, res) {
 				element.days = '0'+element.days;
 			}
 		});
-		console.log(finished);
 		res.setHeader('Content-Type', 'application/json');
 		res.end(JSON.stringify(finished));
 	})
@@ -57,4 +56,3 @@ function dec2bin(dec){
 }
 
 module.exports = router;
-
