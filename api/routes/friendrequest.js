@@ -16,7 +16,6 @@ connection.connect(function(err) {
 });
 
 
-
 router.post('/', function(req, res) {
     let sql = 'Select uid from users where username=\'' + req.body.friendName + '\'';
     connection.query(sql, function(err, rows, fields){
@@ -49,8 +48,12 @@ router.post('/', function(req, res) {
 				res.end(JSON.stringify({response: 1}));
 				return;
 			}
-			res.setHeader('Content-Type', 'application/json');
-			res.end(JSON.stringify({response: 0}));
+			let sql3 = 'delete from requests where req_to=\''+req.body.uid+'\' and req_from=\''+rows[0].uid+'\'';
+			connection.query(sql3, function(err3, rows3, fields3){
+				if(err3){return}
+				res.setHeader('Content-Type', 'application/json');
+				res.end(JSON.stringify({response: 0}));
+			})
 		})} 
 	}
 	else{
@@ -62,4 +65,3 @@ router.post('/', function(req, res) {
 });
 
 module.exports = router;
-

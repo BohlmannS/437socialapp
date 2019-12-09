@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	var currentView = 0;
 	var listView = '';
-	var gridView = '<a id="switch-view" style="color:#CC1219; cursor:pointer;">Switch to List View</a><p>Grid View</p>';
+	var gridView = '<a id="switch-view" style="color:#CC1219; cursor:pointer;">Switch to List View</a>';
 	if(localStorage.getItem('uid') === '0'){
                         $(location).attr('href', 'login');
 	}

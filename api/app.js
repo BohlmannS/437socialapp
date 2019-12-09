@@ -17,8 +17,9 @@ var friendsearch = require("./routes/friendsearch");
 var classdata = require("./routes/classdata");
 var gridview = require("./routes/gridview");
 var frienddataios = require("./routes/frienddataios");
+var friendrequestext = require("./routes/friendrequestext");
+var incomingrequests = require("./routes/incomingrequests");
 
-//app.use(express.urlencoded());
 app.use(express.json());
 
 app.use('*/js',express.static('public/js'));
@@ -53,6 +54,8 @@ app.get('/register', function(req, res){
 	res.sendFile(__dirname + '/public/register.html');
 });
 
+app.use('/incomingrequests', incomingrequests);
+app.use('/friendrequestext', friendrequestext);
 app.use('/frienddataios', frienddataios);
 app.use('/reverify', reverify);
 app.use('/loginrequest', login);
