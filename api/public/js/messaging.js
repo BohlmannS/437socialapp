@@ -26,6 +26,11 @@ $(document).ready(function () {
     // Get a reference to the database service
     var database = firebase.database();
 
+    const currentUser = fetchUser({uid: localStorage.getItem('uid')});
+    currentUser.then(function(data) {
+        console.log(data);
+    })
+
     postButton.addEventListener("click", function () {
         // var msgText = textInput.value;
         // myFirebase.set(msgText);
@@ -75,3 +80,14 @@ $(document).ready(function () {
     // beginListening();
 
 })
+
+async function fetchUser(data){
+	const response = await fetch('/messagingdata',{
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+		})
+	return await response.json();
+	}
