@@ -16,11 +16,21 @@ $(document).ready(function () {
     var textInput = document.querySelector(".write_msg");
     var postButton = document.querySelector(".msg_send_btn");
 
+    // Get a reference to the database service
+    var database = firebase.database();
+
     postButton.addEventListener("click", function () {
         // var msgText = textInput.value;
         // myFirebase.set(msgText);
         // textInput.value = "";
-        console.log("helloooo");
+
+        var newPostRef = postListRef.push();
+        newPostRef.set({
+            name: "test",
+            sender_id: "test",
+            text: "test"
+        });
+        console.log("send button clicked");
         var testUser = "test";
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
