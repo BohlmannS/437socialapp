@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+    if (localStorage.getItem('uid') === '0') {
+        $(location).attr('href', 'login');
+        console.log(localStorage.getItem('uid'));
+    }
+    $(document).delegate('#logout', 'click', function (e) {
+        $(location).attr('href', '/login');
+    })
+
     var firebaseConfig = {
         apiKey: "AIzaSyCygtuUxUGItCvV7UkDRCHrnBjjQQQnP8o",
         authDomain: "fir-messaging-app-86905.firebaseapp.com",
@@ -35,9 +43,9 @@ $(document).ready(function () {
         const dbRefObject = firebase.database().ref().child('chats');
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
-        dbRefObject.orderByChild("text").on("child_added", function(snapshot) {
+        dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
             console.log(snapshot.key + " was " + snapshot.val().name + " meters tall");
-          });
+        });
         console.log("send button clicked");
         // var testUser = "test";
 
