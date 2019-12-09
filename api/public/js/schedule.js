@@ -28,6 +28,7 @@ $(document).ready(function(){
 })
 
 async function fetchScheduleData(data){
+	console.log('sent schedule');
 	const response = await fetch('/inputschedule',{
 	method:'POST',
 	headers:{'Content-Type': 'application/json'},

@@ -74,7 +74,8 @@ router.post('/', function(req, res){
 	if(sql === 'insert into classes (title, days, time, course_num, section) values'){
 		//all classes are in table, no insertion needed.
 		connection.query(sql2, function(err2, rows2, fields2){
-			if(err2){return}
+			if(err2){console.log(err2)
+				return}
 			//console.log(rows2);
 			let sql3 = 'insert into schedules (uid,';
 			let vals = [];
@@ -106,7 +107,7 @@ router.post('/', function(req, res){
 			if(err4){return}
 			connection.query(sql2, function(err2, rows2, fields2){
                         if(err2){return}
-                        console.log(rows2);
+                        //console.log(rows2);
                         let sql3 = 'insert into schedules (uid,';
                         let vals = [];
                         for(var l = 0; l < rows2.length; l++){
