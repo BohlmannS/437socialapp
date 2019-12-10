@@ -93,7 +93,7 @@ $(document).ready(function () {
 
         dbRefObject.once('value').then(function (snapshot) {
             if (snapshot.val()) {
-                console.log(snapshot.val().text);
+                console.log(snapshot.key);
             } else {
                 console.log('/whatever/whateverProperty node does not exist!');
             }
