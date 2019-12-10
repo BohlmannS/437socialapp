@@ -265,8 +265,8 @@ $(document).ready(function () {
             sender_id: myUsername,
             text: textInput.value
         }).then(() => {
-            dbRefObject.once("child_added").then(function (snapshot) {
-            // dbRefObject.on("child_added", function (snapshot) {
+            // dbRefObject.once("child_added").then(function (snapshot) {
+            dbRefObject.on("child_added", function (snapshot) {
                 // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
     
                 
