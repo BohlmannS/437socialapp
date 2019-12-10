@@ -141,10 +141,7 @@ img {
   float: left;
   padding: 30px 15px 0 25px;
   width: 60%;
-  height: 500px;
-  max-height: 500px;
-  overflow-y: scroll; 
-  position: relative;
+  overflow: auto;
 }
 
  .sent_msg p {
