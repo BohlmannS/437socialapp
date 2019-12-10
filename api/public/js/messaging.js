@@ -78,7 +78,7 @@ $(document).ready(function () {
 
             if (snapshot.val().name == myUsername) {
                 var sentMessage = document.createElement("p");
-                sentMessage.textContent = snapshot.val().text;
+                sentMessage.textContent = snapshot.val().name;
                 preObject.appendChild(sentMessage);
             }
         });
