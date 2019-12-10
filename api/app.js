@@ -20,6 +20,7 @@ var frienddataios = require("./routes/frienddataios");
 var friendrequestext = require("./routes/friendrequestext");
 var incomingrequests = require("./routes/incomingrequests");
 var messagingdata = require("./routes/messagingdata");
+var course = require("./routes/course");
 
 app.use(express.json());
 
@@ -34,10 +35,6 @@ app.get('/login', function(req, res){
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/login.html');
 });
-
-//app.get('/login_style', function(req, res){
-//	res.sendFile(__dirname + '/public/login_style.css');
-//});
 
 app.get('/home_index', function(req, res){  
   res.sendFile(__dirname + '/public/home_index.html');
@@ -55,6 +52,11 @@ app.get('/register', function(req, res){
 	res.sendFile(__dirname + '/public/register.html');
 });
 
+app.get('/class_index', function(req, res){
+	res.sendFile(__dirname + '/public/class_index.html');
+});
+
+app.use('/course', course);
 app.use('/messagingdata', messagingdata);
 app.use('/incomingrequests', incomingrequests);
 app.use('/friendrequestext', friendrequestext);
@@ -75,4 +77,4 @@ app.use('/friendsearch', friendsearch);
 app.use('/classdata', classdata);
 app.use('/gridview', gridview);
 
-http.listen(3000, function(){  console.log('listening on *:3000');});
+http.listen(9000, function(){  console.log('listening on *:3000');});

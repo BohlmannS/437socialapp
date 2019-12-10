@@ -39,7 +39,7 @@ $(document).ready(function(){
 		else{
 			var i = 1;
 			for (var prop1 in data[1]){
-				updateClasses+='<p style="color:black">'+data[1][prop1]+'</p><br>';
+				updateClasses+='<p style="color:black" onclick="classPage(\''+data[1][prop1]+'\')">'+data[1][prop1]+'</p><br>';
 				classArray.push({[classList['class'+i]] : data[1][prop1]});
 				i++;
 			}
@@ -98,6 +98,12 @@ $(document).ready(function(){
 		}
 	})
 })
+
+function classPage(data){
+	let str = data.replace(/\s+/g,'-');
+	str = '/class_index?class=' + str;
+	window.location.href = str;
+}
 
 async function fetchClassData(data){
         const response = await fetch('/myclasses',{
