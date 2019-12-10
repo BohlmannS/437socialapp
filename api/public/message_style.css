@@ -1,3 +1,9 @@
+#friendtest {
+  position: relative;
+  cursor: pointer;
+  z-index: 10;
+}
+
 body {
     background-color: #fafafa;
 }
@@ -14,8 +20,15 @@ body {
     color: darkred;
 }
 
-.container{max-width:1170px; margin:auto;}
-img{ max-width:100%;}
+.container{
+  max-width:1170px; 
+  margin:auto;
+}
+
+img { 
+  max-width:100%;
+}
+
 .inbox_people {
   background: #f8f8f8 none repeat scroll 0 0;
   float: left;
@@ -37,15 +50,23 @@ img{ max-width:100%;}
   clear: both;
   overflow: hidden;
 }
-.top_spac{ margin: 20px 0 0;}
+
+.top_spac{ 
+  margin: 20px 0 0;
+}
 
 
-.recent_heading {float: left; width:40%;}
+.recent_heading {
+  float: left; 
+  width:40%;
+}
 .srch_bar {
   display: inline-block;
   text-align: right;
-  width: 60%; padding:
+  width: 60%; 
+  /* padding: */
 }
+
 .headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
 
 .recent_heading h4 {
@@ -81,6 +102,8 @@ img{ max-width:100%;}
   border-bottom: 1px solid #c4c4c4;
   margin: 0;
   padding: 18px 16px 10px;
+  position: relative;
+  z-index: 10;
 }
 .inbox_chat { height: 550px; overflow-y: scroll;}
 

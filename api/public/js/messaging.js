@@ -31,7 +31,7 @@ $(document).ready(function () {
     //     console.log(data[0]);
     // })
 
-    // var classname = document.getElementsByClassName("chat_list");
+    var classname = document.getElementsByClassName("chat_list");
     // function getFriend() {
     //     // var attribute = this.getAttribute("data-myattribute");
     //     // alert(attribute);
@@ -42,21 +42,21 @@ $(document).ready(function () {
     //     // alert(attribute);
     // };
 
-    // for (var i = 0; i < classname.length; i++) {
-    //     console.log(i);
-    //     classname[i].addEventListener("click", function () {
-    //         console.log("friend clicked");
-    //         console.log(classname.textContent);
-    //     });
-    // }
+    for (var i = 0; i < classname.length; i++) {
+        console.log(i);
+        classname[i].addEventListener("click", function () {
+            console.log("friend clicked");
+            console.log(classname.textContent);
+        });
+    }
 
-    var userSelection = document.getElementsByClassName('friendtest');
+    // var userSelection = document.getElementsByClassName('friendtest');
 
-    var test = document.getElementById("friendtest");
-    test.addEventListener("click", function () {
-        alert("clickkkkk");
-        console.log("clickckksdfkwfwef");
-    })
+    // var test = document.getElementById("friendtest");
+    // test.addEventListener("click", function () {
+    //     alert("clickkkkk");
+    //     console.log("clickckksdfkwfwef");
+    // })
 
     // for(let i = 0; i < userSelection.length; i++) {
     //   userSelection[i].addEventListener("click", function() {
