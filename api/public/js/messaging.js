@@ -92,8 +92,8 @@ $(document).ready(function () {
             // snapshot.forEach(function (child) {
                 // var exists = true;
 
-                console.log(child(chatLog));
-                if (!(child(chatLog).exists())) {
+                console.log(snapshot.child(chatLog));
+                if (!(snapshot.child(chatLog).exists())) {
 
                     chatLogObject.push({
                         chatLog: null
