@@ -32,9 +32,9 @@ $(document).ready(function () {
     // })
 
     // var friend = document.querySelector(".chat_ib")[0];
-    var friend = document.getElementsByClassName(".chat_ib")[0];
+    var friend = document.getElementsByClassName('.chat_ib')[0];
 
-    friend.addEventListener("click", function () {
+    friend.addEventListener("click", function (event) {
         console.log(friend.textContent);
         console.log("friend clicked")
     });
