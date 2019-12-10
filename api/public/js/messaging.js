@@ -126,7 +126,7 @@ $(document).ready(function () {
                 if (child.val().sender_id == myUsername) {
                     user.textContent = (myUsername + ":");
                 }
-                else {
+                else if (child.val().friend_id == friendUsername){
                     user.textContent = (friendUsername + ":");
                 }
                 sentMessage.textContent = child.val().text;
@@ -298,7 +298,7 @@ $(document).ready(function () {
                 if (snapshot.child("sender_id").val() == myUsername) {
                     user.textContent = (myUsername + ":");
                 }
-                else {
+                else if (snapshot.child("friend_id").val() == friendUsername){
                     user.textContent = (friendUsername + ":");
                 }
                 sentMessage.textContent = snapshot.child("text").val();
