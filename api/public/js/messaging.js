@@ -52,11 +52,17 @@ $(document).ready(function () {
 
     var userSelection = document.getElementsByClassName('friendtest');
 
-    for(let i = 0; i < userSelection.length; i++) {
-      userSelection[i].addEventListener("click", function() {
-        console.log("Clicked index: " + i);
-      })
-    }
+    var test = document.getElementById("friendtest");
+    test.addEventListener("click", function () {
+        alert("clickkkkk");
+        console.log("clickckksdfkwfwef");
+    })
+
+    // for(let i = 0; i < userSelection.length; i++) {
+    //   userSelection[i].addEventListener("click", function() {
+    //     console.log("Clicked index: " + i);
+    //   })
+    // }
     // var friend = document.getElementsByClassName('.chat_ib')[0];
 
     // friend.addEventListener("click", function () {
