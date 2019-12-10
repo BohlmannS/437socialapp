@@ -97,9 +97,9 @@ $(document).ready(function () {
                 console.log("not EXIST");
                 chatLogObject.child(chatLog).set(
                     {
-                        friend_id: "new",
-                        sender_id: "new",
-                        text: "new"
+                        new: "new",
+                        new: "new",
+                        new: "new"
                     }
                 );
             }
