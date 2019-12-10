@@ -403,13 +403,15 @@ $(document).ready(function () {
     // }
 
 
-    window.setInterval( function(){
+    window.setInterval(function () {
         if (chatLog != "") {
+            $('.visible_messages').remove();
+            $('.message_by_user').remove();
             console.log("beginListening");
             console.log(chatLog);
             const preObject = document.getElementById('object');
             const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
-    
+
             dbRefObject.on("child_added", function (snapshot) {
                 console.log(snapshot.child("text").val());
                 var user = document.createElement("p");
@@ -430,7 +432,7 @@ $(document).ready(function () {
                 preObject.appendChild(sentMessage);
             });
         }
-      },10)
+    }, 10)
 
 
 })
