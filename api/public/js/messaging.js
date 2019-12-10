@@ -44,7 +44,7 @@ $(document).ready(function () {
     };
 
     for (var i = 0; i < classname.length; i++) {
-        classname[i].addEventListener('click', getFriend(), false);
+        classname[i].addEventListener("click", getFriend(), false);
     }
 
     var friend = document.querySelector(".chat_list");
