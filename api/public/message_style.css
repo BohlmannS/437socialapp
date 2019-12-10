@@ -163,9 +163,10 @@ img {
   color: #4c4c4c;
   font-size: 15px;
   min-height: 48px;
-  width: 50%;
-  margin-top: 500px;
-  margin-left: 20px;
+  width: 90%;
+  /* margin-top: 500px; */
+  margin-left: 50px;
+  margin-bottom: 30px;
 }
 
 .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
