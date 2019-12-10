@@ -92,7 +92,7 @@ $(document).ready(function () {
             // snapshot.forEach(function (child) {
                 // var exists = true;
 
-                console.log(snapshot.child(chatLog));
+                console.log(snapshot.child(chatLog).val());
                 if (!(snapshot.child(chatLog).exists())) {
 
                     chatLogObject.push({
