@@ -8,14 +8,13 @@ $(document).ready(function () {
     })
 
     var firebaseConfig = {
-        apiKey: "AIzaSyCygtuUxUGItCvV7UkDRCHrnBjjQQQnP8o",
-        authDomain: "fir-messaging-app-86905.firebaseapp.com",
-        databaseURL: "https://fir-messaging-app-86905.firebaseio.com",
-        projectId: "fir-messaging-app-86905",
-        storageBucket: "fir-messaging-app-86905.appspot.com",
-        messagingSenderId: "812660206927",
-        appId: "1:812660206927:web:c6a0690980ebdae4ce293a",
-        measurementId: "G-J72MYFVE6Y"
+        apiKey: "AIzaSyDz0pWf_WwsPdiCDzALANXjFxyENX2Xloc",
+        authDomain: "bearconnect-f8f4e.firebaseapp.com",
+        databaseURL: "https://bearconnect-f8f4e.firebaseio.com",
+        projectId: "bearconnect-f8f4e",
+        storageBucket: "bearconnect-f8f4e.appspot.com",
+        messagingSenderId: "138060711341",
+        appId: "1:138060711341:web:41441828d326b55bdf8d24"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
@@ -31,15 +30,17 @@ $(document).ready(function () {
 
     var friendUsername = '';
 
+    var compareUsernames = myUsername.localeCompare(friendUsername); 
+    var chatLog = '';
 
-    var startChat = document.querySelector(".recent_heading").addEventListener("click", function() {
+    var startChat = document.querySelector(".recent_heading").addEventListener("click", function () {
         for (var i = 0; i <= classname.length; i++) {
             classname[i].addEventListener("click", function () {
                 // var index = i; 
                 // console.log(classname[i].querySelector(".friend").text);
                 // console.log(index);
                 var index = $(this).index('.chat_list');
-    
+
                 // $('.friend').click(function () {
                 //     var index = $(this).index('.friend')
                 //     console.log($(this).index('.friend'));
@@ -48,6 +49,31 @@ $(document).ready(function () {
                 console.log(friends[index].innerText);
             });
         }
+
+        if (compareUsernames < 0) {
+            chatLog = myUsername + " -- " + friendUsername;
+        }
+        else {
+            chatLog = friendUsername + " -- " + myUsername;
+        }
+
+        const preObject = document.getElementById('object');
+        const dbRefObject = firebase.database().ref().child('chats').child('chatLog');
+
+        dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
+            console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
+
+            // var sentMessage = document.createElement("p");
+            // sentMessage.textContent = snapshot.val().name;
+            // preObject.appendChild(sentMessage);
+
+            if (snapshot.val().sender_id == myUsername) {
+                var sentMessage = document.createElement("p");
+                sentMessage.textContent = snapshot.val().text;
+                preObject.appendChild(sentMessage);
+            }
+        });
+
     })
 
     var myUsername = '';
@@ -99,6 +125,20 @@ $(document).ready(function () {
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
     });
+
+
+    // An alphabet "n" comes before "z" which 
+    // gives a negative value 
+
+    // Alphabetically the word "gfg" comes after 
+    // "geeksforgeeks" which gives a positive value 
+    b = 'gfg'.localeCompare('geeksforgeeks');
+    document.write(b + '<br>')
+
+    // "gfg" and "gfg" are equivalent which 
+    // gives a value of zero(0) 
+    c = 'a'.localeCompare('a');
+    document.write(c)
 
     // var beginListening = function () {
     //     myFirebase.on('child_added', function (snapshot) {
