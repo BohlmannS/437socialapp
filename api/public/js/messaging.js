@@ -32,8 +32,9 @@ $(document).ready(function () {
     // })
 
     const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
-	// currentUser.then(function (data) {
-    // })
+	currentUser.then(function (data) {
+        console.log(data);
+    })
 
     postButton.addEventListener("click", function () {
         // var msgText = textInput.value;
