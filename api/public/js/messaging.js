@@ -32,19 +32,21 @@ $(document).ready(function () {
     // })
 
     var classname = document.getElementsByClassName("chat_list");
+    // function getFriend() {
+    //     // var attribute = this.getAttribute("data-myattribute");
+    //     // alert(attribute);
+    //     console.log("friend clicked");
+    //     console.log(classname.textContent);
 
-    function getFriend() {
-        // var attribute = this.getAttribute("data-myattribute");
-        // alert(attribute);
-        console.log("friend clicked");
-        console.log(classname.textContent);
-
-        // var attribute = this.getAttribute("data-myattribute");
-        // alert(attribute);
-    };
+    //     // var attribute = this.getAttribute("data-myattribute");
+    //     // alert(attribute);
+    // };
 
     for (var i = 0; i < classname.length; i++) {
-        classname[i].addEventListener("click", getFriend(), false);
+        classname[i].addEventListener("click", function() {
+            console.log("friend clicked");
+            console.log(classname.textContent);
+        });
     }
 
     var friend = document.querySelector(".chat_list");
