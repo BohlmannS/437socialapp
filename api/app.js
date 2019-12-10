@@ -20,6 +20,7 @@ var frienddataios = require("./routes/frienddataios");
 var friendrequestext = require("./routes/friendrequestext");
 var incomingrequests = require("./routes/incomingrequests");
 var messagingdata = require("./routes/messagingdata");
+var friend = require("./routes/friend");
 
 app.use(express.json());
 
@@ -55,6 +56,7 @@ app.get('/register', function(req, res){
 	res.sendFile(__dirname + '/public/register.html');
 });
 
+app.use('/friend', friend);
 app.use('/messagingdata', messagingdata);
 app.use('/incomingrequests', incomingrequests);
 app.use('/friendrequestext', friendrequestext);
