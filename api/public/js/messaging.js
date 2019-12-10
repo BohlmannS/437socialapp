@@ -63,9 +63,9 @@ $(document).ready(function () {
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
         dbRefObject.push({
-            name: "test",
+            name: myUsername,
             sender_id: "test",
-            text: "test"
+            text: textInput
         })
 
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
