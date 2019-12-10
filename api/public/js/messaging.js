@@ -92,8 +92,8 @@ $(document).ready(function () {
 
 
         dbRefObject.once('value').then(function (snapshot) {
-            snapshot.forEach(messageSnapshot => {
-                console.log(messageSnapshot.val().text);
+            snapshot.forEach(function(child) {
+                console.log(child.val().text);
             });
 
 
