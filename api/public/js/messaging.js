@@ -89,7 +89,7 @@ $(document).ready(function () {
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
 
         dbRefObject.on("child_added", function (snapshot) {
-            console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
+            // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
 
             // var sentMessage = document.createElement("p");
             // sentMessage.textContent = snapshot.val().name;
@@ -194,7 +194,7 @@ $(document).ready(function () {
         })
 
         dbRefObject.on("child_added", function (snapshot) {
-            console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
+            // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
 
             // var sentMessage = document.createElement("p");
             // sentMessage.textContent = snapshot.val().name;
