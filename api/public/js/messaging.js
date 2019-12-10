@@ -301,10 +301,10 @@ $(document).ready(function () {
                 else {
                     user.textContent = (friendUsername + ":");
                 }
-                sentMessage.textContent = child.val().text;
+                sentMessage.textContent = snapshot.child("text").val();
                 sentMessage.className = "visible_messages";
                 //     console.log(snapshot.child("text").val());
-                console.log(child.val().text);
+                // console.log(child.val().text);
                 preObject.appendChild(user);
                 preObject.appendChild(sentMessage);
                 // if (snapshot.child("sender_id").val() == myUsername) {
