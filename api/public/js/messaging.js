@@ -174,7 +174,14 @@ $(document).ready(function () {
             sentMessage.textContent = snapshot.child("text").val();
             sentMessage.className = "visible_messages";
             console.log(snapshot.child("text").val());
-            preObject.appendChild(sentMessage);
+
+            if (snapshot.child("sender_id".val) == myUsername) {
+                preObject.appendChild(myUsername + ": " + sentMessage);
+            }
+            else {
+                preObject.appendChild(friendUsername + ": " + sentMessage);
+            }
+            // preObject.appendChild(sentMessage);
         });
         console.log("send button clicked");
         // var testUser = "test";
