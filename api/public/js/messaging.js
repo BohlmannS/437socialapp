@@ -41,6 +41,9 @@ $(document).ready(function () {
 
     var startChat = document.querySelector(".recent_heading");
 
+
+
+
     $(".inbox_chat .chat_list").click(function () {
 
         $('.visible_messages').remove();
@@ -132,6 +135,8 @@ $(document).ready(function () {
     // })
 
     postButton.addEventListener("click", function () {
+
+        $('.visible_messages').remove();
         // var msgText = textInput.value;
         // myFirebase.set(msgText);
         // textInput.value = "";
