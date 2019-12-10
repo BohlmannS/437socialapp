@@ -96,7 +96,7 @@ $(document).ready(function () {
 // }
 
 async function fetchFriendList(data) {
-	const response = await fetch('/frienddata', {
+	const response = await fetch('/messagingdata', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
