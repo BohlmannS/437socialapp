@@ -19,6 +19,7 @@ var gridview = require("./routes/gridview");
 var frienddataios = require("./routes/frienddataios");
 var friendrequestext = require("./routes/friendrequestext");
 var incomingrequests = require("./routes/incomingrequests");
+var messagingdata = require("./routes/messagingdata");
 
 app.use(express.json());
 
