@@ -89,28 +89,40 @@ $(document).ready(function () {
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
-        
-        dbRefObject.once('value', function (snapshot) {
-             console.log("in if statemnt");
-            // snapshot.forEach(function (childSnapshot) {
-            var sentMessage = document.createElement("p");
-            // if (snapshot.child("sender_id").val() == myUsername) {
-            //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
-            // }
-            // else {
-            //     sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
-            // }
-            sentMessage.textContent = snapshot.child("text").val();
-            sentMessage.className = "visible_messages";
-            console.log(snapshot.child("text").val());
-            // if (snapshot.child("sender_id").val() == myUsername) {
-            //     preObject.appendChild(myUsername + ": " + sentMessage);
-            // }
-            // else {
-            //     preObject.appendChild(friendUsername + ": " + sentMessage);
-            // }
-            preObject.appendChild(sentMessage);
+
+
+        dbRefObject.once('value').then(function (snapshot) {
+            if (snapshot.val()) {
+                console.log(snapshot.child("text").val());
+            } else {
+                console.log('/whatever/whateverProperty node does not exist!');
+            }
+        }, function (error) {
+            // The Promise was rejected.
+            console.log(error);
         });
+
+        // dbRefObject.once('value', function (snapshot) {
+        //     console.log("in if statemnt");
+        //     // snapshot.forEach(function (childSnapshot) {
+        //     var sentMessage = document.createElement("p");
+        //     // if (snapshot.child("sender_id").val() == myUsername) {
+        //     //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
+        //     // }
+        //     // else {
+        //     //     sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
+        //     // }
+        //     sentMessage.textContent = snapshot.child("text").val();
+        //     sentMessage.className = "visible_messages";
+        //     console.log(snapshot.child("text").val());
+        //     // if (snapshot.child("sender_id").val() == myUsername) {
+        //     //     preObject.appendChild(myUsername + ": " + sentMessage);
+        //     // }
+        //     // else {
+        //     //     preObject.appendChild(friendUsername + ": " + sentMessage);
+        //     // }
+        //     preObject.appendChild(sentMessage);
+        // });
 
         // dbRefObject.on("child_added", function (snapshot) {
         //     // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
