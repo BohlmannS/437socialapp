@@ -80,7 +80,13 @@ $(document).ready(function () {
             sentMessage.textContent = snapshot.child("text").val();
             sentMessage.className = "visible_messages";
             console.log(snapshot.child("text").val());
-            preObject.appendChild(sentMessage);
+            if (snapshot.child("sender_id".val()) == myUsername) {
+                preObject.appendChild(myUsername + ": " + sentMessage);
+            }
+            else {
+                preObject.appendChild(friendUsername + ": " + sentMessage);
+            }
+            // preObject.appendChild(sentMessage);
             // });
             // console.log("in if statemnt");
             // var sentMessage = document.createElement("p");
@@ -175,7 +181,7 @@ $(document).ready(function () {
             sentMessage.className = "visible_messages";
             console.log(snapshot.child("text").val());
 
-            if (snapshot.child("sender_id".val) == myUsername) {
+            if (snapshot.child("sender_id".val()) == myUsername) {
                 preObject.appendChild(myUsername + ": " + sentMessage);
             }
             else {
