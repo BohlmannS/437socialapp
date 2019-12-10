@@ -270,6 +270,8 @@ $(document).ready(function () {
         dbRefObject.on("child_added", function (snapshot) {
             // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
 
+            console.log(snapshot.child("text").val());
+
             // var sentMessage = document.createElement("p");
             // sentMessage.textContent = snapshot.val().name;
             // preObject.appendChild(sentMessage);
@@ -289,7 +291,7 @@ $(document).ready(function () {
             // }
             sentMessage.textContent = snapshot.child("text").val();
             sentMessage.className = "visible_messages";
-            console.log(snapshot.child("text").val());
+            // console.log(snapshot.child("text").val());
             preObject.appendChild(sentMessage);
         });
         console.log("send button clicked");
