@@ -95,7 +95,7 @@ $(document).ready(function () {
             console.log(snapshot.child(chatLog).key);
             if (!(snapshot.child(chatLog).exists())) {
                 console.log("not EXIST");
-                chatLogObject.child(chatLog).setValue(
+                chatLogObject.child(chatLog).set(
                     {
                         friend_id: "new",
                         sender_id: "new",
