@@ -121,7 +121,8 @@ $(document).ready(function () {
 
                 var user = document.createElement("p");
                 var sentMessage = document.createElement("p");
-                if (snapshot.child("sender_id").val() == myUsername) {
+                console.log(child.val().sender_id);
+                if (child.val().sender_id == myUsername) {
                     user.textContent = (myUsername + ":");
                 }
                 else {
@@ -131,7 +132,7 @@ $(document).ready(function () {
                 sentMessage.className = "visible_messages";
                 //     console.log(snapshot.child("text").val());
                 console.log(child.val().text);
-                preObject.appendChild(user);
+                // preObject.appendChild(user);
                 preObject.appendChild(sentMessage);
             });
 
