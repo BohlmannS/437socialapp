@@ -19,6 +19,28 @@ $(document).ready(function () {
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
+    //load your friends
+    var friendList = {};
+	const fList = fetchFriendList({ uid: localStorage.getItem('uid') });
+	fList.then(function (data) {
+		var updateList = '';
+		if (data.length === 0) {
+			updateList = "";
+		}
+		else {
+			data.forEach(function (element) {
+				updateList += '<p style="color:black">' + element.username + '</p><br>';
+			})
+		}
+		$('#friend-data').html(updateList);
+    })
+    
+    var entireFriendContainer = document.querySelector(".inbox_chat");
+    var chatList = document.createElement('div');
+    chatList.className("class_list");
+
+
+
     var textInput = document.querySelector(".write_msg");
     var postButton = document.querySelector(".msg_send_btn");
 
@@ -169,7 +191,7 @@ $(document).ready(function () {
             text: textInput.value
         })
 
-        dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
+        dbRefObject.on("child_added", function (snapshot) {
             console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
 
             // var sentMessage = document.createElement("p");
@@ -243,4 +265,15 @@ async function fetchUser(data) {
         body: JSON.stringify(data)
     })
     return await response.json();
+}
+
+async function fetchFriendList(data) {
+	const response = await fetch('/frienddata', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	})
+	return await response.json();
 }
