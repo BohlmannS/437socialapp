@@ -105,7 +105,7 @@ $(document).ready(function () {
                 console.log("not EXIST");
                 chatLogObject.set(
                     {
-                        chatLog
+                        chatLog: null
                     }
                 );
             }
