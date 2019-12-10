@@ -103,11 +103,9 @@ $(document).ready(function () {
             console.log(snapshot.child(chatLog).key);
             if (!(snapshot.child(chatLog).exists())) {
                 console.log("not EXIST");
-                chatLogObject.child(chatLog).set(
+                chatLogObject.set(
                     {
-                        new: "new",
-                        new: "new",
-                        new: "new"
+                        chatLog: ""
                     }
                 );
             }
