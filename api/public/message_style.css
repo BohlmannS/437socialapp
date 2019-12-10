@@ -164,6 +164,7 @@ img {
   min-height: 48px;
   width: 50%;
   margin-top: 500px;
+  position: relative;
 }
 
 .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
