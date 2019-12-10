@@ -139,16 +139,6 @@ $(document).ready(function () {
                 preObject.appendChild(user);
                 preObject.appendChild(sentMessage);
             });
-
-
-            //     if (snapshot.val()) {
-            //         console.log(snapshot.key);
-            //     } else {
-            //         console.log('/whatever/whateverProperty node does not exist!');
-            //     }
-            // }, function (error) {
-            //     // The Promise was rejected.
-            //     console.log(error);
         });
 
         // dbRefObject.once('value', function (snapshot) {
@@ -279,47 +269,50 @@ $(document).ready(function () {
             sender_id: myUsername,
             text: textInput.value
         }).then(() => {
-            // dbRefObject.once("child_added").then(function (snapshot) {
-            dbRefObject.on("child_added", function (snapshot) {
-                // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
-
-
-                console.log(snapshot.child("text").val());
-
-                // var sentMessage = document.createElement("p");
-                // sentMessage.textContent = snapshot.val().name;
-                // preObject.appendChild(sentMessage);
-
-                // if (snapshot.val().sender_id == myUsername) {
-                //     var sentMessage = document.createElement("p");
-                //     sentMessage.textContent = snapshot.val().text;
-                //     preObject.appendChild(sentMessage);
-                // }
-                var user = document.createElement("p");
-                user.className = "message_by_user"
-                var sentMessage = document.createElement("p");
-                if (snapshot.child("sender_id").val() == myUsername) {
-                    user.textContent = (myUsername + ":");
-                }
-                else if (snapshot.child("sender_id").val() == friendUsername){
-                    user.textContent = (friendUsername + ":");
-                } 
-                else {
-                    user.textContent = "";
-                }
-                sentMessage.textContent = snapshot.child("text").val();
-                sentMessage.className = "visible_messages";
-                //     console.log(snapshot.child("text").val());
-                // console.log(child.val().text);
-                preObject.appendChild(user);
-                preObject.appendChild(sentMessage);
-                // if (snapshot.child("sender_id").val() == myUsername) {
-                //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
-                // }
-                // else {
-                //     sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
-                // }
+            dbRefObject.once('value').then(function (snapshot) {
+                snapshot.forEach(function (child) {
+    
+                    var user = document.createElement("p");
+                    user.className = "message_by_user"
+                    var sentMessage = document.createElement("p");
+                    console.log(child.val().sender_id);
+                    if (child.val().sender_id == myUsername) {
+                        user.textContent = (myUsername + ":");
+                    }
+                    else if (child.val().sender_id == friendUsername){
+                        user.textContent = (friendUsername + ":");
+                    }
+                    else {
+                        user.textContent = "";
+                    }
+                    sentMessage.textContent = child.val().text;
+                    sentMessage.className = "visible_messages";
+                    //     console.log(snapshot.child("text").val());
+                    console.log(child.val().text);
+                    preObject.appendChild(user);
+                    preObject.appendChild(sentMessage);
+                });
             });
+            // dbRefObject.on("child_added", function (snapshot) {
+            //     console.log(snapshot.child("text").val());
+            //     var user = document.createElement("p");
+            //     user.className = "message_by_user"
+            //     var sentMessage = document.createElement("p");
+            //     if (snapshot.child("sender_id").val() == myUsername) {
+            //         user.textContent = (myUsername + ":");
+            //     }
+            //     else if (snapshot.child("sender_id").val() == friendUsername){
+            //         user.textContent = (friendUsername + ":");
+            //     } 
+            //     else {
+            //         user.textContent = "";
+            //     }
+            //     sentMessage.textContent = snapshot.child("text").val();
+            //     sentMessage.className = "visible_messages";
+            //     preObject.appendChild(user);
+            //     preObject.appendChild(sentMessage);
+
+            // });
         })
 
         // dbRefObject.once('value').then(function (snapshot) {
