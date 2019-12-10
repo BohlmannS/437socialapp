@@ -200,7 +200,7 @@ $(document).ready(function () {
                 preObject.appendChild(sentMessage);
             });
         }
-    }, 5
+    }, 5)
 
 
 })
