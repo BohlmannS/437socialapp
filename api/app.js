@@ -55,6 +55,7 @@ app.get('/register', function(req, res){
 	res.sendFile(__dirname + '/public/register.html');
 });
 
+app.use('/messagingdata', messagingdata);
 app.use('/incomingrequests', incomingrequests);
 app.use('/friendrequestext', friendrequestext);
 app.use('/frienddataios', frienddataios);
