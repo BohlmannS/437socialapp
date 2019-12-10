@@ -50,7 +50,7 @@ $(document).ready(function () {
     //     });
     // }
 
-    var userSelection = document.getElementsByClassName('friend');
+    var userSelection = document.getElementsByClassName('friendtest');
 
     for(let i = 0; i < userSelection.length; i++) {
       userSelection[i].addEventListener("click", function() {
