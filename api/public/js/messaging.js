@@ -119,17 +119,19 @@ $(document).ready(function () {
         dbRefObject.once('value').then(function (snapshot) {
             snapshot.forEach(function (child) {
 
+                var user = document.createElement("p");
                 var sentMessage = document.createElement("p");
-                //     // if (snapshot.child("sender_id").val() == myUsername) {
-                //     //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
-                //     // }
-                //     // else {
-                //     //     sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
-                //     // }
+                if (snapshot.child("sender_id").val() == myUsername) {
+                    user.textContent = (myUsername + ":");
+                }
+                else {
+                    user.textContent = (friendUsername + ":");
+                }
                 sentMessage.textContent = child.val().text;
                 sentMessage.className = "visible_messages";
                 //     console.log(snapshot.child("text").val());
                 console.log(child.val().text);
+                preObject.appendChild(user);
                 preObject.appendChild(sentMessage);
             });
 
