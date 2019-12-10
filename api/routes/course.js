@@ -58,11 +58,11 @@ router.post('/', function(req, res){
 			response.otherSection = '';
 			rows4.forEach(function(e){
 				if(sectionOrNot(rows3[0].section, course, e)){
-					response.yourSection = response.yourSection + '<p style="cursor:pointer;" onclick="friendPage(\''+e.username+'\')">';
+					response.yourSection = response.yourSection + '<p onclick="friendPage(\''+e.username+'\')">';
 					response.yourSection+=e.first_name + ' ' + e.last_name + '</p><br>';
 				}
 				else{
-					 response.otherSection = response.otherSection + '<p style="cursor:pointer;" onclick="friendPage(\''+e.username+'\')">';
+					 response.otherSection = response.otherSection + '<p onclick="friendPage(\''+e.username+'\')">';
 					response.otherSection+= e.first_name + ' ' + e.last_name + ' - Section ' + whichSection(course, e) + '</p><br>';
 				}
 			})

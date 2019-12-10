@@ -26,11 +26,11 @@ $(document).ready(function(){
 
 })
 
-function friendPage(data){
+/*function friendPage(data){
 	let str = data.replace(/\s+/g,'-');
 	str = '/friend_profile_index?friend=' + str;
 	window.location.href=str;
-}
+}*/
 
 async function fetchClassData(data){
         const response = await fetch('/course',{
