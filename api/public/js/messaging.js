@@ -401,7 +401,7 @@ $(document).ready(function () {
     //     window.setInterval(beginListening, 1000);
 
     // }
-    while(chatLog != null) {
+    while(chatLog != "") {
         console.log("beginListening");
         console.log(chatLog);
         const preObject = document.getElementById('object');
