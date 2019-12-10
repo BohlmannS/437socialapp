@@ -30,14 +30,6 @@ $(document).ready(function () {
 
     var friendUsername = '';
 
-    var myUsername = '';
-
-    const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
-    currentUser.then(function (data) {
-        myUsername = data[0].username;
-        console.log(data[0].username);
-    })
-
     var compareUsernames = myUsername.localeCompare(friendUsername); 
     var chatLog = '';
 
@@ -82,6 +74,14 @@ $(document).ready(function () {
             }
         });
 
+    })
+
+    var myUsername = '';
+
+    const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
+    currentUser.then(function (data) {
+        myUsername = data[0].username;
+        console.log(data[0].username);
     })
 
     postButton.addEventListener("click", function () {
