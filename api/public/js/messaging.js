@@ -58,7 +58,7 @@ $(document).ready(function () {
         }
 
         const preObject = document.getElementById('object');
-        const dbRefObject = firebase.database().ref("chats/" + chatLog);
+        const dbRefObject = firebase.database().ref().child('chat');
 
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
             console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
@@ -71,8 +71,8 @@ $(document).ready(function () {
                 console.log("in if statemnt");
                 // snapshot.forEach(function (childSnapshot) {
                 var sentMessage = document.createElement("p");
-                sentMessage.textContent = childSnapshot.val();
-                console.log(childSnapshot.val());
+                sentMessage.textContent = snapshot.child("text").val();
+                console.log(snapshot.child("text").val());
                 preObject.appendChild(sentMessage);
                 // });
                 // console.log("in if statemnt");
