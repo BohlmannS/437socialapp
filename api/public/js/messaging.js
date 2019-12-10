@@ -268,7 +268,7 @@ $(document).ready(function () {
             friend_id: friendUsername,
             sender_id: myUsername,
             text: textInput.value
-        }
+        })
         // ).then(() => {
             // dbRefObject.once('value').then(function (snapshot) {
             //     snapshot.forEach(function (child) {
