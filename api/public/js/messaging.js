@@ -87,6 +87,25 @@ $(document).ready(function () {
             console.log(chatLog);
         }
 
+        var exists = true;
+        const chatLogObject = firebase.database().ref().child('chats');
+        chatLogObject.once('value').then(function (snapshot) {
+            snapshot.forEach(function (child) {
+                // var exists = true;
+                if(child.key == chatLog) {
+                    break;
+                }
+                else {
+                    exists = false;
+                }
+            });
+        });
+        if(exists == false ){
+            chatLogObject.push({
+                chatLog: null;
+            })
+        }
+
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
 
