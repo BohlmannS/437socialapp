@@ -61,7 +61,7 @@ $(document).ready(function () {
         const dbRefObject = firebase.database().ref().child('chats');
 
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
-            console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
+            console.log(snapshot.key + " was " + snapshot.sender_id + " meters tall");
 
             // var sentMessage = document.createElement("p");
             // sentMessage.textContent = snapshot.val().name;
