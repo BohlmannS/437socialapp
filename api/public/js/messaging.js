@@ -260,8 +260,6 @@ $(document).ready(function () {
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
-        var messages = [];
-
         dbRefObject.push({
             friend_id: friendUsername,
             sender_id: myUsername,
@@ -298,7 +296,7 @@ $(document).ready(function () {
         // var testUser = "test";
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
-    }).off();
+    });
 
     // var beginListening = function () {
     //     myFirebase.on('child_added', function (snapshot) {
