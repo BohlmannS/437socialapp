@@ -89,8 +89,8 @@ $(document).ready(function () {
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
-
-        dbRefObject.once('value').then(function(snapshot) {
+        
+        dbRefObject.on("child_added", function (snapshot) {
              console.log("in if statemnt");
             // snapshot.forEach(function (childSnapshot) {
             var sentMessage = document.createElement("p");
