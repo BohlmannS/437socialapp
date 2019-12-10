@@ -317,15 +317,15 @@ $(document).ready(function () {
             //     preObject.appendChild(sentMessage);
 
             // });
-        })
+        });
 
         // dbRefObject.once('value').then(function (snapshot) {
 
-        console.log("send button clicked");
+        // console.log("send button clicked");
         // var testUser = "test";
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
-    });
+    // });
 
     var beginListening = function () {
         const preObject = document.getElementById('object');
@@ -370,6 +370,8 @@ $(document).ready(function () {
     // }
 
     beginListening();
+    
+    }
 
 })
 
