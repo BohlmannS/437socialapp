@@ -92,8 +92,20 @@ $(document).ready(function () {
 
 
         dbRefObject.once('value').then(function (snapshot) {
-            snapshot.forEach(function(child) {
+            snapshot.forEach(function (child) {
+
+                var sentMessage = document.createElement("p");
+                //     // if (snapshot.child("sender_id").val() == myUsername) {
+                //     //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
+                //     // }
+                //     // else {
+                //     //     sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
+                //     // }
+                sentMessage.textContent = child.val().text;
+                sentMessage.className = "visible_messages";
+                //     console.log(snapshot.child("text").val());
                 console.log(child.val().text);
+                preObject.appendChild(sentMessage);
             });
 
 
