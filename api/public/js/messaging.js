@@ -35,9 +35,9 @@ $(document).ready(function () {
 		$('#friend-data').html(updateList);
     })
     
-    var entireFriendContainer = document.querySelector(".inbox_chat");
-    var chatList = document.createElement('div');
-    chatList.className("class_list");
+    // var entireFriendContainer = document.querySelector(".inbox_chat");
+    // var chatList = document.createElement('div');
+    // chatList.className("class_list");
 
 
 
