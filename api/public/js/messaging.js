@@ -380,52 +380,53 @@ $(document).ready(function () {
     //         preObject.appendChild(sentMessage);
 
     //     });
-        //     myFirebase.on('child_added', function (snapshot) {
-        //         var msg = snapshot.val();
+    //     myFirebase.on('child_added', function (snapshot) {
+    //         var msg = snapshot.val();
 
-        //         // var msgUsernameElement = document.createELement("b");
-        //         // msgUsernameELement.textContent = msg.name;
+    //         // var msgUsernameElement = document.createELement("b");
+    //         // msgUsernameELement.textContent = msg.name;
 
-        //         var msgTextElement = document.createElement("p");
-        //         msgTextElement.textContent = msg.text;
-        //         var sentMsgElement = document.createElement("div");
-        //         sentMsgElement.appendChild(msgTextElement);
-        //         sentMsgElement.className = "sent_msg";
-        //         var outgoingMsgElement = document.createElement("div");
-        //         outgoingMsgElement.appendChild(sentMsgElement);
-        //         outgoingMsgElement.className = "outgoing_msg";
-        //         document.getElementById("msg_history").appendChild(msgElement);
-        //     });
-        // }
+    //         var msgTextElement = document.createElement("p");
+    //         msgTextElement.textContent = msg.text;
+    //         var sentMsgElement = document.createElement("div");
+    //         sentMsgElement.appendChild(msgTextElement);
+    //         sentMsgElement.className = "sent_msg";
+    //         var outgoingMsgElement = document.createElement("div");
+    //         outgoingMsgElement.appendChild(sentMsgElement);
+    //         outgoingMsgElement.className = "outgoing_msg";
+    //         document.getElementById("msg_history").appendChild(msgElement);
+    //     });
+    // }
 
     //     window.setInterval(beginListening, 1000);
 
     // }
+    while(chatLog != null) {
+        console.log("beginListening");
+        console.log(chatLog);
+        const preObject = document.getElementById('object');
+        const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
 
-    console.log("beginListening");
-    console.log(chatLog);
-    const preObject = document.getElementById('object');
-    const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
-
-    dbRefObject.on("child_added", function (snapshot) {
-        console.log(snapshot.child("text").val());
-        var user = document.createElement("p");
-        user.className = "message_by_user"
-        var sentMessage = document.createElement("p");
-        if (snapshot.child("sender_id").val() == myUsername) {
-            user.textContent = (myUsername + ":");
-        }
-        else if (snapshot.child("sender_id").val() == friendUsername) {
-            user.textContent = (friendUsername + ":");
-        }
-        else {
-            user.textContent = "";
-        }
-        sentMessage.textContent = snapshot.child("text").val();
-        sentMessage.className = "visible_messages";
-        preObject.appendChild(user);
-        preObject.appendChild(sentMessage);
-    });
+        dbRefObject.on("child_added", function (snapshot) {
+            console.log(snapshot.child("text").val());
+            var user = document.createElement("p");
+            user.className = "message_by_user"
+            var sentMessage = document.createElement("p");
+            if (snapshot.child("sender_id").val() == myUsername) {
+                user.textContent = (myUsername + ":");
+            }
+            else if (snapshot.child("sender_id").val() == friendUsername) {
+                user.textContent = (friendUsername + ":");
+            }
+            else {
+                user.textContent = "";
+            }
+            sentMessage.textContent = snapshot.child("text").val();
+            sentMessage.className = "visible_messages";
+            preObject.appendChild(user);
+            preObject.appendChild(sentMessage);
+        });
+    }
 
 })
 
