@@ -23,6 +23,7 @@ var messagingdata = require("./routes/messagingdata");
 var friend = require("./routes/friend");
 var myclassesnew = require("./routes/myclassesnew");
 var course = require("./routes/course");
+var friendrequestdel = require("./routes/friendrequestdel");
 
 app.use(express.json());
 
@@ -62,6 +63,7 @@ app.get('/class_index', function(req, res){
 	res.sendFile(__dirname + '/public/class_index.html');
 });
 
+app.use('/friendrequestdel', friendrequestdel);
 app.use('/course', course);
 app.use('/myclassesnew', myclassesnew);
 app.use('/friend', friend);
