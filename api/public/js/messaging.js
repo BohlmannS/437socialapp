@@ -41,51 +41,55 @@ $(document).ready(function () {
 
     var startChat = document.querySelector(".recent_heading");
 
-    classname.addEventListener("click", function () {
+    $(".inbox_chat .chat_list").click(function() {
+        var index = $(this).index();
+        console.log(index);
+        friendUsername = friends[index].innerText;
+        console.log(friends[index].innerText);
+    });
+    // classname.addEventListener("click", function () {
         // for (var i = 0; i <= classname.length; i++) {
             // classname[i].addEventListener("click", function () {
                 // var index = i; 
                 // console.log(classname[i].querySelector(".friend").text);
                 // console.log(index);
-                var index = $(this).index('.chat_list');
+                // var index = $(this).index('.chat_list');
 
                 // $('.friend').click(function () {
                 //     var index = $(this).index('.friend')
                 //     console.log($(this).index('.friend'));
                 // });
-                friendUsername = friends[index].innerText;
-                console.log(friends[index].innerText);
             // });
         // }
 
-        var compareUsernames = myUsername.localeCompare(friendUsername); 
-        if (compareUsernames < 0) {
-            chatLog = myUsername + " -- " + friendUsername;
-            console.log(chatLog);
-        }
-        else {
-            chatLog = friendUsername + " -- " + myUsername;
-            console.log(chatLog);
-        }
+    //     var compareUsernames = myUsername.localeCompare(friendUsername); 
+    //     if (compareUsernames < 0) {
+    //         chatLog = myUsername + " -- " + friendUsername;
+    //         console.log(chatLog);
+    //     }
+    //     else {
+    //         chatLog = friendUsername + " -- " + myUsername;
+    //         console.log(chatLog);
+    //     }
 
-        const preObject = document.getElementById('object');
-        const dbRefObject = firebase.database().ref().child('chats').child('chatLog');
+    //     const preObject = document.getElementById('object');
+    //     const dbRefObject = firebase.database().ref().child('chats').child('chatLog');
 
-        dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
-            console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
+    //     dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
+    //         console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
 
-            // var sentMessage = document.createElement("p");
-            // sentMessage.textContent = snapshot.val().name;
-            // preObject.appendChild(sentMessage);
+    //         // var sentMessage = document.createElement("p");
+    //         // sentMessage.textContent = snapshot.val().name;
+    //         // preObject.appendChild(sentMessage);
 
-            if (snapshot.val().sender_id == myUsername) {
-                var sentMessage = document.createElement("p");
-                sentMessage.textContent = snapshot.val().text;
-                preObject.appendChild(sentMessage);
-            }
-        });
+    //         if (snapshot.val().sender_id == myUsername) {
+    //             var sentMessage = document.createElement("p");
+    //             sentMessage.textContent = snapshot.val().text;
+    //             preObject.appendChild(sentMessage);
+    //         }
+    //     });
 
-    })
+    // })
 
     postButton.addEventListener("click", function () {
         // var msgText = textInput.value;
