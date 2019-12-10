@@ -31,7 +31,7 @@ $(document).ready(function () {
     //     console.log(data[0]);
     // })
 
-    var classname = document.getElementsByClassName("chat_list");
+    // var classname = document.getElementsByClassName("chat_list");
     // function getFriend() {
     //     // var attribute = this.getAttribute("data-myattribute");
     //     // alert(attribute);
@@ -42,16 +42,24 @@ $(document).ready(function () {
     //     // alert(attribute);
     // };
 
-    for (var i = 0; i < classname.length; i++) {
-        console.log(i);
-        classname[i].addEventListener("click", function() {
-            console.log("friend clicked");
-            console.log(classname.textContent);
-        });
-    }
+    // for (var i = 0; i < classname.length; i++) {
+    //     console.log(i);
+    //     classname[i].addEventListener("click", function () {
+    //         console.log("friend clicked");
+    //         console.log(classname.textContent);
+    //     });
+    // }
 
     var friend = document.querySelector(".chat_list");
     console.log(friend);
+
+    var userSelection = document.getElementsByClassName('chat_list');
+
+    for (let i = 0; i < userSelection.length; i++) {
+        userSelection[i].addEventListener("click", function () {
+            console.log("Clicked index: " + i);
+        })
+    }
     // var friend = document.getElementsByClassName('.chat_ib')[0];
 
     // friend.addEventListener("click", function () {
