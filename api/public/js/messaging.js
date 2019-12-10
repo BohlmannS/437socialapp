@@ -70,8 +70,8 @@ $(document).ready(function () {
             if (snapshot.key == chatLog) {
                 console.log("in if statemnt");
                 var sentMessage = document.createElement("p");
-                sentMessage.textContent = snapshot.child(chatLog).child("text").val();
-                console.log(snapshot.child(chatLog).child("text").val());
+                sentMessage.textContent = snapshot.childSnapshot.child("text").val();
+                console.log(snapshot.childSnapshot.child("text").val());
                 preObject.appendChild(sentMessage);
             }
         });
