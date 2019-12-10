@@ -265,8 +265,8 @@ $(document).ready(function () {
         //     text: textInput.value
         // })
 
-        dbRefObject.once('value').then(function (snapshot) {
-        // dbRefObject.on("child_added", function (snapshot) {
+        // dbRefObject.once('value').then(function (snapshot) {
+        dbRefObject.on("child_added", function (snapshot) {
             // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
 
             // var sentMessage = document.createElement("p");
@@ -301,7 +301,7 @@ $(document).ready(function () {
         // var testUser = "test";
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
-    });
+    }).off();
 
     // var beginListening = function () {
     //     myFirebase.on('child_added', function (snapshot) {
