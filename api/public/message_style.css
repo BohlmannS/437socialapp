@@ -186,3 +186,7 @@ img {
   height: 516px;
   overflow-y: auto;
 }
+
+.message_by_user {
+  font-weight: bold;
+}
