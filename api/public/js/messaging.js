@@ -92,14 +92,19 @@ $(document).ready(function () {
 
 
         dbRefObject.once('value').then(function (snapshot) {
-            if (snapshot.val()) {
-                console.log(snapshot.key);
-            } else {
-                console.log('/whatever/whateverProperty node does not exist!');
-            }
-        }, function (error) {
-            // The Promise was rejected.
-            console.log(error);
+            snapshot.forEach(messageSnapshot => {
+                console.log(messageSnapshot.val().text);
+            });
+
+
+            //     if (snapshot.val()) {
+            //         console.log(snapshot.key);
+            //     } else {
+            //         console.log('/whatever/whateverProperty node does not exist!');
+            //     }
+            // }, function (error) {
+            //     // The Promise was rejected.
+            //     console.log(error);
         });
 
         // dbRefObject.once('value', function (snapshot) {
