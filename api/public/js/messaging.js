@@ -57,6 +57,8 @@ $(document).ready(function () {
             console.log(chatLog);
         }
 
+        $('#object').empty();
+
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
 
