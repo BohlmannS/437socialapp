@@ -38,6 +38,9 @@ $(document).ready(function () {
         // alert(attribute);
         console.log("friend clicked");
         console.log(classname.textContent);
+
+        var attribute = this.getAttribute("data-myattribute");
+        alert(attribute);
     };
 
     for (var i = 0; i < classname.length; i++) {
