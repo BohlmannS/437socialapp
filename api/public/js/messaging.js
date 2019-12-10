@@ -71,7 +71,7 @@ $(document).ready(function () {
                 var sentMessage = document.createElement("p");
                 sentMessage.textContent = snapshot.val().text;
                 preObject.appendChild(sentMessage);
-            // }
+            }
         });
         // classname.addEventListener("click", function () {
         // for (var i = 0; i <= classname.length; i++) {
