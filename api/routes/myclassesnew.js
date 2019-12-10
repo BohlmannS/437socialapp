@@ -63,7 +63,7 @@ router.post('/', function(req, res) {
 		let sql3 = 'select greater from friends where lower='+req.body.uid + ' union select lower from friends where greater='+req.body.uid;
 		connection.query(sql3, function(err3, rows3, f3){
 		if(err3 || rows3.length===0){
-			resonse.mutualData = 2;
+			response.mutualData = 2;
 			res.setHeader('Content-Type', 'application/json');
 			res.end(JSON.stringify(response));
 			return;
