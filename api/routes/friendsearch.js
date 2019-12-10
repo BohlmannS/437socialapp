@@ -17,7 +17,7 @@ connection.connect(function(err) {
 router.post('/', function(req, res) {
 //	console.log(req.body);
         let uid = req.body.uid;
-    let sql = 'select username from users where uid <> ' + uid;
+    let sql = 'select username, first_name, last_name from users where uid <> ' + uid;
     //console.log('sql: ',sql);
     connection.query(sql, function(err, rows, fields){
         if(err){
