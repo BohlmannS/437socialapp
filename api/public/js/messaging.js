@@ -31,21 +31,24 @@ $(document).ready(function () {
 
     var friendUsername = '';
 
-    for (var i = 0; i <= classname.length; i++) {
-        classname[i].addEventListener("click", function () {
-            // var index = i; 
-            // console.log(classname[i].querySelector(".friend").text);
-            // console.log(index);
-            var index = $(this).index('.chat_list');
 
-            // $('.friend').click(function () {
-            //     var index = $(this).index('.friend')
-            //     console.log($(this).index('.friend'));
-            // });
-            friendUsername = friends[index].innerText;
-            console.log(friends[index].innerText);
-        });
-    }
+    var startChat = document.querySelector(".recent_heading").addEventListener("click", function() {
+        for (var i = 0; i <= classname.length; i++) {
+            classname[i].addEventListener("click", function () {
+                // var index = i; 
+                // console.log(classname[i].querySelector(".friend").text);
+                // console.log(index);
+                var index = $(this).index('.chat_list');
+    
+                // $('.friend').click(function () {
+                //     var index = $(this).index('.friend')
+                //     console.log($(this).index('.friend'));
+                // });
+                friendUsername = friends[index].innerText;
+                console.log(friends[index].innerText);
+            });
+        }
+    })
 
     var myUsername = '';
 
