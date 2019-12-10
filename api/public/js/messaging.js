@@ -21,20 +21,20 @@ $(document).ready(function () {
 
     //load your friends
     var friendList = {};
-	const fList = fetchFriendList({ uid: localStorage.getItem('uid') });
-	fList.then(function (data) {
-		var updateList = '';
-		if (data.length === 0) {
-			updateList = "";
-		}
-		else {
-			data.forEach(function (element) {
-				updateList += '<p style="color:black">' + element.username + '</p><br>';
-			})
-		}
-		$('#friend-data').html(updateList);
+    const fList = fetchFriendList({ uid: localStorage.getItem('uid') });
+    fList.then(function (data) {
+        var updateList = '';
+        if (data.length === 0) {
+            updateList = "";
+        }
+        else {
+            data.forEach(function (element) {
+                updateList += '<p style="color:black">' + element.username + '</p><br>';
+            })
+        }
+        $('#friend-data').html(updateList);
     })
-    
+
     // var entireFriendContainer = document.querySelector(".inbox_chat");
     // var chatList = document.createElement('div');
     // chatList.className("class_list");
@@ -90,14 +90,7 @@ $(document).ready(function () {
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
 
-        dbRefObject.on("child_added", function (snapshot) {
-            // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
-
-            // var sentMessage = document.createElement("p");
-            // sentMessage.textContent = snapshot.val().name;
-            // preObject.appendChild(sentMessage);
-
-            // if (snapshot.key == chatLog) {
+        dbRefObject.once('value').then(function (snapshot) {
             console.log("in if statemnt");
             // snapshot.forEach(function (childSnapshot) {
             var sentMessage = document.createElement("p");
@@ -117,14 +110,43 @@ $(document).ready(function () {
             //     preObject.appendChild(friendUsername + ": " + sentMessage);
             // }
             preObject.appendChild(sentMessage);
-            // });
-            // console.log("in if statemnt");
-            // var sentMessage = document.createElement("p");
-            // sentMessage.textContent = snapshot.childSnapshot.child("text").val();
-            // console.log(snapshot.childSnapshot.child("text").val());
-            // preObject.appendChild(sentMessage);
-            // }
         });
+
+        // dbRefObject.on("child_added", function (snapshot) {
+        //     // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
+
+        //     // var sentMessage = document.createElement("p");
+        //     // sentMessage.textContent = snapshot.val().name;
+        //     // preObject.appendChild(sentMessage);
+
+        //     // if (snapshot.key == chatLog) {
+        //     console.log("in if statemnt");
+        //     // snapshot.forEach(function (childSnapshot) {
+        //     var sentMessage = document.createElement("p");
+        //     // if (snapshot.child("sender_id").val() == myUsername) {
+        //     //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
+        //     // }
+        //     // else {
+        //     //     sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
+        //     // }
+        //     sentMessage.textContent = snapshot.child("text").val();
+        //     sentMessage.className = "visible_messages";
+        //     console.log(snapshot.child("text").val());
+        //     // if (snapshot.child("sender_id").val() == myUsername) {
+        //     //     preObject.appendChild(myUsername + ": " + sentMessage);
+        //     // }
+        //     // else {
+        //     //     preObject.appendChild(friendUsername + ": " + sentMessage);
+        //     // }
+        //     preObject.appendChild(sentMessage);
+        //     // });
+        //     // console.log("in if statemnt");
+        //     // var sentMessage = document.createElement("p");
+        //     // sentMessage.textContent = snapshot.childSnapshot.child("text").val();
+        //     // console.log(snapshot.childSnapshot.child("text").val());
+        //     // preObject.appendChild(sentMessage);
+        //     // }
+        // });
     });
     // classname.addEventListener("click", function () {
     // for (var i = 0; i <= classname.length; i++) {
@@ -272,12 +294,12 @@ async function fetchUser(data) {
 }
 
 async function fetchFriendList(data) {
-	const response = await fetch('/frienddata', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(data)
-	})
-	return await response.json();
+    const response = await fetch('/frienddata', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    return await response.json();
 }
