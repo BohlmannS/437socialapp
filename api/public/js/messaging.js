@@ -62,6 +62,12 @@ $(document).ready(function () {
         const dbRefObject = firebase.database().ref().child('chats');
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
+        dbRefObject.push({
+            name: "test",
+            sender_id: "test",
+            text: "test"
+        })
+
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
             console.log(snapshot.key + " was " + snapshot.val().name + " meters tall");
 
