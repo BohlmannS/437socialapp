@@ -34,6 +34,7 @@ $(document).ready(function () {
                 friendList[i].innerHTML = element.username;
                 // updateList += '<p style="color:black">' + element.username + '</p><br>';
                 i++;
+                friendList[i].parentNode.parentNode.parentNode.className += (" " + "active_chat");
             });
         }
         // $('#friend-data').html(updateList);
@@ -65,7 +66,6 @@ $(document).ready(function () {
 
     var chatLog = '';
 
-    var startChat = document.querySelector(".recent_heading");
 
 
 
