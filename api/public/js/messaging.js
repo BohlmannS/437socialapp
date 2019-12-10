@@ -91,6 +91,8 @@ $(document).ready(function () {
         chatLogObject.once('value').then(function (snapshot) {
             snapshot.forEach(function (child) {
                 // var exists = true;
+
+                console.log(snapshot.child(chatLog));
                 if (!(snapshot.child(chatLog).exists())) {
 
                     chatLogObject.push({
