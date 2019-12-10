@@ -259,11 +259,11 @@ $(document).ready(function () {
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
-        dbRefObject.push({
-            friend_id: friendUsername,
-            sender_id: myUsername,
-            text: textInput.value
-        })
+        // dbRefObject.push({
+        //     friend_id: friendUsername,
+        //     sender_id: myUsername,
+        //     text: textInput.value
+        // })
 
         dbRefObject.on("child_added", function (snapshot) {
             // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
@@ -291,6 +291,12 @@ $(document).ready(function () {
             preObject.appendChild(sentMessage);
         });
         console.log("send button clicked");
+
+        dbRefObject.push({
+            friend_id: friendUsername,
+            sender_id: myUsername,
+            text: textInput.value
+        })
         // var testUser = "test";
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
