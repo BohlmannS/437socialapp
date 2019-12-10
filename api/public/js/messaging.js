@@ -39,7 +39,9 @@ $(document).ready(function () {
 
     var chatLog = '';
 
-    var startChat = document.querySelector(".recent_heading").addEventListener("click", function () {
+    var startChat = document.querySelector(".recent_heading");
+
+    startChat.addEventListener("click", function () {
         for (var i = 0; i <= classname.length; i++) {
             classname[i].addEventListener("click", function () {
                 // var index = i; 
