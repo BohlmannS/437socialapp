@@ -68,6 +68,8 @@ $(document).ready(function () {
 
     $(".inbox_chat .chat_list").click(function () {
 
+        console.log("SELECTED FRIEND");
+
         $('.visible_messages').remove();
 
         var index = $(this).index();
