@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="class_style.css">
+    <script src="https://kit.fontawesome.com/9ba4d950d1.js" crossorigin="anonymous"></script>
+
+    <title>BearConnect</title>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type='text/javascript' src="/js/class.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <a class="navbar-brand" href="#"><i class="fa fa-home"></i> BearConnect</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home_index.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="schedule_index.html">Input Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="friends_index.html">Friends</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="message_index.html">Message</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="help_index.html">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div id="profile-container">
+                    <h5><span></span>Profile</h5>
+		    <p id="myName">Name: </p>
+                    <p id="myEmail">Email: </p>
+                </div>
+            </div>
+            <div class="col-sm-9">
+		<div id="classTitle"></div>
+		<div id="classSection"></div>
+                <div class="user_classes">
+                    <h4><span></span>Friends In Your Section</h4>
+                    <div id="class-data"></div>
+                </div>
+                <div class="mutual_classes">
+                    <h4>Friends In Other Sections</h4>
+                    <div id="mutual-data"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
