@@ -42,8 +42,8 @@ $(document).ready(function () {
     var startChat = document.querySelector(".recent_heading");
 
     startChat.addEventListener("click", function () {
-        for (var i = 0; i <= classname.length; i++) {
-            classname[i].addEventListener("click", function () {
+        // for (var i = 0; i <= classname.length; i++) {
+        //     classname[i].addEventListener("click", function () {
                 // var index = i; 
                 // console.log(classname[i].querySelector(".friend").text);
                 // console.log(index);
