@@ -37,7 +37,6 @@ $(document).ready(function () {
 
     var friendUsername = '';
 
-    // var compareUsernames = myUsername.localeCompare(friendUsername); 
     var chatLog = '';
 
     var startChat = document.querySelector(".recent_heading").addEventListener("click", function () {
@@ -57,13 +56,15 @@ $(document).ready(function () {
             });
         }
 
+        var compareUsernames = myUsername.localeCompare(friendUsername); 
+        if (compareUsernames < 0) {
+            chatLog = myUsername + " -- " + friendUsername;
+            console.log(chatLog);
+        }
+        else {
             chatLog = friendUsername + " -- " + myUsername;
-        // if (compareUsernames < 0) {
-        //     chatLog = myUsername + " -- " + friendUsername;
-        // }
-        // else {
-        //     chatLog = friendUsername + " -- " + myUsername;
-        // }
+            console.log(chatLog);
+        }
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child('chatLog');
@@ -125,20 +126,6 @@ $(document).ready(function () {
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
     });
-
-
-    // An alphabet "n" comes before "z" which 
-    // gives a negative value 
-
-    // Alphabetically the word "gfg" comes after 
-    // "geeksforgeeks" which gives a positive value 
-    b = 'gfg'.localeCompare('geeksforgeeks');
-    document.write(b + '<br>')
-
-    // "gfg" and "gfg" are equivalent which 
-    // gives a value of zero(0) 
-    c = 'a'.localeCompare('a');
-    document.write(c)
 
     // var beginListening = function () {
     //     myFirebase.on('child_added', function (snapshot) {
