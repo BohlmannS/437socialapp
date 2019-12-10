@@ -78,10 +78,10 @@ $(document).ready(function () {
             // snapshot.forEach(function (childSnapshot) {
             var sentMessage = document.createElement("p");
             if (snapshot.child("sender_id").val() == myUsername) {
-                sentMessage.textContent = (myUsername + ": " + sentMessage);
+                sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
             }
             else {
-                sentMessage.textContent = (friendUsername + ": " + sentMessage);
+                sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
             }
             // sentMessage.textContent = snapshot.child("text").val();
             sentMessage.className = "visible_messages";
@@ -184,10 +184,10 @@ $(document).ready(function () {
 
             var sentMessage = document.createElement("p");
             if (snapshot.child("sender_id").val() == myUsername) {
-                sentMessage.textContent = (myUsername + ": " + sentMessage);
+                sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
             }
             else {
-                sentMessage.textContent = (friendUsername + ": " + sentMessage);
+                sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
             }
             // sentMessage.textContent = snapshot.child("text").val();
             sentMessage.className = "visible_messages";
