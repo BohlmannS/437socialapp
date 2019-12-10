@@ -34,7 +34,7 @@ $(document).ready(function () {
     var myUsername = '';
 
     const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
-	currentUser.then(function (data) {
+    currentUser.then(function (data) {
         myUsername = data[0].username;
         console.log(data[0].username);
     })
@@ -59,9 +59,15 @@ $(document).ready(function () {
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
             console.log(snapshot.key + " was " + snapshot.val().name + " meters tall");
 
-            var sentMessage = document.createElement("p");
-            sentMessage.textContent = snapshot.val().name;
-            preObject.appendChild(sentMessage);
+            // var sentMessage = document.createElement("p");
+            // sentMessage.textContent = snapshot.val().name;
+            // preObject.appendChild(sentMessage);
+
+            if (snapshot.val().name == "Kyle") {
+                var sentMessage = document.createElement("p");
+                sentMessage.textContent = snapshot.val().name;
+                preObject.appendChild(sentMessage);
+            }
         });
         console.log("send button clicked");
         // var testUser = "test";
@@ -104,12 +110,12 @@ $(document).ready(function () {
 // }
 
 async function fetchUser(data) {
-	const response = await fetch('/messagingdata', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(data)
-	})
-	return await response.json();
+    const response = await fetch('/messagingdata', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    return await response.json();
 }
