@@ -88,11 +88,11 @@ $(document).ready(function () {
         var compareUsernames = myUsername.localeCompare(friendUsername);
         if (compareUsernames < 0) {
             chatLog = myUsername + " -- " + friendUsername;
-            console.log(chatLog);
+            // console.log(chatLog);
         }
         else {
             chatLog = friendUsername + " -- " + myUsername;
-            console.log(chatLog);
+            // console.log(chatLog);
         }
 
         const chatLogObject = firebase.database().ref().child('chats');
@@ -355,6 +355,7 @@ $(document).ready(function () {
     function beginListening(chatLog) {
 
         console.log("beginListening");
+        console.log(chatLog);
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
 
