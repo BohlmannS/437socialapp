@@ -31,7 +31,7 @@ $(document).ready(function () {
     //     console.log(data[0]);
     // })
 
-    const currentUser = fetchFriendList({ uid: localStorage.getItem('uid') });
+    const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
 	// currentUser.then(function (data) {
     // })
 
