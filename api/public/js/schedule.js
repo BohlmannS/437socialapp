@@ -10,7 +10,7 @@ $(document).ready(function(){
     $(document).delegate('#schedule-button', 'click', function(e){
        var schedule = $('#user-text').val()
 	 $('#sent-data').html('');
-       const d = fetchScheduleData({schedule: schedule, uid: localStorage.getItem('uid'),name:localStorage.getItem('name')});
+       const d = fetchScheduleData({schedule: schedule, uid: localStorage.getItem('uid')});
        d.then(function(data){
         $('#sent-data').append('<br>' + data);
     })

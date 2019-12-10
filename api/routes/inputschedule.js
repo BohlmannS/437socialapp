@@ -18,9 +18,7 @@ connection.connect(function(err) {
 router.post('/', function(req, res){
 	let left = req.body.schedule;
 	const x = writeSchedule(left);
-	let copy = req.body.schedule;
-	let contains = req.body.scheule.includes(req.body.name);
-	if(x == null !(contains)){
+	if(x == null){
 		res.setHeader('Content-Type', 'application/json');
                 res.end(JSON.stringify('Could not read any classes here. Ensure you are inputting schedule properly'));
 		return;
