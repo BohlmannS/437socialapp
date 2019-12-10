@@ -94,7 +94,7 @@ $(document).ready(function () {
 
                 console.log(snapshot.child(chatLog).key);
                 if (!(snapshot.child(chatLog).exists())) {
-
+                    console.log("not EXIST");
                     chatLogObject.push({
                         chatLog: null
                     })
