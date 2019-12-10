@@ -260,8 +260,8 @@ $(document).ready(function () {
         console.log("in event listener");
 
 
-        // const preObject = document.getElementById('object');
-        // const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
+        const preObject = document.getElementById('object');
+        const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
 
 
         dbRefObject.push({
