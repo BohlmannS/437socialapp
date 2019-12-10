@@ -253,17 +253,18 @@ $(document).ready(function () {
         //     sender_id: "test",
         //     text: "test"
         // });
+        console.log("in event listener");
 
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
-        // dbRefObject.push({
-        //     friend_id: friendUsername,
-        //     sender_id: myUsername,
-        //     text: textInput.value
-        // })
+        dbRefObject.push({
+            friend_id: friendUsername,
+            sender_id: myUsername,
+            text: textInput.value
+        })
 
         // dbRefObject.once('value').then(function (snapshot) {
         dbRefObject.on("child_added", function (snapshot) {
@@ -292,12 +293,6 @@ $(document).ready(function () {
             preObject.appendChild(sentMessage);
         });
         console.log("send button clicked");
-
-        dbRefObject.push({
-            friend_id: friendUsername,
-            sender_id: myUsername,
-            text: textInput.value
-        }) 
         // var testUser = "test";
 
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
