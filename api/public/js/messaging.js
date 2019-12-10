@@ -31,11 +31,11 @@ $(document).ready(function () {
     //     console.log(data[0]);
     // })
 
-    var friend = document.querySelector("#test");
+    var friend = document.querySelector(".chat_list");
     console.log(friend);
     // var friend = document.getElementsByClassName('.chat_ib')[0];
 
-    friend.addEventListener("click", function (event) {
+    friend.addEventListener("click", function () {
         console.log(friend.textContent);
         console.log("friend clicked")
     });
