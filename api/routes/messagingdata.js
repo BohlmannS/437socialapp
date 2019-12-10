@@ -15,8 +15,8 @@ connection.connect(function(err) {
 });
 
 router.post('/', function(req, res) {
-	let username = req.body.username;
-	username = makeUsername(username);
+	// let username = req.body.username;
+	// username = makeUsername(username);
 	
     //let sql = 'Select uid, verified from users where username=\'' + username + '\' and password=\'' +req.body.password+'\'';
     let sql = 'select username from users where uid=\''+ uid +'\'';
