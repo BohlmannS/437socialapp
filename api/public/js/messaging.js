@@ -42,6 +42,9 @@ $(document).ready(function () {
     var startChat = document.querySelector(".recent_heading");
 
     $(".inbox_chat .chat_list").click(function () {
+
+        $('.visible_messages').remove();
+
         var index = $(this).index();
         console.log(index);
         friendUsername = friends[index].innerText;
@@ -56,8 +59,6 @@ $(document).ready(function () {
             chatLog = friendUsername + " -- " + myUsername;
             console.log(chatLog);
         }
-
-        $('#object').empty();
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
@@ -74,6 +75,7 @@ $(document).ready(function () {
             // snapshot.forEach(function (childSnapshot) {
             var sentMessage = document.createElement("p");
             sentMessage.textContent = snapshot.child("text").val();
+            sentMessage.className = "visible_messages";
             console.log(snapshot.child("text").val());
             preObject.appendChild(sentMessage);
             // });
@@ -167,6 +169,7 @@ $(document).ready(function () {
 
             var sentMessage = document.createElement("p");
             sentMessage.textContent = snapshot.child("text").val();
+            sentMessage.className = "visible_messages";
             console.log(snapshot.child("text").val());
             preObject.appendChild(sentMessage);
         });
