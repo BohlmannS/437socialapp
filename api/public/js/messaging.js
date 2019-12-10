@@ -28,11 +28,15 @@ $(document).ready(function () {
             updateList = "";
         }
         else {
+            var i = 0;
             data.forEach(function (element) {
-                updateList += '<p style="color:black">' + element.username + '</p><br>';
-            })
+                var friendList = document.getElementsByClassName("friend");
+                friendList[i].innerHTML = element.username;
+                // updateList += '<p style="color:black">' + element.username + '</p><br>';
+                i++;
+            });
         }
-        $('#friend-data').html(updateList);
+        // $('#friend-data').html(updateList);
     })
 
     // var entireFriendContainer = document.querySelector(".inbox_chat");
@@ -268,20 +272,20 @@ $(document).ready(function () {
             // dbRefObject.once("child_added").then(function (snapshot) {
             dbRefObject.on("child_added", function (snapshot) {
                 // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
-    
-                
+
+
                 console.log(snapshot.child("text").val());
-    
+
                 // var sentMessage = document.createElement("p");
                 // sentMessage.textContent = snapshot.val().name;
                 // preObject.appendChild(sentMessage);
-    
+
                 // if (snapshot.val().sender_id == myUsername) {
                 //     var sentMessage = document.createElement("p");
                 //     sentMessage.textContent = snapshot.val().text;
                 //     preObject.appendChild(sentMessage);
                 // }
-    
+
                 var sentMessage = document.createElement("p");
                 // if (snapshot.child("sender_id").val() == myUsername) {
                 //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
@@ -297,7 +301,7 @@ $(document).ready(function () {
         })
 
         // dbRefObject.once('value').then(function (snapshot) {
-        
+
         console.log("send button clicked");
         // var testUser = "test";
 
