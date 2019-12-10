@@ -28,7 +28,12 @@ $(document).ready(function(){
 	x.then(function(data){
 		$('#class-data').html(data.myData);
 		listView = data.myData;
+		if(data.mutualData === '2' || data.mutualData === 2){
+		$('#mutual-data').html('You have no friends in any classes');
+		}	
+		else{
 		$('#mutual-data').html(data.mutualData);
+		}
 	})
 })
 
