@@ -77,13 +77,13 @@ $(document).ready(function () {
             console.log("in if statemnt");
             // snapshot.forEach(function (childSnapshot) {
             var sentMessage = document.createElement("p");
-            if (snapshot.child("sender_id").val() == myUsername) {
-                sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
-            }
-            else {
-                sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
-            }
-            // sentMessage.textContent = snapshot.child("text").val();
+            // if (snapshot.child("sender_id").val() == myUsername) {
+            //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
+            // }
+            // else {
+            //     sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
+            // }
+            sentMessage.textContent = snapshot.child("text").val();
             sentMessage.className = "visible_messages";
             console.log(snapshot.child("text").val());
             // if (snapshot.child("sender_id").val() == myUsername) {
@@ -183,13 +183,13 @@ $(document).ready(function () {
             // }
 
             var sentMessage = document.createElement("p");
-            if (snapshot.child("sender_id").val() == myUsername) {
-                sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
-            }
-            else {
-                sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
-            }
-            // sentMessage.textContent = snapshot.child("text").val();
+            // if (snapshot.child("sender_id").val() == myUsername) {
+            //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
+            // }
+            // else {
+            //     sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
+            // }
+            sentMessage.textContent = snapshot.child("text").val();
             sentMessage.className = "visible_messages";
             console.log(snapshot.child("text").val());
             preObject.appendChild(sentMessage);
