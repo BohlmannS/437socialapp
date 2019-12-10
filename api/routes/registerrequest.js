@@ -63,7 +63,7 @@ router.post('/', function(req, res) {
         			from: 'bearconnect123@gmail.com',
         			to: email,
         			subject: 'Verification for BearConnect',
-        			text: 'Please Click the link below to verify your account. Link will expire in one hour. \n' + 'http://ec2-3-17-134-90.us-east-2.compute.amazonaws.com:3000/verify?token='+token
+        			text: 'Please Click the link below to verify your account. Link will expire in one hour. \n' + 'http://ec2-3-17-134-90.us-east-2.compute.amazonaws.com:3000/verify?token='+token +'\nIf you have recieved this email by mistake, you can ignore it.'
 			};
 			transporter.sendMail(mailOptions, function(error, info){
 				if(error){
