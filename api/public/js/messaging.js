@@ -30,7 +30,14 @@ $(document).ready(function () {
 
     var friendUsername = '';
 
-    var compareUsernames = myUsername.localeCompare(friendUsername); 
+    var myUsername = '';
+
+    const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
+    currentUser.then(function (data) {
+        myUsername = data[0].username;
+        console.log(data[0].username);
+    })
+
     var chatLog = '';
 
     var startChat = document.querySelector(".recent_heading").addEventListener("click", function () {
@@ -49,6 +56,8 @@ $(document).ready(function () {
                 console.log(friends[index].innerText);
             });
         }
+        
+        var compareUsernames = myUsername.localeCompare(friendUsername); 
 
         if (compareUsernames < 0) {
             chatLog = myUsername + " -- " + friendUsername;
@@ -74,14 +83,6 @@ $(document).ready(function () {
             }
         });
 
-    })
-
-    var myUsername = '';
-
-    const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
-    currentUser.then(function (data) {
-        myUsername = data[0].username;
-        console.log(data[0].username);
     })
 
     postButton.addEventListener("click", function () {
