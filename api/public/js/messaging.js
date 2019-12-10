@@ -31,6 +31,12 @@ $(document).ready(function () {
     //     console.log(data[0]);
     // })
 
+    var friend = document.querySelector(".friend");
+
+    friend.addEventListener("click", function () {
+        console.log(friend.innerHTML);
+    });
+
     var myUsername = '';
 
     const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
