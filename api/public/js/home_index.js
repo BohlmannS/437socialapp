@@ -5,6 +5,8 @@ $(document).ready(function(){
 	if(localStorage.getItem('uid') === '0'){
                         $(location).attr('href', 'login');
 	}
+	$('#myName').text('Name: '+localStorage.getItem('name'));
+	$('#myEmail').text('Email: '+localStorage.getItem('email'));
 	$(document).delegate('#logout', 'click', function(e){
                         $(location).attr('href', '/login');
                 })

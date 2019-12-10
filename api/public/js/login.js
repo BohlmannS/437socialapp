@@ -16,6 +16,8 @@ $(document).ready(function(){
 	else{
 		document.myuid = data[0].uid;
 		localStorage.setItem('uid',data[0].uid);
+		localStorage.setItem('name', data[0].first_name + ' ' + data[0].last_name);
+		localStorage.setItem('email', data[0].email);
 		$(location).attr('href', '/home_index');
 	}
 	});
