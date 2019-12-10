@@ -38,6 +38,7 @@ $(document).ready(function () {
         console.log(data[0].username);
     })
 
+    var compareUsernames = myUsername.localeCompare(friendUsername); 
     var chatLog = '';
 
     var startChat = document.querySelector(".recent_heading").addEventListener("click", function () {
@@ -56,8 +57,6 @@ $(document).ready(function () {
                 console.log(friends[index].innerText);
             });
         }
-        
-        var compareUsernames = myUsername.localeCompare(friendUsername); 
 
         if (compareUsernames < 0) {
             chatLog = myUsername + " -- " + friendUsername;
