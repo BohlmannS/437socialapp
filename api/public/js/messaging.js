@@ -45,9 +45,10 @@ $(document).ready(function () {
 
     for (var i = 0; i < classname.length; i++) {
         classname[i].addEventListener("click", function () {
+            var index = i;
             console.log("friend clicked");
             // console.log(classname[i].querySelector(".friend").text);
-            console.log(i);
+            console.log(index);
             console.log(friends[0].innerText);
         });
     }
