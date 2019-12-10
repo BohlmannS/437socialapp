@@ -43,14 +43,14 @@ $(document).ready(function () {
     //     // alert(attribute);
     // };
 
-    for (var i = 0; i < classname.length; i++) {
+    for (var i = 0; i <= classname.length; i++) {
         classname[i].addEventListener("click", function () {
             var index = i;
             console.log("friend clicked");
             // console.log(classname[i].querySelector(".friend").text);
             console.log(index);
             console.log(friends[0].innerText);
-        });
+        })(i);
     }
 
     // var userSelection = document.getElementsByClassName('friendtest');
