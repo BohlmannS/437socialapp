@@ -35,6 +35,7 @@ $(document).ready(function () {
 
     friend.addEventListener("click", function () {
         console.log(friend.textContent);
+        console.log("friend clicked")
     });
 
     var myUsername = '';
@@ -63,8 +64,8 @@ $(document).ready(function () {
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
         dbRefObject.push({
-            name: myUsername,
-            sender_id: "test",
+            friend_id: "friend_id",
+            sender_id: myUsername,
             text: textInput.value
         })
 
@@ -75,7 +76,7 @@ $(document).ready(function () {
             // sentMessage.textContent = snapshot.val().name;
             // preObject.appendChild(sentMessage);
 
-            if (snapshot.val().name == "Kyle") {
+            if (snapshot.val().name == myUsername) {
                 var sentMessage = document.createElement("p");
                 sentMessage.textContent = snapshot.val().name;
                 preObject.appendChild(sentMessage);
