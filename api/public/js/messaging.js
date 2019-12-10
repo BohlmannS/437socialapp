@@ -32,7 +32,7 @@ $(document).ready(function () {
     // })
 
     var classname = document.getElementsByClassName("chat_list");
-    var friends = document.getElementsByClassName("friends");
+    var friends = document.getElementsByClassName("friend");
     // function getFriend() {
     //     // var attribute = this.getAttribute("data-myattribute");
     //     // alert(attribute);
@@ -48,7 +48,7 @@ $(document).ready(function () {
         classname[i].addEventListener("click", function () {
             console.log("friend clicked");
             // console.log(classname[i].querySelector(".friend").text);
-            console.log(friends[0].innerText);
+            console.log(friend[i].innerText);
         });
     }
 
