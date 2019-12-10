@@ -352,7 +352,7 @@ $(document).ready(function () {
     // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
     // });
 
-    // function beginListening() {
+    function beginListening() {
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
 
@@ -394,9 +394,11 @@ $(document).ready(function () {
         //     });
         // }
 
-    // }
+        window.setInterval(beginListening, 1000);
 
-    // beginListening();
+    }
+
+    beginListening();
 
 })
 
