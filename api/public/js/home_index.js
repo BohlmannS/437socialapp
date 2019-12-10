@@ -24,83 +24,23 @@ $(document).ready(function(){
 	gridData.then(function(data){
 		gridView += data;
 	})
-	const myclasses = fetchClassData({uid: localStorage.getItem('uid')});
-	var classList = {};
-	var classArray = [];
-	myclasses.then(function(data){
-		if(data.length !== 0){
-			classList = data[0][0];
-		}
-		//console.log(classList);
-		var updateClasses = '';
-		if (data.length === 0){
-			updateClasses = '<p style="color:black">You have no classes :( Please input a schedule.</p>';
-		}
-		else{
-			var i = 1;
-			for (var prop1 in data[1]){
-				updateClasses+='<p style="color:black">'+data[1][prop1]+'</p><br>';
-				classArray.push({[classList['class'+i]] : data[1][prop1]});
-				i++;
-			}
-		}
-		if(updateClasses !== '<p style="color:black">You have no classes :( Please input a schedule.</p>'){
-			updateClasses = '<a id="switch-view" style="color:#CC1219;cursor:pointer;">Switch To Grid View</a></p>' + updateClasses;
-		}
-		listView = updateClasses;
-		$('#class-data').html(updateClasses);
-	}).then(function(data){
-		if(classList.class1 !== null){
-		for (var prop2 in classList){
-			if(classList[prop2] === null){
-				delete classList[prop2];
-			}
-		}
-		const friendSchedule = fetchFriendData({uid: localStorage.getItem('uid'), classList: classList});
-		var updateSchedule = '';
-		friendSchedule.then(function(data){
-			if (data.length === 0){
-				updateSchedule = '<p style="color:black">you have no friends, or no friends in any classes</p>';
-			}
-			else{
-				updateSchedule = '<p style="color:black">';
-				var j = -1;
-				for (var prop3 in classList){
-					j++;
-					updateSchedule+=classArray[j][classList[prop3]] + ' - ';
-					let count = 0;
-					let frens = [];
-					for(var k = 0; k < data.length; k++){
-						for(var prop4 in data[k]){
-							if(classList[prop3] === data[k][prop4]){
-								count++;
-								frens.push(data[k].username);
-							}
-						}
-					}
-					if(frens.length !== 0){
-						updateSchedule+=count + ' friends: ';
-						for(var l = 0; l < frens.length; l++){
-							if(l === frens.length-1){updateSchedule+=frens[l]}
-							else {updateSchedule+=frens[l] + ', '}
-						}
-					}else{
-						updateSchedule+='no friends';
-					}
-					updateSchedule+='<br><br>';
-				}
-				updateSchedule+='</p>';	
-			}
-			$('#mutual-data').html(updateSchedule);
-		})
-		}else{
-			$('#mutual-data').html('<p style="color:black">you have no friends, or no friends in any classes</p>');
-		}
+	const x = fetchClassData({uid: localStorage.getItem('uid')});
+	x.then(function(data){
+		$('#class-data').html(data.myData);
+		listView = data.myData;
+		$('#mutual-data').html(data.mutualData);
 	})
 })
 
+function classPage(data){
+	let str = data.replace(/\s+/g,'-');
+	str = '/class_index?class=' + str;
+	window.location.href = str;
+}
+
+
 async function fetchClassData(data){
-        const response = await fetch('/myclasses',{
+        const response = await fetch('/myclassesnew',{
                 method: 'POST',
                 headers: {
                         'Content-Type': 'application/json'

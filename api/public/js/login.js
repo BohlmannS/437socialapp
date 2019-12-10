@@ -5,7 +5,6 @@ $(document).ready(function(){
        var password = $('#password').val()
        const d = fetchCallLogin({username: username, password: password});
        d.then(function(data){
-	console.log(data)
 	if(data.length == 0){
 		localStorage.setItem('uid', 0);
 		$('#logged-in').text('Incorrect Username/Password');	
