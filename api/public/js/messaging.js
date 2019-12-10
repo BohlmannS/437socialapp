@@ -44,10 +44,10 @@ $(document).ready(function () {
     // };
 
     for (var i = 0; i < classname.length; i++) {
-        console.log(i);
         classname[i].addEventListener("click", function () {
             console.log("friend clicked");
             // console.log(classname[i].querySelector(".friend").text);
+            console.log(i);
             console.log(friends[0].innerText);
         });
     }
