@@ -42,11 +42,11 @@ $(document).ready(function () {
     //     // var attribute = this.getAttribute("data-myattribute");
     //     // alert(attribute);
     // };
+    var friendUsername = '';
 
     for (var i = 0; i <= classname.length; i++) {
         classname[i].addEventListener("click", function () {
-            // var index = i;
-            console.log("friend clicked");
+            // var index = i; 
             // console.log(classname[i].querySelector(".friend").text);
             // console.log(index);
             var index = $(this).index('.chat_list');
@@ -55,6 +55,7 @@ $(document).ready(function () {
             //     var index = $(this).index('.friend')
             //     console.log($(this).index('.friend'));
             // });
+            friendUsername = '';
             console.log(friends[index].innerText);
         });
     }
@@ -105,7 +106,7 @@ $(document).ready(function () {
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
         dbRefObject.push({
-            friend_id: "friend_id",
+            friend_id: friendUsername,
             sender_id: myUsername,
             text: textInput.value
         })
