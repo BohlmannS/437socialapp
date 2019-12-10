@@ -90,13 +90,19 @@ $(document).ready(function () {
         const chatLogObject = firebase.database().ref().child('chats');
         chatLogObject.once('value').then(function (snapshot) {
             // snapshot.forEach(function (child) {
-                // var exists = true;
+            // var exists = true;
 
-                console.log(snapshot.child(chatLog).key);
-                if (!(snapshot.child(chatLog).exists())) {
-                    console.log("not EXIST");
-                    chatLogObject.child(chatLog).set({'':''});
-                }
+            console.log(snapshot.child(chatLog).key);
+            if (!(snapshot.child(chatLog).exists())) {
+                console.log("not EXIST");
+                chatLogObject.child(chatLog).set(
+                    {
+                        friend_id: "test",
+                        sender_id: "test",
+                        text: "test"
+                    }
+                );
+            }
             // });
         });
 
