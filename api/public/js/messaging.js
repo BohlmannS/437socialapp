@@ -70,15 +70,15 @@ $(document).ready(function () {
         })
 
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
-            console.log(snapshot.key + " was " + snapshot.val().name + " meters tall");
+            console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
 
             // var sentMessage = document.createElement("p");
             // sentMessage.textContent = snapshot.val().name;
             // preObject.appendChild(sentMessage);
 
-            if (snapshot.val().name == myUsername) {
+            if (snapshot.val().sender_id == myUsername) {
                 var sentMessage = document.createElement("p");
-                sentMessage.textContent = snapshot.val().name;
+                sentMessage.textContent = snapshot.val().text;
                 preObject.appendChild(sentMessage);
             }
         });
