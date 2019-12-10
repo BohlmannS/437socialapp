@@ -141,6 +141,7 @@ $(document).ready(function () {
             });
         });
 
+        beginListening(chatLog);
         // dbRefObject.once('value', function (snapshot) {
         //     console.log("in if statemnt");
         //     // snapshot.forEach(function (childSnapshot) {
@@ -400,8 +401,6 @@ $(document).ready(function () {
         window.setInterval(beginListening, 1000);
 
     }
-
-    beginListening(chatLog);
 
 })
 
