@@ -26,14 +26,16 @@ router.post('/', function(req, res){
 	/*for(var i = 0; i < x.length; i++){
 		console.log(x[i]);
 	}*/
-	let q = connection.query('select class_id, title from classes', function(err, rows, fields){
+	let q = connection.query('select class_id, title, section from classes', function(err, rows, fields){
 	//console.log(rows);
 	if(err){return}
 	var dict = new Object();
 	for(var j = 0; j < rows.length; j++){
-		dict[[rows[j].title]] = 1;
+		dict[[rows[j].title+rows[j].section]] = 1;
 	}
+	//console.log(dict);
 	var titles = [];
+	var sections = [];
 	//console.log('Introduction to Systems Software' in dict);
 	let sql = 'insert into classes (title, days, time, course_num, section) values ';
 	for(var i = 0; i < x.length; i++){
@@ -44,6 +46,7 @@ router.post('/', function(req, res){
 		//console.log(course_num);
 		str = str.substring(nthIndex(str, ' ', 2)+1);
 		let section = parseInt(str.substring(0, 2));
+		sections.push(section);
 		//console.log(section);
 		str = str.substring(3);
 		let title = str.substring(0, str.indexOf('\t'));
@@ -59,15 +62,15 @@ router.post('/', function(req, res){
 		//console.log(days);
 		let time = str.substring(str.indexOf(' ')+1);
 		let insert = '(\''+title+'\','+'0b'+days+',\''+time+'\',\''+course_num+'\','+section+'),';
-		if(!(title in dict))
+		if(!((title+section) in dict))
 			sql+=insert;
 	}
 	sql = sql.slice(0, -1);
 	//console.log(sql);
 	if(titles.length !== 0){
-	let sql2 = 'select class_id from classes where ';
+	let sql2 = 'select class_id, title, section from classes where ';
 	for(var k = 0; k < titles.length; k++){
-		sql2+='title=\'' + titles[k] + '\' or ';
+		sql2+='(title=\'' + titles[k] + '\' and section='+sections[k]+') or ';
 	}
 	sql2 = sql2.slice(0, -4);
 	//console.log(sql2);
@@ -80,8 +83,8 @@ router.post('/', function(req, res){
 			let sql3 = 'insert into schedules (uid,';
 			let vals = [];
 			for(var l = 0; l < rows2.length; l++){
-				sql3+='class'+(l+1)+',';
-				vals.push(rows2[l]['class_id']);
+				sql3+='class'+(l+1)+','+'class'+(l+1)+'_name ,class'+(l+1)+'_section ,';
+				vals.push(rows2[l]['class_id']+','+'\''+rows2[l]['title']+'\','+rows2[l]['section']);
 			}
 			sql3 = sql3.slice(0, -1);
 			sql3+=') values (';
@@ -104,15 +107,15 @@ router.post('/', function(req, res){
 	}else{
 		//classes must be inserted into table
 		connection.query(sql, function(err4, rows4, fields4){
-			if(err4){return}
+			if(err4){console.log(err4);return}
 			connection.query(sql2, function(err2, rows2, fields2){
                         if(err2){return}
                         //console.log(rows2);
                         let sql3 = 'insert into schedules (uid,';
                         let vals = [];
                         for(var l = 0; l < rows2.length; l++){
-                                sql3+='class'+(l+1)+',';
-                                vals.push(rows2[l]['class_id']);
+                                sql3+='class'+(l+1)+','+'class'+(l+1)+'_name ,class'+(l+1)+'_section ,';
+                                vals.push(rows2[l]['class_id']+','+'\''+rows2[l]['title']+'\','+rows2[l]['section']);
                         }
                         sql3 = sql3.slice(0, -1);
                         sql3+=') values (';
