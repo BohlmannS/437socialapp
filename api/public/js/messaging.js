@@ -35,8 +35,6 @@ $(document).ready(function () {
                 // updateList += '<p style="color:black">' + element.username + '</p><br>';
                 i++;
                 // friendList[i].parentNode.parentNode.parentNode.className += (" " + "active_chat");
-
-                document.querySelector(".recent_heading").firstElementChild.innerHTML = "element.username";
             });
         }
         // $('#friend-data').html(updateList);
@@ -82,6 +80,8 @@ $(document).ready(function () {
         console.log(index);
         friendUsername = friends[index].innerText;
         console.log(friends[index].innerText);
+
+        document.querySelector(".recent_heading").firstElementChild.innerHTML = friends[index].innerText;
 
         var compareUsernames = myUsername.localeCompare(friendUsername);
         if (compareUsernames < 0) {
