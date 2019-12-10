@@ -260,15 +260,16 @@ $(document).ready(function () {
         console.log("in event listener");
 
 
-        const preObject = document.getElementById('object');
-        const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
-        // dbRefObject.on('value', snap => console.log(snap.val()));
+        // const preObject = document.getElementById('object');
+        // const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
+
 
         dbRefObject.push({
             friend_id: friendUsername,
             sender_id: myUsername,
             text: textInput.value
-        }).then(() => {
+        }
+        // ).then(() => {
             // dbRefObject.once('value').then(function (snapshot) {
             //     snapshot.forEach(function (child) {
     
@@ -293,26 +294,29 @@ $(document).ready(function () {
             //         preObject.appendChild(sentMessage);
             //     });
             // });
-            dbRefObject.on("child_added", function (snapshot) {
-                console.log(snapshot.child("text").val());
-                var user = document.createElement("p");
-                user.className = "message_by_user"
-                var sentMessage = document.createElement("p");
-                if (snapshot.child("sender_id").val() == myUsername) {
-                    user.textContent = (myUsername + ":");
-                }
-                else if (snapshot.child("sender_id").val() == friendUsername){
-                    user.textContent = (friendUsername + ":");
-                } 
-                else {
-                    user.textContent = "";
-                }
-                sentMessage.textContent = snapshot.child("text").val();
-                sentMessage.className = "visible_messages";
-                preObject.appendChild(user);
-                preObject.appendChild(sentMessage);
 
-            });
+
+
+            // dbRefObject.on("child_added", function (snapshot) {
+            //     console.log(snapshot.child("text").val());
+            //     var user = document.createElement("p");
+            //     user.className = "message_by_user"
+            //     var sentMessage = document.createElement("p");
+            //     if (snapshot.child("sender_id").val() == myUsername) {
+            //         user.textContent = (myUsername + ":");
+            //     }
+            //     else if (snapshot.child("sender_id").val() == friendUsername){
+            //         user.textContent = (friendUsername + ":");
+            //     } 
+            //     else {
+            //         user.textContent = "";
+            //     }
+            //     sentMessage.textContent = snapshot.child("text").val();
+            //     sentMessage.className = "visible_messages";
+            //     preObject.appendChild(user);
+            //     preObject.appendChild(sentMessage);
+
+            // });
         })
 
         // dbRefObject.once('value').then(function (snapshot) {
@@ -323,7 +327,30 @@ $(document).ready(function () {
         // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
     });
 
-    // var beginListening = function () {
+    var beginListening = function () {
+        const preObject = document.getElementById('object');
+        const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
+
+        dbRefObject.on("child_added", function (snapshot) {
+            console.log(snapshot.child("text").val());
+            var user = document.createElement("p");
+            user.className = "message_by_user"
+            var sentMessage = document.createElement("p");
+            if (snapshot.child("sender_id").val() == myUsername) {
+                user.textContent = (myUsername + ":");
+            }
+            else if (snapshot.child("sender_id").val() == friendUsername){
+                user.textContent = (friendUsername + ":");
+            } 
+            else {
+                user.textContent = "";
+            }
+            sentMessage.textContent = snapshot.child("text").val();
+            sentMessage.className = "visible_messages";
+            preObject.appendChild(user);
+            preObject.appendChild(sentMessage);
+
+        });
     //     myFirebase.on('child_added', function (snapshot) {
     //         var msg = snapshot.val();
 
@@ -342,7 +369,7 @@ $(document).ready(function () {
     //     });
     // }
 
-    // beginListening();
+    beginListening();
 
 })
 
