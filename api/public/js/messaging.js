@@ -69,140 +69,147 @@ $(document).ready(function () {
 
             if (snapshot.key == chatLog) {
                 console.log("in if statemnt");
-                var sentMessage = document.createElement("p");
-                sentMessage.textContent = snapshot.childSnapshot.child("text").val();
-                console.log(snapshot.childSnapshot.child("text").val());
-                preObject.appendChild(sentMessage);
+                snapshot.forEach(function (childSnapshot) {
+                    var sentMessage = document.createElement("p");
+                    sentMessage.textContent = childSnapshot.val().text;
+                    console.log(childSnapshot.val().text);
+                    preObject.appendChild(sentMessage);
+                });
+                // console.log("in if statemnt");
+                // var sentMessage = document.createElement("p");
+                // sentMessage.textContent = snapshot.childSnapshot.child("text").val();
+                // console.log(snapshot.childSnapshot.child("text").val());
+                // preObject.appendChild(sentMessage);
             }
         });
     });
-        // classname.addEventListener("click", function () {
-        // for (var i = 0; i <= classname.length; i++) {
-        // classname[i].addEventListener("click", function () {
-        // var index = i; 
-        // console.log(classname[i].querySelector(".friend").text);
-        // console.log(index);
-        // var index = $(this).index('.chat_list');
+    // classname.addEventListener("click", function () {
+    // for (var i = 0; i <= classname.length; i++) {
+    // classname[i].addEventListener("click", function () {
+    // var index = i; 
+    // console.log(classname[i].querySelector(".friend").text);
+    // console.log(index);
+    // var index = $(this).index('.chat_list');
 
-        // $('.friend').click(function () {
-        //     var index = $(this).index('.friend')
-        //     console.log($(this).index('.friend'));
-        // });
-        // });
-        // }
-
-        // var compareUsernames = myUsername.localeCompare(friendUsername); 
-        // if (compareUsernames < 0) {
-        //     chatLog = myUsername + " -- " + friendUsername;
-        //     console.log(chatLog);
-        // }
-        //     else {
-        //         chatLog = friendUsername + " -- " + myUsername;
-        //         console.log(chatLog);
-        //     }
-
-        //     const preObject = document.getElementById('object');
-        //     const dbRefObject = firebase.database().ref().child('chats').child('chatLog');
-
-        //     dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
-        //         console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
-
-        //         // var sentMessage = document.createElement("p");
-        //         // sentMessage.textContent = snapshot.val().name;
-        //         // preObject.appendChild(sentMessage);
-
-        //         if (snapshot.val().sender_id == myUsername) {
-        //             var sentMessage = document.createElement("p");
-        //             sentMessage.textContent = snapshot.val().text;
-        //             preObject.appendChild(sentMessage);
-        //         }
-        //     });
-
-        // })
-
-        postButton.addEventListener("click", function () {
-            // var msgText = textInput.value;
-            // myFirebase.set(msgText);
-            // textInput.value = "";
-
-            // var newPostRef = postListRef.push();
-            // newPostRef.set({
-            //     name: "test",
-            //     sender_id: "test",
-            //     text: "test"
-            // });
-
-
-            const preObject = document.getElementById('object');
-            const dbRefObject = firebase.database().ref().child('chats');
-            // dbRefObject.on('value', snap => console.log(snap.val()));
-
-            dbRefObject.push({
-                friend_id: friendUsername,
-                sender_id: myUsername,
-                text: textInput.value
-            })
-
-            dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
-                console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
-
-                // var sentMessage = document.createElement("p");
-                // sentMessage.textContent = snapshot.val().name;
-                // preObject.appendChild(sentMessage);
-
-                if (snapshot.val().sender_id == myUsername) {
-                    var sentMessage = document.createElement("p");
-                    sentMessage.textContent = snapshot.val().text;
-                    preObject.appendChild(sentMessage);
-                }
-            });
-            console.log("send button clicked");
-            // var testUser = "test";
-
-            // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
-        });
-
-        // var beginListening = function () {
-        //     myFirebase.on('child_added', function (snapshot) {
-        //         var msg = snapshot.val();
-
-        //         // var msgUsernameElement = document.createELement("b");
-        //         // msgUsernameELement.textContent = msg.name;
-
-        //         var msgTextElement = document.createElement("p");
-        //         msgTextElement.textContent = msg.text;
-        //         var sentMsgElement = document.createElement("div");
-        //         sentMsgElement.appendChild(msgTextElement);
-        //         sentMsgElement.className = "sent_msg";
-        //         var outgoingMsgElement = document.createElement("div");
-        //         outgoingMsgElement.appendChild(sentMsgElement);
-        //         outgoingMsgElement.className = "outgoing_msg";
-        //         document.getElementById("msg_history").appendChild(msgElement);
-        //     });
-        // }
-
-        // beginListening();
-
-    })
-
-    // async function fetchUser(data) {
-    //     const response = await fetch('/messagingdata', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //     return await response.json();
+    // $('.friend').click(function () {
+    //     var index = $(this).index('.friend')
+    //     console.log($(this).index('.friend'));
+    // });
+    // });
     // }
 
-    async function fetchUser(data) {
-        const response = await fetch('/messagingdata', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+    // var compareUsernames = myUsername.localeCompare(friendUsername); 
+    // if (compareUsernames < 0) {
+    //     chatLog = myUsername + " -- " + friendUsername;
+    //     console.log(chatLog);
+    // }
+    //     else {
+    //         chatLog = friendUsername + " -- " + myUsername;
+    //         console.log(chatLog);
+    //     }
+
+    //     const preObject = document.getElementById('object');
+    //     const dbRefObject = firebase.database().ref().child('chats').child('chatLog');
+
+    //     dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
+    //         console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
+
+    //         // var sentMessage = document.createElement("p");
+    //         // sentMessage.textContent = snapshot.val().name;
+    //         // preObject.appendChild(sentMessage);
+
+    //         if (snapshot.val().sender_id == myUsername) {
+    //             var sentMessage = document.createElement("p");
+    //             sentMessage.textContent = snapshot.val().text;
+    //             preObject.appendChild(sentMessage);
+    //         }
+    //     });
+
+    // })
+
+    postButton.addEventListener("click", function () {
+        // var msgText = textInput.value;
+        // myFirebase.set(msgText);
+        // textInput.value = "";
+
+        // var newPostRef = postListRef.push();
+        // newPostRef.set({
+        //     name: "test",
+        //     sender_id: "test",
+        //     text: "test"
+        // });
+
+
+        const preObject = document.getElementById('object');
+        const dbRefObject = firebase.database().ref().child('chats');
+        // dbRefObject.on('value', snap => console.log(snap.val()));
+
+        dbRefObject.push({
+            friend_id: friendUsername,
+            sender_id: myUsername,
+            text: textInput.value
         })
-        return await response.json();
-    }
+
+        dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
+            console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
+
+            // var sentMessage = document.createElement("p");
+            // sentMessage.textContent = snapshot.val().name;
+            // preObject.appendChild(sentMessage);
+
+            if (snapshot.val().sender_id == myUsername) {
+                var sentMessage = document.createElement("p");
+                sentMessage.textContent = snapshot.val().text;
+                preObject.appendChild(sentMessage);
+            }
+        });
+        console.log("send button clicked");
+        // var testUser = "test";
+
+        // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
+    });
+
+    // var beginListening = function () {
+    //     myFirebase.on('child_added', function (snapshot) {
+    //         var msg = snapshot.val();
+
+    //         // var msgUsernameElement = document.createELement("b");
+    //         // msgUsernameELement.textContent = msg.name;
+
+    //         var msgTextElement = document.createElement("p");
+    //         msgTextElement.textContent = msg.text;
+    //         var sentMsgElement = document.createElement("div");
+    //         sentMsgElement.appendChild(msgTextElement);
+    //         sentMsgElement.className = "sent_msg";
+    //         var outgoingMsgElement = document.createElement("div");
+    //         outgoingMsgElement.appendChild(sentMsgElement);
+    //         outgoingMsgElement.className = "outgoing_msg";
+    //         document.getElementById("msg_history").appendChild(msgElement);
+    //     });
+    // }
+
+    // beginListening();
+
+})
+
+// async function fetchUser(data) {
+//     const response = await fetch('/messagingdata', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     return await response.json();
+// }
+
+async function fetchUser(data) {
+    const response = await fetch('/messagingdata', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    return await response.json();
+}
