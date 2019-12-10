@@ -26,9 +26,13 @@ $(document).ready(function () {
     // Get a reference to the database service
     var database = firebase.database();
 
-    const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
-    currentUser.then(function (data) {
-        console.log(data[0]);
+    // const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
+    // currentUser.then(function (data) {
+    //     console.log(data[0]);
+    // })
+
+    const fList = fetchFriendList({ uid: localStorage.getItem('uid') });
+	fList.then(function (data) {
     })
 
     postButton.addEventListener("click", function () {
@@ -81,13 +85,24 @@ $(document).ready(function () {
 
 })
 
-async function fetchUser(data) {
-    const response = await fetch('/messagingdata', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    return await response.json();
+// async function fetchUser(data) {
+//     const response = await fetch('/messagingdata', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     return await response.json();
+// }
+
+async function fetchFriendList(data) {
+	const response = await fetch('/frienddata', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	})
+	return await response.json();
 }
