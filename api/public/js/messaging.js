@@ -102,7 +102,7 @@ $(document).ready(function () {
         });
         if(exists == false ){
             chatLogObject.push({
-                chatLog: null;
+                chatLog: null
             })
         }
 
