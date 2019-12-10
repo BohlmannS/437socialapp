@@ -10,6 +10,16 @@ body {
     color: darkred;
 }
 
+.tblTimeCell{
+	border:1px solid gray;
+	text-align:right;
+}
+
+.tblCell{
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+}
+
 #profile-container {
     background-color: #E2DFA2;
     color: black;
@@ -27,6 +37,7 @@ body {
 
 .user_classes {
     background-color: #92AAC7;
+    min-width:900px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 50px;
     padding: 20px;
@@ -40,6 +51,7 @@ body {
 
 .mutual_classes {
     background-color: #A1BE95;
+    min-width:900px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 50px;
     padding: 20px;

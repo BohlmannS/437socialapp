@@ -44,7 +44,7 @@ $(document).ready(function () {
 		}
 		else {
 			data.forEach(function (element) {
-				updateList += '<div> <p style="color:black;cursor:pointer;display:inline;" onclick="friendPage(\''+element.username+'\')">' + element.first_name + ' ' + element.last_name + '&nbsp;&nbsp;&nbsp;&nbsp;</p><button onclick="fetchCallDelete({friendName:\''+element.username+'\',uid:\''+localStorage.getItem('uid')+'\'}).then(updateFriends)">Button</button></div><br>';
+				updateList += '<div> <p style="color:black;cursor:pointer;display:inline;" onclick="friendPage(\''+element.username+'\''+',\''+element.first_name+' '+element.last_name+'\',\''+element.uid+'\')">' + element.first_name + ' ' + element.last_name + '&nbsp;&nbsp;&nbsp;&nbsp;</p><button onclick="fetchCallDelete({friendName:\''+element.username+'\',uid:\''+localStorage.getItem('uid')+'\'}).then(updateFriends)">Button</button></div><br>';
 			})
 		}
 		$('#friend-data').html(updateList);
@@ -135,6 +135,13 @@ function updateFriends() {
 
 
 	})
+}
+
+function friendPage(uname, name, id){
+	window.localStorage.setItem('fid', uname);
+	window.localStorage.setItem('fname', name);
+	window.localStorage.setItem('fuid', id);
+	window.location.href='/friend_profile_index.html';
 }
 
 async function fetchIncReq(data){
