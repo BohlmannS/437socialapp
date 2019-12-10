@@ -28,6 +28,13 @@ $(document).ready(function () {
     var classname = document.getElementsByClassName("chat_list");
     var friends = document.getElementsByClassName("friend");
 
+    var myUsername = '';
+    const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
+    currentUser.then(function (data) {
+        myUsername = data[0].username;
+        console.log(data[0].username);
+    })
+
     var friendUsername = '';
 
     var compareUsernames = myUsername.localeCompare(friendUsername); 
@@ -74,14 +81,6 @@ $(document).ready(function () {
             }
         });
 
-    })
-
-    var myUsername = '';
-
-    const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
-    currentUser.then(function (data) {
-        myUsername = data[0].username;
-        console.log(data[0].username);
     })
 
     postButton.addEventListener("click", function () {
