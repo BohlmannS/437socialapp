@@ -37,7 +37,7 @@ $(document).ready(function () {
 
     var friendUsername = '';
 
-    var compareUsernames = myUsername.localeCompare(friendUsername); 
+    // var compareUsernames = myUsername.localeCompare(friendUsername); 
     var chatLog = '';
 
     var startChat = document.querySelector(".recent_heading").addEventListener("click", function () {
@@ -57,12 +57,13 @@ $(document).ready(function () {
             });
         }
 
-        if (compareUsernames < 0) {
-            chatLog = myUsername + " -- " + friendUsername;
-        }
-        else {
             chatLog = friendUsername + " -- " + myUsername;
-        }
+        // if (compareUsernames < 0) {
+        //     chatLog = myUsername + " -- " + friendUsername;
+        // }
+        // else {
+        //     chatLog = friendUsername + " -- " + myUsername;
+        // }
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child('chatLog');
