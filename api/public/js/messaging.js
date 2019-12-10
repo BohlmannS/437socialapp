@@ -31,7 +31,7 @@ $(document).ready(function () {
     //     console.log(data[0]);
     // })
 
-    var friend = document.querySelector(".friend");
+    var friend = document.querySelector(".chat_ib");
 
     friend.addEventListener("click", function () {
         console.log(friend.textContent);
@@ -78,7 +78,7 @@ $(document).ready(function () {
 
             if (snapshot.val().name == myUsername) {
                 var sentMessage = document.createElement("p");
-                sentMessage.textContent = snapshot.val().name;
+                sentMessage.textContent = snapshot.val().text;
                 preObject.appendChild(sentMessage);
             }
         });
