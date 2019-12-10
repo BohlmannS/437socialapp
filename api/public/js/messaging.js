@@ -58,7 +58,7 @@ $(document).ready(function () {
         }
 
         const preObject = document.getElementById('object');
-        const dbRefObject = firebase.database().ref().child('chats');
+        const dbRefObject = firebase.database().ref().child('chats/' + 'chatLog');
 
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
             console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
@@ -67,20 +67,20 @@ $(document).ready(function () {
             // sentMessage.textContent = snapshot.val().name;
             // preObject.appendChild(sentMessage);
 
-            if (snapshot.key == chatLog) {
+            // if (snapshot.key == chatLog) {
                 console.log("in if statemnt");
-                snapshot.forEach(function (childSnapshot) {
-                    var sentMessage = document.createElement("p");
-                    sentMessage.textContent = childSnapshot.val();
-                    console.log(childSnapshot.val());
-                    preObject.appendChild(sentMessage);
-                });
+                // snapshot.forEach(function (childSnapshot) {
+                var sentMessage = document.createElement("p");
+                sentMessage.textContent = childSnapshot.val();
+                console.log(childSnapshot.val());
+                preObject.appendChild(sentMessage);
+                // });
                 // console.log("in if statemnt");
                 // var sentMessage = document.createElement("p");
                 // sentMessage.textContent = snapshot.childSnapshot.child("text").val();
                 // console.log(snapshot.childSnapshot.child("text").val());
                 // preObject.appendChild(sentMessage);
-            }
+            // }
         });
     });
     // classname.addEventListener("click", function () {
