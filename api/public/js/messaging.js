@@ -92,15 +92,15 @@ $(document).ready(function () {
         chatLogObject.once('value').then(function (snapshot) {
             snapshot.forEach(function (child) {
                 // var exists = true;
-                if(child.key == chatLog) {
-                    break;
-                }
-                else {
-                    exists = false;
+                if (!(snapshot.child(chatLog).exists())) {
+
+                    chatLogObject.push({
+                        chatLog: null
+                    })
                 }
             });
         });
-        if(exists == false ){
+        if (exists == false) {
             chatLogObject.push({
                 chatLog: null
             })
