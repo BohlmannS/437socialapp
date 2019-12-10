@@ -267,7 +267,7 @@ $(document).ready(function () {
         })
 
         // dbRefObject.once('value').then(function (snapshot) {
-        dbRefObject.on("child_added", function (snapshot) {
+        dbRefObject.on("child_changed", function (snapshot) {
             // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
 
             console.log(snapshot.child("text").val());
