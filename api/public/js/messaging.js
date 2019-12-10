@@ -47,7 +47,7 @@ $(document).ready(function () {
         classname[i].addEventListener("click", function () {
             console.log("friend clicked");
             // console.log(classname[i].querySelector(".friend").text);
-            console.log(classname[i].getElementsByTagName("h5"));
+            console.log(classname.getElementsByTagName("h5"));
         });
     }
 
