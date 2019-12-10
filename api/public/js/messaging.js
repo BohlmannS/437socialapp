@@ -91,7 +91,7 @@ $(document).ready(function () {
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
 
         dbRefObject.once('value').then(function (snapshot) {
-            console.log(1);
+             console.log("in if statemnt");
             // snapshot.forEach(function (childSnapshot) {
             var sentMessage = document.createElement("p");
             // if (snapshot.child("sender_id").val() == myUsername) {
