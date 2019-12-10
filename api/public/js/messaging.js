@@ -87,7 +87,6 @@ $(document).ready(function () {
             console.log(chatLog);
         }
 
-        var exists = true;
         const chatLogObject = firebase.database().ref().child('chats');
         chatLogObject.once('value').then(function (snapshot) {
             snapshot.forEach(function (child) {
@@ -100,11 +99,6 @@ $(document).ready(function () {
                 }
             });
         });
-        if (exists == false) {
-            chatLogObject.push({
-                chatLog: null
-            })
-        }
 
         const preObject = document.getElementById('object');
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
