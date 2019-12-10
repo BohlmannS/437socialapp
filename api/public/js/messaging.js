@@ -49,7 +49,13 @@ $(document).ready(function () {
             console.log("friend clicked");
             // console.log(classname[i].querySelector(".friend").text);
             // console.log(index);
-            console.log(friends.item(i).innerText);
+            var index = $(this).index('.chat_list');
+
+            // $('.friend').click(function () {
+            //     var index = $(this).index('.friend')
+            //     console.log($(this).index('.friend'));
+            // });
+            console.log(friends[index].innerText);
         });
     }
 
