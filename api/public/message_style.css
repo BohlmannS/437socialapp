@@ -162,7 +162,8 @@ img {
   color: #4c4c4c;
   font-size: 15px;
   min-height: 48px;
-  width: 100%;
+  width: 50%;
+  margin-top: 500px;
 }
 
 .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
@@ -174,7 +175,7 @@ img {
   cursor: pointer;
   font-size: 17px;
   height: 33px;
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   top: 11px;
   width: 33px;
