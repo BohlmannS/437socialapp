@@ -269,7 +269,7 @@ $(document).ready(function () {
             sender_id: myUsername,
             text: textInput.value
         }).then(() => {
-            dbRefObject.once("child_added").then(function (snapshot) {
+            dbRefObject.once('value').then(function (snapshot) {
                 snapshot.forEach(function (child) {
     
                     var user = document.createElement("p");
