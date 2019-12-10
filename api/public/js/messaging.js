@@ -135,8 +135,6 @@ $(document).ready(function () {
     // })
 
     postButton.addEventListener("click", function () {
-
-        $('.visible_messages').remove();
         // var msgText = textInput.value;
         // myFirebase.set(msgText);
         // textInput.value = "";
