@@ -50,15 +50,12 @@ $(document).ready(function () {
     //     });
     // }
 
-    var friend = document.querySelector(".chat_list");
-    console.log(friend);
+    var userSelection = document.getElementsByClassName('friend');
 
-    var userSelection = document.getElementsByClassName('chat_list');
-
-    for (let i = 0; i < userSelection.length; i++) {
-        userSelection[i].addEventListener("click", function () {
-            console.log("Clicked index: " + i);
-        })
+    for(let i = 0; i < userSelection.length; i++) {
+      userSelection[i].addEventListener("click", function() {
+        console.log("Clicked index: " + i);
+      })
     }
     // var friend = document.getElementsByClassName('.chat_ib')[0];
 
