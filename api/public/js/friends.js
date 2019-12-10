@@ -20,7 +20,7 @@ $(document).ready(function () {
 		}
 		else {
 			data.forEach(function (element) {
-				updateList += '<p style="color:black">' + element.username + '</p><br>';
+				updateList += '<div> <p style="color:black;cursor:pointer;display:inline;" onclick="friendPage(\''+element.username+'\')">' + element.first_name + ' ' + element.last_name + '&nbsp;&nbsp;&nbsp;&nbsp;</p><button onclick="fetchCallDelete({friendName:\''+element.username+'\',uid:\''+localStorage.getItem('uid')+'\'}).then(updateFriends)">Button</button></div><br>';
 			})
 		}
 		$('#friend-data').html(updateList);
@@ -52,33 +52,10 @@ $(document).ready(function () {
 			})
 		}
 	})
-	$(document).delegate('#delete-button', 'click', function (e) {
-		if (delete_hidden) {
-			$('#friend-delete-info').show();
-			delete_hidden = false;
-		}
-		else {
-			$('#friend-delete-info').hide();
-			delete_hidden = true;
-		}
-	})
-	$(document).delegate('#delete-submit-button', 'click', function (e) {
-		var friend = $('#delete-name').val()
-		if (friend !== '') {
-			const d = fetchCallDelete({ uid: localStorage.getItem('uid'), friendName: friend })
-			d.then(function (data) {
-				var updateDelete = 'Unrecognized error from server.';
-				if (data.response === 0) { updateDelete = 'Friend deleted' }
-				if (data.response === 1) { updateDelete = 'User is not your friend' }
-				$('#delete-response').html(updateDelete);
-				updateFriends();
-				//$('#friend-delete-info').hide();
-			})
-		}
-	})
 })
 
 function updateFriends() {
+	window.location.href='/friends_index';
 	var friendList = {};
 	const fList = fetchFriendList({ uid: localStorage.getItem('uid') });
 	fList.then(function (data) {
@@ -86,12 +63,15 @@ function updateFriends() {
 		if (data.length === 0) {
 			updateList = '<p>You have no friends :( </p>';
 		}
-		else {
-			data.forEach(function (element) {
-				updateList += '<p style="color:black">' + element.username + '</p><br>';
-			})
-		}
-		$('#friend-data').html(updateList);
+
+
+ 		else {
+                        data.forEach(function (element) {
+                                updateList += '<div> <p style="color:black;cursor:pointer;display:inline;" onclick="friendPage(\''+element.username+'\')">' + element.first_name + ' ' + element.last_name + '&nbsp;&nbsp;&nbsp;&nbsp;</p><button onclick="fetchCallDelete({friendName:\''+element.username+'\',uid:\''+localStorage.getItem('uid')+'\'})">Button</button></div><br>';
+                        })
+                }
+
+
 	})
 }
 
