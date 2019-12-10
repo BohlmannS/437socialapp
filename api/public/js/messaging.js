@@ -42,7 +42,7 @@ $(document).ready(function () {
             //     var index = $(this).index('.friend')
             //     console.log($(this).index('.friend'));
             // });
-            friendUsername = '';
+            friendUsername = friends[index].innerText;
             console.log(friends[index].innerText);
         });
     }
