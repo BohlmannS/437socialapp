@@ -67,7 +67,7 @@ $(document).ready(function () {
             // sentMessage.textContent = snapshot.val().name;
             // preObject.appendChild(sentMessage);
 
-            if (snapshot.val().key == chatLog) {
+            if (snapshot.key == chatLog) {
                 var sentMessage = document.createElement("p");
                 sentMessage.textContent = snapshot.val().text;
                 preObject.appendChild(sentMessage);
