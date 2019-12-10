@@ -65,7 +65,7 @@ $(document).ready(function () {
         dbRefObject.push({
             name: myUsername,
             sender_id: "test",
-            text: textInput
+            text: textInput.value
         })
 
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
