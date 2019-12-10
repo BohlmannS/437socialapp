@@ -26,22 +26,9 @@ $(document).ready(function () {
     // Get a reference to the database service
     var database = firebase.database();
 
-    // const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
-    // currentUser.then(function (data) {
-    //     console.log(data[0]);
-    // })
-
     var classname = document.getElementsByClassName("chat_list");
     var friends = document.getElementsByClassName("friend");
-    // function getFriend() {
-    //     // var attribute = this.getAttribute("data-myattribute");
-    //     // alert(attribute);
-    //     console.log("friend clicked");
-    //     console.log(classname.textContent);
 
-    //     // var attribute = this.getAttribute("data-myattribute");
-    //     // alert(attribute);
-    // };
     var friendUsername = '';
 
     for (var i = 0; i <= classname.length; i++) {
@@ -59,26 +46,6 @@ $(document).ready(function () {
             console.log(friends[index].innerText);
         });
     }
-
-    // var userSelection = document.getElementsByClassName('friendtest');
-
-    // var test = document.getElementById("friendtest");
-    // test.addEventListener("click", function () {
-    //     alert("clickkkkk");
-    //     console.log("clickckksdfkwfwef");
-    // })
-
-    // for(let i = 0; i < userSelection.length; i++) {
-    //   userSelection[i].addEventListener("click", function() {
-    //     console.log("Clicked index: " + i);
-    //   })
-    // }
-    // var friend = document.getElementsByClassName('.chat_ib')[0];
-
-    // friend.addEventListener("click", function () {
-    //     console.log(friend.textContent);
-    //     console.log("friend clicked")
-    // });
 
     var myUsername = '';
 
