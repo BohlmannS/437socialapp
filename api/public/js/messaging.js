@@ -77,16 +77,22 @@ $(document).ready(function () {
             console.log("in if statemnt");
             // snapshot.forEach(function (childSnapshot) {
             var sentMessage = document.createElement("p");
-            sentMessage.textContent = snapshot.child("text").val();
-            sentMessage.className = "visible_messages";
-            console.log(snapshot.child("text").val());
             if (snapshot.child("sender_id").val() == myUsername) {
-                preObject.appendChild(myUsername + ": " + sentMessage);
+                sentMessage.textContent = (myUsername + ": " + sentMessage);
             }
             else {
-                preObject.appendChild(friendUsername + ": " + sentMessage);
+                sentMessage.textContent = (friendUsername + ": " + sentMessage);
             }
-            // preObject.appendChild(sentMessage);
+            // sentMessage.textContent = snapshot.child("text").val();
+            sentMessage.className = "visible_messages";
+            console.log(snapshot.child("text").val());
+            // if (snapshot.child("sender_id").val() == myUsername) {
+            //     preObject.appendChild(myUsername + ": " + sentMessage);
+            // }
+            // else {
+            //     preObject.appendChild(friendUsername + ": " + sentMessage);
+            // }
+            preObject.appendChild(sentMessage);
             // });
             // console.log("in if statemnt");
             // var sentMessage = document.createElement("p");
@@ -177,17 +183,16 @@ $(document).ready(function () {
             // }
 
             var sentMessage = document.createElement("p");
-            sentMessage.textContent = snapshot.child("text").val();
-            sentMessage.className = "visible_messages";
-            console.log(snapshot.child("text").val());
-
             if (snapshot.child("sender_id").val() == myUsername) {
-                preObject.appendChild(myUsername + ": " + sentMessage);
+                sentMessage.textContent = (myUsername + ": " + sentMessage);
             }
             else {
-                preObject.appendChild(friendUsername + ": " + sentMessage);
+                sentMessage.textContent = (friendUsername + ": " + sentMessage);
             }
-            // preObject.appendChild(sentMessage);
+            // sentMessage.textContent = snapshot.child("text").val();
+            sentMessage.className = "visible_messages";
+            console.log(snapshot.child("text").val());
+            preObject.appendChild(sentMessage);
         });
         console.log("send button clicked");
         // var testUser = "test";
