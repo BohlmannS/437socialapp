@@ -33,7 +33,7 @@ $(document).ready(function () {
 
     const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
 	currentUser.then(function (data) {
-        console.log(data);
+        console.log(data[0]);
     })
 
     postButton.addEventListener("click", function () {
