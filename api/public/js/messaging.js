@@ -129,6 +129,9 @@ $(document).ready(function () {
                 else if (child.val().friend_id == friendUsername){
                     user.textContent = (friendUsername + ":");
                 }
+                else {
+                    user.textContent = "";
+                }
                 sentMessage.textContent = child.val().text;
                 sentMessage.className = "visible_messages";
                 //     console.log(snapshot.child("text").val());
@@ -300,6 +303,9 @@ $(document).ready(function () {
                 }
                 else if (snapshot.child("friend_id").val() == friendUsername){
                     user.textContent = (friendUsername + ":");
+                } 
+                else {
+                    user.textContent = "";
                 }
                 sentMessage.textContent = snapshot.child("text").val();
                 sentMessage.className = "visible_messages";
