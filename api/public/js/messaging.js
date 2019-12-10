@@ -31,8 +31,11 @@ $(document).ready(function () {
     //     console.log(data[0]);
     // })
 
+    var myUsername = '';
+
     const currentUser = fetchUser({ uid: localStorage.getItem('uid') });
 	currentUser.then(function (data) {
+        myUsername = data[0].username;
         console.log(data[0].username);
     })
 
@@ -55,6 +58,10 @@ $(document).ready(function () {
 
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
             console.log(snapshot.key + " was " + snapshot.val().name + " meters tall");
+
+            var sentMessage = document.createElement("p");
+            sentMessage.textContent = snapshot.val().name;
+            preObject.appendChild(sentMessage);
         });
         console.log("send button clicked");
         // var testUser = "test";
