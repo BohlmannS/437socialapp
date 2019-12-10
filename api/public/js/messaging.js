@@ -43,7 +43,7 @@ $(document).ready(function () {
 
     startChat.addEventListener("click", function () {
         // for (var i = 0; i <= classname.length; i++) {
-        //     classname[i].addEventListener("click", function () {
+            // classname[i].addEventListener("click", function () {
                 // var index = i; 
                 // console.log(classname[i].querySelector(".friend").text);
                 // console.log(index);
@@ -55,8 +55,8 @@ $(document).ready(function () {
                 // });
                 friendUsername = friends[index].innerText;
                 console.log(friends[index].innerText);
-            });
-        }
+            // });
+        // }
 
         var compareUsernames = myUsername.localeCompare(friendUsername); 
         if (compareUsernames < 0) {
