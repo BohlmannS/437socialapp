@@ -26,6 +26,13 @@ router.post('/', function(req, res) {
                 return;
         }
 		let fid=rows[0].uid;
+		let sql3 = 'select req_from, req_to from requests where req_from=' + fid+' and req_to='+uid;
+		connection.query(sql3, function(err3, rows3, fields){
+		if(rows3.length !== 0){
+			res.setHeader('Content-Type', 'application/json');
+			res.end(JSON.stringify({response:2}));
+			return;
+		}
                 let sql2 = 'insert into requests (req_from, req_to, status) values ('+uid+','+fid+',0)';
                 connection.query(sql2, function(err, rows2, fields){
                         if(err){
@@ -36,7 +43,7 @@ router.post('/', function(req, res) {
                         }
                         res.setHeader('Content-Type', 'application/json');
                         res.end(JSON.stringify({response: 0}));
-                })
+                })})
         })
 
 });
