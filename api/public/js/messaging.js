@@ -141,7 +141,7 @@ $(document).ready(function () {
             });
         });
 
-        beginListening(chatLog);
+        // beginListening(chatLog);
         // dbRefObject.once('value', function (snapshot) {
         //     console.log("in if statemnt");
         //     // snapshot.forEach(function (childSnapshot) {
