@@ -75,6 +75,8 @@ $(document).ready(function () {
         console.log("SELECTED FRIEND");
 
         $('.visible_messages').remove();
+        $('.message_by_user').remove();
+        
 
         var index = $(this).index();
         console.log(index);
@@ -253,6 +255,7 @@ $(document).ready(function () {
     postButton.addEventListener("click", function () {
 
         $('.visible_messages').remove();
+        $('.message_by_user').remove();
         // var msgText = textInput.value;
         // myFirebase.set(msgText);
         // textInput.value = "";
@@ -291,18 +294,27 @@ $(document).ready(function () {
                 //     sentMessage.textContent = snapshot.val().text;
                 //     preObject.appendChild(sentMessage);
                 // }
-
+                var user = document.createElement("p");
+                user.className = "message_by_user"
                 var sentMessage = document.createElement("p");
+                if (snapshot.child("sender_id").val() == myUsername) {
+                    user.textContent = (myUsername + ":");
+                }
+                else {
+                    user.textContent = (friendUsername + ":");
+                }
+                sentMessage.textContent = child.val().text;
+                sentMessage.className = "visible_messages";
+                //     console.log(snapshot.child("text").val());
+                console.log(child.val().text);
+                preObject.appendChild(user);
+                preObject.appendChild(sentMessage);
                 // if (snapshot.child("sender_id").val() == myUsername) {
                 //     sentMessage.textContent = (myUsername + ": " + snapshot.child("text").val());
                 // }
                 // else {
                 //     sentMessage.textContent = (friendUsername + ": " + snapshot.child("text").val());
                 // }
-                sentMessage.textContent = snapshot.child("text").val();
-                sentMessage.className = "visible_messages";
-                // console.log(snapshot.child("text").val());
-                preObject.appendChild(sentMessage);
             });
         })
 
