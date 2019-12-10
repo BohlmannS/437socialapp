@@ -41,32 +41,42 @@ $(document).ready(function () {
 
     var startChat = document.querySelector(".recent_heading");
 
-    $(".inbox_chat .chat_list").click(function() {
+    $(".inbox_chat .chat_list").click(function () {
         var index = $(this).index();
         console.log(index);
         friendUsername = friends[index].innerText;
         console.log(friends[index].innerText);
+
+        var compareUsernames = myUsername.localeCompare(friendUsername);
+        if (compareUsernames < 0) {
+            chatLog = myUsername + " -- " + friendUsername;
+            console.log(chatLog);
+        }
+        else {
+            chatLog = friendUsername + " -- " + myUsername;
+            console.log(chatLog);
+        }
     });
     // classname.addEventListener("click", function () {
-        // for (var i = 0; i <= classname.length; i++) {
-            // classname[i].addEventListener("click", function () {
-                // var index = i; 
-                // console.log(classname[i].querySelector(".friend").text);
-                // console.log(index);
-                // var index = $(this).index('.chat_list');
+    // for (var i = 0; i <= classname.length; i++) {
+    // classname[i].addEventListener("click", function () {
+    // var index = i; 
+    // console.log(classname[i].querySelector(".friend").text);
+    // console.log(index);
+    // var index = $(this).index('.chat_list');
 
-                // $('.friend').click(function () {
-                //     var index = $(this).index('.friend')
-                //     console.log($(this).index('.friend'));
-                // });
-            // });
-        // }
+    // $('.friend').click(function () {
+    //     var index = $(this).index('.friend')
+    //     console.log($(this).index('.friend'));
+    // });
+    // });
+    // }
 
-    //     var compareUsernames = myUsername.localeCompare(friendUsername); 
-    //     if (compareUsernames < 0) {
-    //         chatLog = myUsername + " -- " + friendUsername;
-    //         console.log(chatLog);
-    //     }
+    // var compareUsernames = myUsername.localeCompare(friendUsername); 
+    // if (compareUsernames < 0) {
+    //     chatLog = myUsername + " -- " + friendUsername;
+    //     console.log(chatLog);
+    // }
     //     else {
     //         chatLog = friendUsername + " -- " + myUsername;
     //         console.log(chatLog);
