@@ -68,18 +68,18 @@ $(document).ready(function () {
             // preObject.appendChild(sentMessage);
 
             // if (snapshot.key == chatLog) {
-                console.log("in if statemnt");
-                // snapshot.forEach(function (childSnapshot) {
-                var sentMessage = document.createElement("p");
-                sentMessage.textContent = snapshot.child("text").val();
-                console.log(snapshot.child("text").val());
-                preObject.appendChild(sentMessage);
-                // });
-                // console.log("in if statemnt");
-                // var sentMessage = document.createElement("p");
-                // sentMessage.textContent = snapshot.childSnapshot.child("text").val();
-                // console.log(snapshot.childSnapshot.child("text").val());
-                // preObject.appendChild(sentMessage);
+            console.log("in if statemnt");
+            // snapshot.forEach(function (childSnapshot) {
+            var sentMessage = document.createElement("p");
+            sentMessage.textContent = snapshot.child("text").val();
+            console.log(snapshot.child("text").val());
+            preObject.appendChild(sentMessage);
+            // });
+            // console.log("in if statemnt");
+            // var sentMessage = document.createElement("p");
+            // sentMessage.textContent = snapshot.childSnapshot.child("text").val();
+            // console.log(snapshot.childSnapshot.child("text").val());
+            // preObject.appendChild(sentMessage);
             // }
         });
     });
@@ -141,7 +141,7 @@ $(document).ready(function () {
 
 
         const preObject = document.getElementById('object');
-        const dbRefObject = firebase.database().ref().child('chats');
+        const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
         dbRefObject.push({
@@ -157,11 +157,16 @@ $(document).ready(function () {
             // sentMessage.textContent = snapshot.val().name;
             // preObject.appendChild(sentMessage);
 
-            if (snapshot.val().sender_id == myUsername) {
-                var sentMessage = document.createElement("p");
-                sentMessage.textContent = snapshot.val().text;
-                preObject.appendChild(sentMessage);
-            }
+            // if (snapshot.val().sender_id == myUsername) {
+            //     var sentMessage = document.createElement("p");
+            //     sentMessage.textContent = snapshot.val().text;
+            //     preObject.appendChild(sentMessage);
+            // }
+
+            var sentMessage = document.createElement("p");
+            sentMessage.textContent = snapshot.child("text").val();
+            console.log(snapshot.child("text").val());
+            preObject.appendChild(sentMessage);
         });
         console.log("send button clicked");
         // var testUser = "test";
