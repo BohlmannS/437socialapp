@@ -260,6 +260,8 @@ $(document).ready(function () {
         const dbRefObject = firebase.database().ref().child('chats').child(chatLog);
         // dbRefObject.on('value', snap => console.log(snap.val()));
 
+        var messages = [];
+
         dbRefObject.push({
             friend_id: friendUsername,
             sender_id: myUsername,
@@ -267,7 +269,7 @@ $(document).ready(function () {
         })
 
         // dbRefObject.once('value').then(function (snapshot) {
-        dbRefObject.on("value", function (snapshot) {
+        dbRefObject.on("child_added", function (snapshot) {
             // console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
 
             // var sentMessage = document.createElement("p");
