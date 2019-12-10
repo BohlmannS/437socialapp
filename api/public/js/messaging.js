@@ -31,8 +31,8 @@ $(document).ready(function () {
     //     console.log(data[0]);
     // })
 
-    // var friend = document.querySelector(".chat_ib")[0];
-    var friend = document.getElementsByClassName('.chat_ib')[0];
+    var friend = document.querySelector("#test");
+    // var friend = document.getElementsByClassName('.chat_ib')[0];
 
     friend.addEventListener("click", function (event) {
         console.log(friend.textContent);
