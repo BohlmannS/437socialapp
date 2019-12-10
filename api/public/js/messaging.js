@@ -73,6 +73,7 @@ $(document).ready(function () {
                 preObject.appendChild(sentMessage);
             }
         });
+    });
         // classname.addEventListener("click", function () {
         // for (var i = 0; i <= classname.length; i++) {
         // classname[i].addEventListener("click", function () {
