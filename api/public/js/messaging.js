@@ -33,7 +33,7 @@ $(document).ready(function () {
 
     var classname = document.getElementsByClassName("chat_list");
 
-    var getFriend = function () {
+    function getFriend() {
         // var attribute = this.getAttribute("data-myattribute");
         // alert(attribute);
         console.log("friend clicked");
