@@ -89,17 +89,17 @@ $(document).ready(function () {
 
         const chatLogObject = firebase.database().ref().child('chats');
         chatLogObject.once('value').then(function (snapshot) {
-            snapshot.forEach(function (child) {
+            // snapshot.forEach(function (child) {
                 // var exists = true;
 
-                console.log(snapshot.child(chatLog));
-                if (!(snapshot.child(chatLog).exists())) {
+                console.log(child(chatLog));
+                if (!(child(chatLog).exists())) {
 
                     chatLogObject.push({
                         chatLog: null
                     })
                 }
-            });
+            // });
         });
 
         const preObject = document.getElementById('object');
