@@ -92,6 +92,8 @@ $(document).ready(function () {
 
         dbRefObject.once('value').then(function (snapshot) {
             console.log("in if statemnt");
+
+            $('.visible_messages').remove();
             // snapshot.forEach(function (childSnapshot) {
             var sentMessage = document.createElement("p");
             // if (snapshot.child("sender_id").val() == myUsername) {
