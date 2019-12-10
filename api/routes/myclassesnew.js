@@ -42,7 +42,7 @@ router.post('/', function(req, res) {
 		sql2+=')';
 		connection.query(sql2, function(err2, rows2, fields2){
 		let titles = [];
-		let myData = '<a id="switch-view" style="color:#CC1219;cursor:pointer;">Switch To Grid View</a>';
+		let myData = '<a id="switch-view" style="color:#CC1219;cursor:pointer;">Switch To Grid View</a><br>';
 		rows2.forEach(function(e){
 			titles.push(e.title);
 			myData += '<p style="color:black;cursor:pointer;" onclick="classPage(\''+e.title+'\')">';
