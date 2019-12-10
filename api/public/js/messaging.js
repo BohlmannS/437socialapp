@@ -68,8 +68,10 @@ $(document).ready(function () {
             // preObject.appendChild(sentMessage);
 
             if (snapshot.key == chatLog) {
+                console.log("in if statemnt");
                 var sentMessage = document.createElement("p");
                 sentMessage.textContent = snapshot.val().text;
+                console.log(snapshot.val().text);
                 preObject.appendChild(sentMessage);
             }
         });
