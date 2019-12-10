@@ -71,8 +71,8 @@ $(document).ready(function () {
                 console.log("in if statemnt");
                 snapshot.forEach(function (childSnapshot) {
                     var sentMessage = document.createElement("p");
-                    sentMessage.textContent = childSnapshot.val().text;
-                    console.log(childSnapshot.val().text);
+                    sentMessage.textContent = childSnapshot.val();
+                    console.log(childSnapshot.val();
                     preObject.appendChild(sentMessage);
                 });
                 // console.log("in if statemnt");
