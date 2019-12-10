@@ -95,7 +95,7 @@ $(document).ready(function () {
 //     return await response.json();
 // }
 
-async function fetchFriendList(data) {
+async function fetchUser(data) {
 	const response = await fetch('/messagingdata', {
 		method: 'POST',
 		headers: {
