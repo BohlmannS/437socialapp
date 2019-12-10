@@ -80,7 +80,7 @@ $(document).ready(function () {
             sentMessage.textContent = snapshot.child("text").val();
             sentMessage.className = "visible_messages";
             console.log(snapshot.child("text").val());
-            if (snapshot.child("sender_id").val()) == myUsername) {
+            if (snapshot.child("sender_id").val() == myUsername) {
                 preObject.appendChild(myUsername + ": " + sentMessage);
             }
             else {
@@ -181,7 +181,7 @@ $(document).ready(function () {
             sentMessage.className = "visible_messages";
             console.log(snapshot.child("text").val());
 
-            if (snapshot.child("sender_id").val()) == myUsername) {
+            if (snapshot.child("sender_id").val() == myUsername) {
                 preObject.appendChild(myUsername + ": " + sentMessage);
             }
             else {
