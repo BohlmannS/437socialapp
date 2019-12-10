@@ -58,7 +58,7 @@ $(document).ready(function () {
         }
 
         const preObject = document.getElementById('object');
-        const dbRefObject = firebase.database().ref("chats/" + "chatLog");
+        const dbRefObject = firebase.database().ref("chats/" + chatLog);
 
         dbRefObject.orderByChild("text").on("child_added", function (snapshot) {
             console.log(snapshot.key + " was " + snapshot.val().sender_id + " meters tall");
