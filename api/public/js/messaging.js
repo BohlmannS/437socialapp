@@ -34,7 +34,7 @@ $(document).ready(function () {
     var friend = document.querySelector(".friend");
 
     friend.addEventListener("click", function () {
-        console.log(friend.innerText);
+        console.log(friend.textContent);
     });
 
     var myUsername = '';
