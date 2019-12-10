@@ -76,7 +76,7 @@ $(document).ready(function () {
 
         $('.visible_messages').remove();
         $('.message_by_user').remove();
-        
+
 
         var index = $(this).index();
         console.log(index);
@@ -126,7 +126,7 @@ $(document).ready(function () {
                 if (child.val().sender_id == myUsername) {
                     user.textContent = (myUsername + ":");
                 }
-                else if (child.val().sender_id == friendUsername){
+                else if (child.val().sender_id == friendUsername) {
                     user.textContent = (friendUsername + ":");
                 }
                 else {
@@ -269,62 +269,87 @@ $(document).ready(function () {
             sender_id: myUsername,
             text: textInput.value
         })
-        // ).then(() => {
-            // dbRefObject.once('value').then(function (snapshot) {
-            //     snapshot.forEach(function (child) {
-    
-            //         var user = document.createElement("p");
-            //         user.className = "message_by_user"
-            //         var sentMessage = document.createElement("p");
-            //         console.log(child.val().sender_id);
-            //         if (child.val().sender_id == myUsername) {
-            //             user.textContent = (myUsername + ":");
-            //         }
-            //         else if (child.val().sender_id == friendUsername){
-            //             user.textContent = (friendUsername + ":");
-            //         }
-            //         else {
-            //             user.textContent = "";
-            //         }
-            //         sentMessage.textContent = child.val().text;
-            //         sentMessage.className = "visible_messages";
-            //         //     console.log(snapshot.child("text").val());
-            //         console.log(child.val().text);
-            //         preObject.appendChild(user);
-            //         preObject.appendChild(sentMessage);
-            //     });
-            // });
 
+        dbRefObject.once('value').then(function (snapshot) {
+            snapshot.forEach(function (child) {
 
-
-            // dbRefObject.on("child_added", function (snapshot) {
-            //     console.log(snapshot.child("text").val());
-            //     var user = document.createElement("p");
-            //     user.className = "message_by_user"
-            //     var sentMessage = document.createElement("p");
-            //     if (snapshot.child("sender_id").val() == myUsername) {
-            //         user.textContent = (myUsername + ":");
-            //     }
-            //     else if (snapshot.child("sender_id").val() == friendUsername){
-            //         user.textContent = (friendUsername + ":");
-            //     } 
-            //     else {
-            //         user.textContent = "";
-            //     }
-            //     sentMessage.textContent = snapshot.child("text").val();
-            //     sentMessage.className = "visible_messages";
-            //     preObject.appendChild(user);
-            //     preObject.appendChild(sentMessage);
-
-            // });
+                var user = document.createElement("p");
+                user.className = "message_by_user"
+                var sentMessage = document.createElement("p");
+                console.log(child.val().sender_id);
+                if (child.val().sender_id == myUsername) {
+                    user.textContent = (myUsername + ":");
+                }
+                else if (child.val().sender_id == friendUsername) {
+                    user.textContent = (friendUsername + ":");
+                }
+                else {
+                    user.textContent = "";
+                }
+                sentMessage.textContent = child.val().text;
+                sentMessage.className = "visible_messages";
+                //     console.log(snapshot.child("text").val());
+                console.log(child.val().text);
+                preObject.appendChild(user);
+                preObject.appendChild(sentMessage);
+            });
         });
-
+        // ).then(() => {
         // dbRefObject.once('value').then(function (snapshot) {
+        //     snapshot.forEach(function (child) {
 
-        // console.log("send button clicked");
-        // var testUser = "test";
+        //         var user = document.createElement("p");
+        //         user.className = "message_by_user"
+        //         var sentMessage = document.createElement("p");
+        //         console.log(child.val().sender_id);
+        //         if (child.val().sender_id == myUsername) {
+        //             user.textContent = (myUsername + ":");
+        //         }
+        //         else if (child.val().sender_id == friendUsername){
+        //             user.textContent = (friendUsername + ":");
+        //         }
+        //         else {
+        //             user.textContent = "";
+        //         }
+        //         sentMessage.textContent = child.val().text;
+        //         sentMessage.className = "visible_messages";
+        //         //     console.log(snapshot.child("text").val());
+        //         console.log(child.val().text);
+        //         preObject.appendChild(user);
+        //         preObject.appendChild(sentMessage);
+        //     });
+        // });
 
-        // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
+
+
+        // dbRefObject.on("child_added", function (snapshot) {
+        //     console.log(snapshot.child("text").val());
+        //     var user = document.createElement("p");
+        //     user.className = "message_by_user"
+        //     var sentMessage = document.createElement("p");
+        //     if (snapshot.child("sender_id").val() == myUsername) {
+        //         user.textContent = (myUsername + ":");
+        //     }
+        //     else if (snapshot.child("sender_id").val() == friendUsername){
+        //         user.textContent = (friendUsername + ":");
+        //     } 
+        //     else {
+        //         user.textContent = "";
+        //     }
+        //     sentMessage.textContent = snapshot.child("text").val();
+        //     sentMessage.className = "visible_messages";
+        //     preObject.appendChild(user);
+        //     preObject.appendChild(sentMessage);
+
+        // });
+    });
+
+    // dbRefObject.once('value').then(function (snapshot) {
+
+    // console.log("send button clicked");
+    // var testUser = "test";
+
+    // myFirebase.push({ name: testUser, sender_id: "1234", text: msgText });
     // });
 
     var beginListening = function () {
@@ -339,9 +364,9 @@ $(document).ready(function () {
             if (snapshot.child("sender_id").val() == myUsername) {
                 user.textContent = (myUsername + ":");
             }
-            else if (snapshot.child("sender_id").val() == friendUsername){
+            else if (snapshot.child("sender_id").val() == friendUsername) {
                 user.textContent = (friendUsername + ":");
-            } 
+            }
             else {
                 user.textContent = "";
             }
@@ -351,26 +376,26 @@ $(document).ready(function () {
             preObject.appendChild(sentMessage);
 
         });
-    //     myFirebase.on('child_added', function (snapshot) {
-    //         var msg = snapshot.val();
+        //     myFirebase.on('child_added', function (snapshot) {
+        //         var msg = snapshot.val();
 
-    //         // var msgUsernameElement = document.createELement("b");
-    //         // msgUsernameELement.textContent = msg.name;
+        //         // var msgUsernameElement = document.createELement("b");
+        //         // msgUsernameELement.textContent = msg.name;
 
-    //         var msgTextElement = document.createElement("p");
-    //         msgTextElement.textContent = msg.text;
-    //         var sentMsgElement = document.createElement("div");
-    //         sentMsgElement.appendChild(msgTextElement);
-    //         sentMsgElement.className = "sent_msg";
-    //         var outgoingMsgElement = document.createElement("div");
-    //         outgoingMsgElement.appendChild(sentMsgElement);
-    //         outgoingMsgElement.className = "outgoing_msg";
-    //         document.getElementById("msg_history").appendChild(msgElement);
-    //     });
-    // }
+        //         var msgTextElement = document.createElement("p");
+        //         msgTextElement.textContent = msg.text;
+        //         var sentMsgElement = document.createElement("div");
+        //         sentMsgElement.appendChild(msgTextElement);
+        //         sentMsgElement.className = "sent_msg";
+        //         var outgoingMsgElement = document.createElement("div");
+        //         outgoingMsgElement.appendChild(sentMsgElement);
+        //         outgoingMsgElement.className = "outgoing_msg";
+        //         document.getElementById("msg_history").appendChild(msgElement);
+        //     });
+        // }
 
-    beginListening();
-    
+        beginListening();
+
     }
 
 })
